@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/projects/mathematics/!svn/ver/10/trunk/mathematics/numerical
+END
+Vector.d
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/projects/mathematics/!svn/ver/10/trunk/mathematics/numerical/Vector.d
+END
+VectorFixed.d
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/projects/mathematics/!svn/ver/10/trunk/mathematics/numerical/VectorFixed.d
+END
+makestatic
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/projects/mathematics/!svn/ver/5/trunk/mathematics/numerical/makestatic
+END
+Matrix.d
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/projects/mathematics/!svn/ver/10/trunk/mathematics/numerical/Matrix.d
+END
+MatrixFixed.d
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/projects/mathematics/!svn/ver/9/trunk/mathematics/numerical/MatrixFixed.d
+END
+Quaternion.d
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/projects/mathematics/!svn/ver/5/trunk/mathematics/numerical/Quaternion.d
+END
+Complex.d
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/projects/mathematics/!svn/ver/5/trunk/mathematics/numerical/Complex.d
+END
+Filters.d
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/projects/mathematics/!svn/ver/5/trunk/mathematics/numerical/Filters.d
+END
+VectorHomogeneousFixed.d
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/projects/mathematics/!svn/ver/9/trunk/mathematics/numerical/VectorHomogeneousFixed.d
+END
+makefile
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/projects/mathematics/!svn/ver/5/trunk/mathematics/numerical/makefile
+END

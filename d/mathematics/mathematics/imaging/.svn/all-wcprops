@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/projects/mathematics/!svn/ver/9/trunk/mathematics/imaging
+END
+ImageView.d
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/projects/mathematics/!svn/ver/9/trunk/mathematics/imaging/ImageView.d
+END
+Color.d
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/projects/mathematics/!svn/ver/5/trunk/mathematics/imaging/Color.d
+END
+ConvertImageView.d
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/projects/mathematics/!svn/ver/9/trunk/mathematics/imaging/ConvertImageView.d
+END
+Image.d
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/projects/mathematics/!svn/ver/9/trunk/mathematics/imaging/Image.d
+END
+TransformedImageView.d
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/projects/mathematics/!svn/ver/9/trunk/mathematics/imaging/TransformedImageView.d
+END
+ZeroOutsideImageView.d
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/projects/mathematics/!svn/ver/5/trunk/mathematics/imaging/ZeroOutsideImageView.d
+END
+BilinearInterpolationImageView.d
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/projects/mathematics/!svn/ver/5/trunk/mathematics/imaging/BilinearInterpolationImageView.d
+END
+MemoryImage.d
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/projects/mathematics/!svn/ver/9/trunk/mathematics/imaging/MemoryImage.d
+END
+makefile
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/projects/mathematics/!svn/ver/5/trunk/mathematics/imaging/makefile
+END

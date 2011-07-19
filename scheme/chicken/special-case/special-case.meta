@@ -1,0 +1,10 @@
+;;; special-case.meta -*- Scheme -*-
+
+((egg "special-case.egg")
+ (synopsis "Optimizing Special Cases Abstractly")
+ (license "Public Domain")
+ (category lang-exts)
+ (author "Alex Shinn")
+ (doc-from-wiki)
+ (files "special-case.setup" "special-case.scm"))
+

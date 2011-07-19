@@ -1,0 +1,3 @@
+cd ..
+xf\redimple xf.hybrid.Test1 -lr -xdog -xomg -xinput -xrt -xderelict -xopengl -xmintl -xplatform -xwin32 -xnet.raknet -xmaths -xutils | dot -Tpng -o xf/hybrid.png -Gsize="28,28" -Gsep=.05
+

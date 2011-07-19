@@ -1,0 +1,98 @@
+### written by Benjamin Shropshire (a.k.a. BCS)
+### shro8822drop_this at vandals dot uidaho edu
+###
+### This script has no warranty of any kind. If it breaks yours system, tell 
+### me about it and I'll try to fix this script. Besides that you assume all 
+### responsibility for all effects of using it.
+###
+
+
+SAVE_OLD=true
+WEB_DOCS=false
+CLEAN_OLD=false
+CLEAN_AFTER=false
+
+if [ -z "$1" ]
+then
+	DMD_ZIP_FILE=dmd.zip
+else
+	DMD_ZIP_FILE=dmd.$1.zip
+fi
+
+echo === Getting $DMD_ZIP_FILE
+echo     On some systems this errors, don't worry, it's still works
+ftp << E
+open ftp.digitalmars.com
+
+user anonymous foo@bar.com
+binary
+get $DMD_ZIP_FILE
+bye
+E
+
+echo === got $DMD_ZIP_FILE
+
+if $CLEAN_OLD ; then (
+	ehco === clear space for dmd 
+	rm -rf dmd/ dm/
+) ; fi
+
+echo === extract files
+unzip -o -q $DMD_ZIP_FILE
+
+echo === find where to put man files
+MAND=`man -w gcc ln cpp as ar tar ls bash 2>/dev/null | head -n 1 | sed "s/\/[^\/]*$//"`
+
+
+if $SAVE_OLD ; then ( 
+	echo === geting old version num.
+	DMDVER=`dmd | grep Comp | sed "s/.*v//"`
+
+	if [ -e /usr/bin/dmd.$DMDVER ]
+	then
+		echo === found saved copy of V $DMDVER : not saving again
+		SAVE_OLD=false
+	else
+		echo === saveing old stuff from V $DMDVER
+		mv /usr/bin/dmd /usr/bin/dmd.$DMDVER
+		mv /usr/lib/libphobos.a /usr/lib/libphobos.a.$DMDVER
+		mv /usr/include/phobos /usr/include/phobos.$DMDVER
+		mv $MAND/man1/dmd.1 $MAND/man1/dmd.$DMDVER.1
+	fi
+) ; fi
+
+if $SAVE_OLD && $WEB_DOCS ; then ( 
+	echo === save old dmd docs
+	mv /var/www/html/dmd /var/www/html/dmd.$DMDVER
+) ; fi
+
+echo === copy dmd to the correct place
+cp dmd/bin/dmd /usr/bin/dmd
+chmod 755 /usr/bin/dmd
+
+echo === copy libphobos.a
+cp dmd/lib/libphobos.a /usr/lib/libphobos.a
+chmod 644 /usr/lib/libphobos.a
+
+echo === copy phobos source
+cp -r dmd/src/phobos /usr/include/phobos
+chmod 755 /usr/include/phobos
+find /usr/include/phobos -type d -exec chmod 755 "{}" ";"
+find /usr/include/phobos -type f -exec chmod 644 "{}" ";"
+
+echo === copy man page
+cp dmd/man/man1/dmd.1 $MAND/dmd.1
+chmod 644 $MAND/dmd.1
+
+if $WEB_DOCS ; then ( 
+	echo === install dmd docs for httpd
+	cp -r dmd/html/ /var/www/html/dmd
+	chown apache:apache -R /var/www/html/dmd/
+	find /var/www/html/dmd -type d -exec chmod 755 "{}" ";"
+	find /var/www/html/dmd -type f -exec chmod 444 "{}" ";"
+) ; fi
+
+if $CLEAN_AFTER ; then (
+	echo === clearup after dmd install
+	rm -rf dmd/ dm/
+) ; fi

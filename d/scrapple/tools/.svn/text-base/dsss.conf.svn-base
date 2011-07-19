@@ -1,0 +1,12 @@
+name=tools
+[tools]
+type=library
+# buildflags=-g -O
+# buildflags=-O -release
+buildflags=-release
+# lol who needs unittests
+# (breaks sometimes; don't tell anyone!)
+# [tools/unittests.d]
+# target=tools_test
+# buildflags=-full -unittest -g -O -debug
+# buildflags=-full -unittest -debug -g

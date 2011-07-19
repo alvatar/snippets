@@ -1,0 +1,62 @@
+Readme for Nova - - a library for (un)common data structures and algorithms in D
+================================================================================
+
+Nova is a library for (un)common data structures and algorithms in D.
+  
+Authors: 
+  Klaus Oberhofer (oberhofer@users.sf.net)
+
+
+Mission
+=======
+
+Nova should provide an implementation for most known data structures. 
+
+
+Motivation
+==========
+
+I'm interested in data structures in general and especially in those 
+which are not "mainstream" and therefore are more interesting.
+
+I like D and this project is a good way to dig into it.
+
+
+Roadmap/Progress
+================
+
+First version will include some template classes for intrusive datastructures 
+in the spirit of boost::intrusive and maybe a weighted graph template class.
+
+Further data structures, like hashed array tree (HAT), ternary search trie (TST)
+and hashed array mapped trie (HAMT) are planned for the future. The order of 
+implementation will reflect my interests/needs.
+
+
+License
+=======
+
+Nova uses zlib/libpng license. 
+
+
+FAQ
+===
+
+1. Why are some unit tests located in separate source files ?
+
+   This has been done to implement unittests for template classes which are
+   parameterized by other classes. Because the declarations of these
+   helper classes must be outside of the unittest scope, they would 
+   clutter the Nova namespace. There are two possible solutions to this:
+   
+     a) Put the declarations into a version statement, like
+           version(Nova_Unittests) { ... }
+           
+     b) Put unittests into separate files
+     
+   Nova chooses the second option mostly due to personal preference 
+   of the author.
+
+
+
+

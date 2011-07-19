@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/projects/bindings/!svn/ver/179/trunk/cairo/cairo/xlib
+END
+cairotypes_xlib.d
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/projects/bindings/!svn/ver/179/trunk/cairo/cairo/xlib/cairotypes_xlib.d
+END
+cairofuncs_xlib.d
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/projects/bindings/!svn/ver/119/trunk/cairo/cairo/xlib/cairofuncs_xlib.d
+END
+cairo_xlib.d
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/projects/bindings/!svn/ver/179/trunk/cairo/cairo/xlib/cairo_xlib.d
+END

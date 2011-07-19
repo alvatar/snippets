@@ -1,0 +1,2 @@
+ps ax -o rss,ucmd  # Memory footprint of each process
+

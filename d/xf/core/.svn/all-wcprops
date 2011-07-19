@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 28
+/svn/lich/!svn/ver/1/xf/core
+END
+InputHub.d
+K 25
+svn:wc:ra_dav:version-url
+V 39
+/svn/lich/!svn/ver/1/xf/core/InputHub.d
+END
+GraphicsHub.d
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/lich/!svn/ver/1/xf/core/GraphicsHub.d
+END
+ImageHub.d
+K 25
+svn:wc:ra_dav:version-url
+V 39
+/svn/lich/!svn/ver/1/xf/core/ImageHub.d
+END
+MessageHandler.d
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/lich/!svn/ver/1/xf/core/MessageHandler.d
+END
+MessageHub.d
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/lich/!svn/ver/1/xf/core/MessageHub.d
+END
+Message.d
+K 25
+svn:wc:ra_dav:version-url
+V 38
+/svn/lich/!svn/ver/1/xf/core/Message.d
+END
+JobHub.d
+K 25
+svn:wc:ra_dav:version-url
+V 37
+/svn/lich/!svn/ver/1/xf/core/JobHub.d
+END

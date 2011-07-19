@@ -1,0 +1,2 @@
+/usr/bin/ar cr libtest_lib.a  CMakeFiles/test_lib.dir/cuda/test_lib.cu_test_lib_generated.o
+/usr/bin/ranlib libtest_lib.a

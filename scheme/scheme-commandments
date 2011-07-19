@@ -1,0 +1,130 @@
+The law of car:   The primitive car is defined only for non-empty lists.
+The law of cdr:   The primitive cdr is defined only for non-empty lists.
+                  The cdr of any non-empty list is always another list.
+The law of cons:  The primitive cons takes two arguments.
+                  The second argument to cons must be a list.
+                  The result is a list.
+The law of null?: The primitive null? is defined only for lists.
+The law of eq?:   The primitive eq? takes two arguments.
+                  Each must be a non-numeric atom.
+.----------------------------------------------------------------------------.
+| The 1st commandment (final version)                                        |
+|                                                                            |
+| When recurring on a list of atoms, lat, ask two questions about it:        |
+| (null? lat) and else.                                                      |
+| When recurring on a number, n, ask two questions about it: (zero? n) and   |
+| else.                                                                      |
+| When recurring on a list of S-expressions, l, ask three questions about    |
+| it: (null? l), (atom? (car l)), and else.                                  |
+'----------------------------------------------------------------------------'
+.----------------------------------------------------------------------------.
+| The 2nd commandment:                                                       |
+|                                                                            |
+| Use cons to build lists.                                                   |
+'----------------------------------------------------------------------------'
+.----------------------------------------------------------------------------.
+| The 3rd commandment:                                                       |
+|                                                                            |
+| When building lists, describe the first typical element, and then cons it  |
+| onto the natural recursion.                                                |
+'----------------------------------------------------------------------------'
+.----------------------------------------------------------------------------.
+| The 4th commandment (final version)                                        |
+|                                                                            |
+| Always change at least one argument while recurring. When recurring on a   |
+| list of atoms, lat, use (cdr l). When recurring on a number, n, use        |
+| (sub1 n). And when recurring on a list of S-expressions, l, use (car l)    |
+| and (cdr l) if neither (null? l) nor (atom? (car l)) are true.             |
+|                                                                            |
+| It must be changed to be closer to termination. The changing argument must |
+| be tested in the termination condition:                                    |
+| * when using cdr, test the termination with null? and                      |
+| * when using sub1, test termination with zero?.                            |
+'----------------------------------------------------------------------------'
+.----------------------------------------------------------------------------.
+| The 5th commandment                                                        |
+|                                                                            |
+| When building a value with o+, always use 0 for the value of the           |
+| terminating line, for adding 0 does not change the value of an addition.   |
+|                                                                            |
+| When building a value with o*, always use 1 for the value of the           |
+| terminating line, for multiplying by 1 does not change the value of a      |
+| multiplication.                                                            |
+|                                                                            |
+| When building a value with cons, always consider () for the value of the   |
+| terminating line.                                                          |
+'----------------------------------------------------------------------------'
+.----------------------------------------------------------------------------.
+| The 6th commandment                                                        |
+|                                                                            |
+| Simplify only after the function is correct.                               |
+'----------------------------------------------------------------------------'
+.----------------------------------------------------------------------------.
+| The 7th commandment                                                        |
+|                                                                            |
+| Recur on the subparts that are of the same nature:                         |
+| * On the sublists of a list.                                               |
+| * On the subexpressions of an arithmetic expression.                       |
+'----------------------------------------------------------------------------'
+.----------------------------------------------------------------------------.
+| The 8th commandment                                                        |
+|                                                                            |
+| Use help functions to abstract from representations.                       |
+'----------------------------------------------------------------------------'
+.----------------------------------------------------------------------------.
+| The 9th commandment                                                        |
+|                                                                            |
+| Abstract common patterns with a new function.                              |
+'----------------------------------------------------------------------------'
+.----------------------------------------------------------------------------.
+| The 10th commandment                                                       |
+|                                                                            |
+| Build functions to collect more than one value at a time.                  |
+'----------------------------------------------------------------------------'
+.----------------------------------------------------------------------------.
+| The 11th commandment:                                                      |
+|                                                                            |
+| Use additional arguments when a function needs to know what the other      |
+| arguments to the function have been like so far.                           |
+'----------------------------------------------------------------------------'
+.----------------------------------------------------------------------------.
+| The 12th commandment                                                       |
+|                                                                            |
+| Use (letrec ...) to remove arguments that do not change for recursive      |
+| applications.                                                              |
+'----------------------------------------------------------------------------'
+.----------------------------------------------------------------------------.
+| The 13th commandment                                                       |
+|                                                                            |
+| Use (letrec ...) to hide and to protect functions.                         |
+'----------------------------------------------------------------------------'
+.----------------------------------------------------------------------------.
+| The 14th commandment                                                       |
+|                                                                            |
+| Use (letcc ...) to return values abruptly and prompty.                     |
+'----------------------------------------------------------------------------'
+.----------------------------------------------------------------------------.
+| The 15th commandment (revised version)                                     |
+|                                                                            |
+| Use (let ...) to name the values of repeated expressions in a function     |
+| definition if they may be evaluated twice for one and the same use of the  |
+| function.                                                                  |
+'----------------------------------------------------------------------------'
+.----------------------------------------------------------------------------.
+| The 16th commandment                                                       |
+|                                                                            |
+| Use (set! ...) only with names defined in (let ...)s.                      |
+|                                                                            |
+'----------------------------------------------------------------------------'
+.----------------------------------------------------------------------------.
+| The 17th commandment (final version)                                       |
+|                                                                            |
+| Use (set! x ...) for (let ((x ...)) ...) only if there is at least one     |
+| (lambda ... between it and the (let ...), or if the new value for x is a   |
+| function that refers to x                                                  |
+'----------------------------------------------------------------------------'
+.----------------------------------------------------------------------------.
+| The 18th commandment                                                       |
+|                                                                            |
+| Use (set! x ...) only when the value that x refers to is no longer needed. |
+'----------------------------------------------------------------------------'

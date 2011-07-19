@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/projects/scrapple/!svn/ver/504/trunk/dparser
+END
+dparse.d
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/projects/scrapple/!svn/ver/269/trunk/dparser/dparse.d
+END
+dsss.conf
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/projects/scrapple/!svn/ver/59/trunk/dparser/dsss.conf
+END
+gram.sed
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/projects/scrapple/!svn/ver/268/trunk/dparser/gram.sed
+END
+convert.d
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/projects/scrapple/!svn/ver/269/trunk/dparser/convert.d
+END
+cut_gram2
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/projects/scrapple/!svn/ver/268/trunk/dparser/cut_gram2
+END
+dmp.g
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/projects/scrapple/!svn/ver/266/trunk/dparser/dmp.g
+END

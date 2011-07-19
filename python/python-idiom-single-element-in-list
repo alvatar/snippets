@@ -1,0 +1,24 @@
+thing = stuff[0]
+better:
+(thing,) = stuff
+
+
+
+1.
+
+Readability: It lets the reader know that stuff has exactly one element.
+2.
+
+Free assert: It makes Python assert that stuff has exactly one element, so if I was wrong in my original assumption that stuff has exactly one element, Python will shout at me before this will manifest itself as a hard-to-find bug someplace else in the program.
+3.
+
+Hard to miss: The previous method had a [0] at the end. Now, that’s easy to notice in a line as short as thing = stuff[0]. But what if the line was something messy like this:
+
+thing = some_dict[my_object.get_foobar_handler()][0]
+
+In this case, the [0] at the end is easy to miss, because when casually glancing the code, it might seem connected to that function call or dict lookup. So the reader might miss the fact that we’re taking an item out of a list here. This would be better in this case:
+
+(thing,) = some_dict[my_object.get_foobar_handler()]
+4.
+
+General for any “collection” (Props to Ulrik for noting this): This method works even when stuff is a set or any other kind of collection. stuff[0] wouldn’t work on a set because set doesn’t support access by index number.

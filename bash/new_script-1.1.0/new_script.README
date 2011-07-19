@@ -1,0 +1,198 @@
+new_script - a shell program for creating shell programs
+========================================================
+
+Description:
+------------
+
+new_script is a program that creates shell script templates.  It was
+developed to facilitate rapid creation of well-formed shell scripts
+containing the features expected in a production quality script. 
+These features include:
+
+* Traps for signal handling
+* Command line option and argument processing
+* Help messages invoked with the "-h" or "--help" options
+* A framework for internal documentation
+
+new_script may be used as a stand alone program or used in conjunction
+with any text editor that supports shell forking.
+
+An example of new_script output is available in the sample_script and
+sample_script.txt files.
+
+
+Usage:
+------
+
+new_script is invoked as follows:
+
+	new_script [-h | --help] | [ [-i] [-f file] ]
+	
+Options:
+	
+	-h, --help	Display help message and exit
+	
+	-i		Interactive mode.  In this mode new_script
+			will prompt the user for various script
+			details (like command line options and
+			arguments) that will be incorporated into the
+			design of the script template.  If the -i
+			option is omitted, new_script will produce a
+			minimal default script template.  Note that
+			interactive prompts are output to standard
+			output so the -f option (below) is generally
+			required if file output is desired when
+			interactive prompting is specified.
+			
+	-f file		Write output to file, otherwise new_script
+			will output to standard output.
+			
+If new_script is invoked with the -i option (recommended) the user
+will be prompted for the following:
+
+	Purpose of this script is to:
+
+Write a one line description of the script's purpose.
+
+	Does this script require superuser privileges to run? [y/n] -->
+	
+Answer y or n.  Answering "y" to this question will include a function
+to check that the user is in fact the superuser.
+
+	Does this script contain security information? [y/n] --------->
+	
+Answer y or n.  Answering "y" to this question will force the
+inclusion of a message in the comment block that this script includes
+sensitive security information (such as passwords) and should never
+be made world-readable.  If new_script is invoked with the -f option
+specifying an output file, it always sets the output file permissions
+to 700 regardless of how this question is answered. 
+
+	Does this script have command line options? [y/n] ------------>
+	
+Answer y or n.  If you answer "y", you will be prompted for a
+description of the script's command line options and arguments as
+follows:
+
+	Name of option 1 [a-z] (return to quit):
+	
+Answer this prompt with a single alphabetic character representing
+the command line option.  For example, if you wish to support the
+option "-a" in your script, answer this prompt with "a".  Note that
+support for the options "-h" and "--help" are always included
+automatically by new_script.
+
+	Description of option 'a':
+
+Enter brief (one line) description of the command line option.
+
+	Does option 'a' require an argument (like a file name) [y/n] ->
+	
+Answer y or n.  If this option requires an argument you should answer
+"y".
+
+	Name of argument for option 'a':
+	
+Answer with a one-word name for the argument.  For example, if your
+script processes the contents of a directory in some way, you might
+design your script to accept an option "-d" that is used to specify
+the name of the directory.  In such a case you would name your option
+such:
+
+	Does this script have command line options? [y/n] ------------> y
+ 
+	Name of option 1 [a-z] (return to quit): d
+	Description of option 'd': target directory
+	Does option 'd' require an argument (like a file name) [y/n] -> y
+	Name of argument for option 'd': dir
+
+
+Examples:
+---------
+
+	new_script
+	
+Outputs a default script template to standard output.
+
+	new_script -i -f my_script
+	
+Prompts the user for script information and writes the finished
+template to the file "my_script".  Once written, the file
+"my_script"  can be executed even though it will have minimal
+functionality (i.e., its help and usage messages will work).
+
+
+Installation:
+------------
+
+Installing the new_script script into the /usr/local/bin directory can
+be performed with the following series of commands:
+
+$ tar xzvf new_script-2.1.0.tar.gz
+$ cd new_script-2.1.0
+$ su
+# cp new_script /usr/local/bin
+# chmod 755 /usr/local/bin/new_script
+# exit
+
+
+Using new_script with the Nedit text editor:
+--------------------------------------------
+
+You can integrate the new_script program into the Nedit text editor. 
+Once installed into the "Shell" menu, you can directly create scripts
+in the edit buffer of Nedit.  If you don't yet have Nedit, you can get
+it at http://www.nedit.org. 
+
+To add new_script to the shell menu in Nedit, go to the
+Preferences/Default Settings/Customize Menus/Shell Menu... dialog and
+create a new menu entry called "new_script".  Set command input to 
+"none" and command output to "same window".  Finally, set the "shell
+command to execute" to the following command line:
+
+xterm -e new_script -i -f /tmp/tmp_scrpt; cat /tmp/tmp_scrpt; rm /tmp/tmp_scrpt
+
+
+Tested With:
+------------
+
+new_script has been tested on Redhat Linux versions 5.x, 6.x and 7.x.
+new_script is a rather generic script and will probably work on all
+contemporary Linux distributions equipped with the bash shell. 
+
+
+Copyright:
+----------
+
+Copyright 1998-2002, William Shotts, Jr. <bshotts@users.sourceforge.net>
+
+This software is part of the LinuxCommand.org project, a site for
+Linux education and advocacy devoted to helping users of legacy
+operating systems migrate into the future.
+
+You may contact the LinuxCommand.org project at:
+
+	http://www.linuxcommand.org
+
+
+Contributors:
+-------------
+
+	Tomi Ollila <Tomi.Ollila@sonera.com>
+	jura@geekpitlabs.com
+
+
+License:
+--------
+
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License as
+published by the Free Software Foundation; either version 2 of the
+License, or (at your option) any later version. 
+
+This program is distributed in the hope that it will be useful, but
+WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+General Public License for more details. 
+
+$Id: new_script.README,v 1.6 2002/02/11 00:18:15 bshotts Exp $

@@ -1,0 +1,3 @@
+-- Spotify add shared list
+
+exec wine "C:\Program Files\Spotify\spotify.exe" /uri <URI>

@@ -1,0 +1,1 @@
+dmd -lib *.d -I.. -of../libdcairo.a

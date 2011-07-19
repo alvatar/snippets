@@ -1,0 +1,1 @@
+/usr/bin/c++     -fPIC CMakeFiles/test.dir/cuda/test_bin.cu_test_generated.o CMakeFiles/test.dir/main.o  -o test -rdynamic /opt/cuda/lib/libcudart.so -Wl,-rpath,/opt/cuda/lib 

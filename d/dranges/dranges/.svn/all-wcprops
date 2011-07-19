@@ -1,0 +1,197 @@
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/projects/dranges/!svn/ver/72/trunk/dranges
+END
+templates.d
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/projects/dranges/!svn/ver/69/trunk/dranges/templates.d
+END
+morphism.d
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/projects/dranges/!svn/ver/61/trunk/dranges/morphism.d
+END
+stack.d
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/projects/dranges/!svn/ver/71/trunk/dranges/stack.d
+END
+recursive.d
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/projects/dranges/!svn/ver/69/trunk/dranges/recursive.d
+END
+all.d
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/projects/dranges/!svn/ver/71/trunk/dranges/all.d
+END
+associative.d
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/projects/dranges/!svn/ver/71/trunk/dranges/associative.d
+END
+tuple2.d
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/projects/dranges/!svn/ver/70/trunk/dranges/tuple2.d
+END
+typetuple2.d
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/projects/dranges/!svn/ver/70/trunk/dranges/typetuple2.d
+END
+binaryheap.d
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/projects/dranges/!svn/ver/71/trunk/dranges/binaryheap.d
+END
+variadic.d
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/projects/dranges/!svn/ver/61/trunk/dranges/variadic.d
+END
+eager.d
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/projects/dranges/!svn/ver/70/trunk/dranges/eager.d
+END
+functional2.d
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/projects/dranges/!svn/ver/71/trunk/dranges/functional2.d
+END
+reftuple.d
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/projects/dranges/!svn/ver/61/trunk/dranges/reftuple.d
+END
+priorityqueue.d
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/projects/dranges/!svn/ver/71/trunk/dranges/priorityqueue.d
+END
+phobos_extension.d
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/projects/dranges/!svn/ver/61/trunk/dranges/phobos_extension.d
+END
+traits2.d
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/projects/dranges/!svn/ver/61/trunk/dranges/traits2.d
+END
+predicate.d
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/projects/dranges/!svn/ver/70/trunk/dranges/predicate.d
+END
+graph.d
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/projects/dranges/!svn/ver/71/trunk/dranges/graph.d
+END
+experiments.d
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/projects/dranges/!svn/ver/61/trunk/dranges/experiments.d
+END
+dranges_todo.txt
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/projects/dranges/!svn/ver/71/trunk/dranges/dranges_todo.txt
+END
+graphalgorithm.d
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/projects/dranges/!svn/ver/71/trunk/dranges/graphalgorithm.d
+END
+algorithm2.d
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/projects/dranges/!svn/ver/70/trunk/dranges/algorithm2.d
+END
+tupletree.d
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/projects/dranges/!svn/ver/71/trunk/dranges/tupletree.d
+END
+treerange.d
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/projects/dranges/!svn/ver/71/trunk/dranges/treerange.d
+END
+graphrange.d
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/projects/dranges/!svn/ver/71/trunk/dranges/graphrange.d
+END
+range2.d
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/projects/dranges/!svn/ver/71/trunk/dranges/range2.d
+END
+rangeofranges.d
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/projects/dranges/!svn/ver/71/trunk/dranges/rangeofranges.d
+END
+queue.d
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/projects/dranges/!svn/ver/71/trunk/dranges/queue.d
+END
+deepdup.d
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/projects/dranges/!svn/ver/61/trunk/dranges/deepdup.d
+END
+patternmatch.d
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/projects/dranges/!svn/ver/61/trunk/dranges/patternmatch.d
+END
+set.d
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/projects/dranges/!svn/ver/71/trunk/dranges/set.d
+END
+properties.d
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/projects/dranges/!svn/ver/71/trunk/dranges/properties.d
+END

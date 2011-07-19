@@ -1,0 +1,336 @@
+From posting-system@google.com Sat Jan 12 03:52:28 2002
+Date: Sat, 12 Jan 2002 00:52:23 -0800
+From: oleg-at-pobox.com
+Newsgroups: comp.lang.scheme
+Subject: Re: Subsets of a list
+References: <a1hqr0$slp$2@wanadoo.fr>
+Message-ID: <7eb8ac3e.0201120052.ee51092@posting.google.com>
+Status: RO
+
+This article attempts to design the fastest solution to the problem of
+finding all subsets of a given size from a given set. We start with
+the mathematical definition of the problem, which leads to a simple,
+correct but inefficient solution. We then try to systematically
+optimize the function until we end up with the fastest function, which
+is notably faster than other solutions proposed so far. The final,
+fastest solution is still pure functional.  We also demonstrate that
+the choice of the interpreter does matter in relative performance of
+various algorithms.
+	
+We start with the definition of the problem: given a set 'l' and a
+number 'n', return the set of all subsets of 'l' of cardinality
+'n'. Sets are represented by lists.
+	
+Suppose a function "subsets LIST N" is a solution. This function should
+possess the following properties, which follow from the definition:
+	
+(subsets l 0)   ==> '(()); the only subset of size (cardinality 0) is the
+                  empty set. Note that l may be the empty set: the empty
+		  set is its own (improper) subset. 
+	
+(subsets '() n) if n>0 ==> '() ; there are no non-empty subsets in an empty set
+	
+(subsets (a . tail) n) ==> { (a . x) | x <- (subsets tail (n-1)) } Union
+                        (subsets tail n)
+that is, subsets of size n will either contain the element a, or will
+not contain it.
+	
+For the particular case n=1, the latter property gives us:
+	(subsets '() 1) ==>  '()
+	(subsets (a . tail) 1) ==> {a} Union (subsets tail 1)
+in other words,
+	(subsets l 1) ==> { {x} | x <- l }
+thus (subsets l 1) is a set of all singleton subsets.
+ 	
+This mathematical definition directly translates to Scheme.
+ 	
+(define (subsets-v0 l n)
+  (cond
+   ((<= n 0) '(()))
+   ((null? l) '())
+   ((= n 1) (map list l))
+   (else
+    (append
+     (let ((hd (car l)))
+       (map
+        (lambda (lst) (cons hd lst))
+        (subsets-v0 (cdr l) (- n 1))))
+     (subsets-v0 (cdr l) n)))))
+	
+Next we need to design a set of validation tests.
+	
+(subset '(1 2 3 4) 0) ===> (())
+(subset '(1 2 3 4) 1) ===> ((1) (2) (3) (4))
+(subset '(1 2 3 4) 2) ===> ((1 2) (1 3) (1 4) (2 3) (2 4) (3 4))
+(subset '(1 2 3 4) 3) ===> ((1 2 3) (1 2 4) (1 3 4) (2 3 4))
+(subset '(1 2 3 4) 4) ===> ((1 2 3 4))
+(subset '(1 2 3 4) 5) ===> ()
+	
+The test driver 'verify' is given in the Appendix. The function subset0
+passes the test.
+	
+As the performance benchmark, we will take the one suggested by
+John David Stone: finding all subsets of size 10 of a 20-element set.
+	(let ((n (time (subsets 
+		'(1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20) 10))))
+	#f)
+	
+As the baseline, we take the function by Thomas Baruchel:
+	
+(define (subsets-v1 l n)
+  (let ((subsets* '()))
+    (letrec ((subsets0 (lambda (l2 l* n2)
+                (if (zero? n2) (set! subsets* (cons l* subsets*))
+                  (do ((i 0 (+ i 1)))
+                      ((> i (- (length l2) n2)) subsets*)
+                    (subsets0 (list-tail l2 (+ i 1))
+                            (cons (list-ref l2 i) l*) (- n2 1)))))))
+      (subsets0 l '() n))))
+	
+	
+We must note first that the procedure is faulty. The verification
+tests (procedure verify?) reveal that when n is 0, the subsets-v1
+returns <void> (i.e., unspecified result) rather than the expected
+'().
+	
+Benchmarking subsets-v1 on Pentium III Xeon 500 MHz/128 MB; FreeBSD
+4.0-RELEASE, Gambit-C 3.0 _interpreter_ gives: 6295 ms CPU time, 54.6
+MB of allocated memory.
+	
+Benchmarking of subsets-v0 gives: 285023 ms CPU time, 263.1 MB of
+allocated memory.
+	
+Clearly there is something wrong with subsets-v0. The culprit is not
+difficult to spot: 'map' and 'append', which repeatedly scan the list,
+generating garbage along the way. Both 'map' and 'append' can be
+avoided if we re-write the recursive equation using an
+accumulator-passing style. That is, instead of returning the list of
+subsets, we will accept an accumulator and return the union of the
+accumulator and the found subsets. Thus we introduce a function 
+	(loop l n prev-els accum)
+===> accum U { prev-els U x | x <- (subsets l n) }
+We see that
+	(loop (a . tail) n prev-els accum)
+===> accum U { prev-els U x | x <- (subsets (a . tail) n) }
+	... see the definition of (subsets (a . tail) n) above ...
+===> accum U { prev-els U {a} U x | x <- (subsets tail (n-1)) } U
+	     { prev-els U x | x <- (subsets tail n) }
+===> accum U { (prev-els U {a}) U x | x <- (subsets tail (n-1)) } U
+	     { prev-els U x | x <- (subsets tail n) }
+         ... definition of loop ...
+===> (loop tail (n-1) (prev-els U {a}) accum) U 
+	{ prev-els U x | x <- (subsets tail n) }
+===> (loop tail n prev-els accum')
+	where accum' = (loop tail (n-1) (prev-els U {a}) accum)
+	
+Thus we can transform subsets-v0 into subsets-v20:
+	
+(define (subsets-v20 l n)
+  (let loop ((l l) (n n) (prev-els '()) (accum '()))
+    (cond
+     ((<= n 0) (cons prev-els accum))
+     ((null? l) accum)
+     ((= n 1)
+      (let fold ((l l) (accum accum))
+	(if (null? l) accum
+	    (fold (cdr l) (cons (cons (car l) prev-els) accum)))))
+     (else
+      (loop (cdr l) n prev-els
+	    ; new accum
+	    (loop (cdr l) (- n 1) (cons (car l) prev-els) accum))))))
+	
+Note that we also transformed (map list l) (for the case n = 1). In an
+accumulator-passing style, map became fold, as expected. I believe it
+is possible to translate subsets-v0 into subsets-v20 _mechanically_,
+using the fusion property. But not today.
+	
+The function subsets-v20 verifies. The benchmark gives: 14090 ms CPU
+time, 317.9 MB allocated memory. Re-writing subsets-v0 into the
+accumulator-passing style improved the performance 20 times! Yet not
+enough to beat the imperative baseline subsets-v1.
+	
+John David Stone suggested the following function:
+	
+(define (subsets-v3 l n)
+  (letrec ((subsets0 (lambda (l2 l* n2 acc)
+                       (if (zero? n2)
+                           (cons l* acc)
+                           (do ((rest l2 (cdr rest))
+                                (available (length l2) (- available 1))
+                                (acc acc (subsets0 (cdr rest)
+                                                   (cons (car rest) l*)
+                                                   (- n2 1)
+                                                   acc)))
+                               ((< available n2) acc))))))
+    (subsets0 l '() n '())))
+	
+which was called 'combos' in his article. The function completely
+verifies. The benchmark runs at 8070 ms CPU time and allocates 162.1
+MB of memory.
+	
+Comparison of subsets-v3 with subsets-v0 shows that the two functions are
+rather similar. However, subsets-v3 uses an extra optimization: it
+takes advantage of a stronger property that
+	(subsets l n) ==> '() whenever n > (length l)
+This property is obvious, and can be derived from the basic
+equations. However, it can save a lot of effort. To see if this is
+important indeed, we try to take an advantage of the property in our
+subsets-v20. Of course we don't want to compute (length l) every time
+we need it. We determine it only once, and remember to decrement
+whenever we take (cdr l).
+	
+(define (subsets-v21 l n)
+  (let loop ((l l) (ln (length l)) (n n) (prev-els '()) (accum '()))
+    (cond
+     ((<= n 0) (cons prev-els accum))
+     ((< ln n) accum)
+     ((= n 1)
+      (let fold ((l l) (accum accum))
+	(if (null? l) accum
+	    (fold (cdr l) (cons (cons (car l) prev-els) accum)))))
+     (else
+      (loop (cdr l) (- ln 1) n prev-els
+	    ; new accum
+	    (loop (cdr l) (- ln 1) (- n 1) (cons (car l) prev-els) accum))))))
+	
+The function verifies and runs the benchmark at 7660 ms CPU time and
+164.3 MB of allocated memory. Not so bad! We manage to beat the
+subsets-v3 although not the baseline. Gambit is not Chez Scheme, it
+runs subsets-v3 slower than it runs the baseline.
+	
+Now we have stumbled on the optimization principle: roll-out, i.e.,
+rely on more special, derived properties. BTW, this principle runs
+opposite to the usual mathematical approach of distilling a set of
+premises to the bare minimum.
+	
+Let us derive another special case, and take advantage of it:
+	(subset l (length l)) ==> (list l)
+There is only one subset of l of cardinality (length l), which is l
+itself. 
+	
+	
+(define (subsets-v22 l n)
+  (let loop ((l l) (ln (length l)) (n n) (prev-els '()) (accum '()))
+    (cond
+     ((<= n 0) (cons prev-els accum))
+     ((< ln n) accum)
+     ((= ln n) (cons (append l prev-els) accum))
+     ((= n 1)
+      (let fold ((l l) (accum accum))
+	(if (null? l) accum
+	    (fold (cdr l) (cons (cons (car l) prev-els) accum)))))
+     (else
+      (loop (cdr l) (- ln 1) n prev-els
+	    ; new accum
+	    (loop (cdr l) (- ln 1) (- n 1) (cons (car l) prev-els) accum))))))
+	
+The function verifies and runs the benchmark at 4965 ms of CPU time
+and 97.2 MB of allocated memory. This is the absolute record: we
+manage to beat the baseline!
+	
+Let us push the envelope further, and take advantage of another
+special case:
+	(subset l (- (length l) 1)) ==>
+	{ l \ {x} | x <- l }
+	
+In Scheme terms,
+(define (subsets-v23 l n)
+  (let loop ((l l) (ln (length l)) (n n) (prev-els '()) (accum '()))
+    (cond
+     ((<= n 0) (cons prev-els accum))
+     ((< ln n) accum)
+     ((= ln n) (cons (append l prev-els) accum))
+     ((= ln (+ 1 n)) 
+      (let fold ((l l) (seen prev-els) (accum accum))
+	(if (null? l) accum
+	    (fold (cdr l) (cons (car l) seen)
+		  (cons
+		   (append (cdr l) seen)
+		   accum)))))
+     ((= n 1)
+      (let fold ((l l) (accum accum))
+	(if (null? l) accum
+	    (fold (cdr l) (cons (cons (car l) prev-els) accum)))))
+     (else
+      (loop (cdr l) (- ln 1) n prev-els
+	    ; new accum
+	    (loop (cdr l) (- ln 1) (- n 1) (cons (car l) prev-els) accum))))))
+	
+The function verifies and runs at 4132 ms of CPU time and 72.4 MB of
+allocated memory. We're 50% faster than the baseline, the record so
+far. 
+	
+The following table summarizes the performance benchmark: user running
+times in seconds. The table also reports the results for another
+Scheme interpreter, Bigloo 2.4b: 
+	/usr/bin/time bigloo -i /tmp/b5.scm
+The latter results include the cost of starting up the interpreter.
+	
+Procedure       Gambit-C               Bigloo 2.4b      Bigloo 2.4b
+                interpreter, s         interpreter, s   compiler, s
+subsets-v0        285.0                   11.59          5.62    3.14
+subsets-v1	    6.3                    5.45          2.22    0.34
+subsets-v3	    8.1                    4.78          0.96    0.27
+subsets-v20        14.1                    5.53          0.96    0.26    
+subsets-v21         7.7                    4.88          0.66    0.26
+subsets-v22         5.0                    3.18          0.62    0.25
+subsets-v23         4.1                    2.86          0.82    0.25
+	
+	
+subsets-v1 is the baseline, written by Thomas Baruchel
+subsets-v3 is written by John David Stone (which was called combos)
+Platform: Pentium III Xeon 500 MHz/128 MB; FreeBSD 4.0-RELEASE
+The column for the compiled code has two sub-columns. The left
+subcolumns refers to the code compiled using the default Bigloo
+flags. The right subcolumn refers to the code compiled with -Obench
+-unsafe flags. The running time of the compiled code includes the
+start-up time.
+	
+The table shows that there is some variation between the
+interpreters. subsets-v3 is slower than the baseline on Gambit-C yet
+is faster on Bigloo. Still subsets-v23 is the absolute interpreted
+leader so far. It is gratifying to see that the leader is pure
+functional, and it was derived systematically.
+	
+But this was just tinkering around the edges. Please see the next
+article.
+	
+Appendix. The verification framework
+
+; Compare two lists l1 and l2 modulo the order of elements
+; "pred? X Y" is the predicate used to test equivalence of elements
+; of l1 and l2
+(define (set-equal? pred? l1 l2)
+  (if (null? l1) (null? l2)
+   (let loop ((l2-to-see l2) (l2-seen '()))
+     (and (pair? l2-to-see)
+	  (if (pred? (car l1) (car l2-to-see))
+	      (set-equal? pred? (cdr l1) (append (cdr l2-to-see) l2-seen))
+	      (loop (cdr l2-to-see) (cons (car l2-to-see) l2-seen)))))))
+
+; Test two powersets for equality
+(define (pset-equal? ps1 ps2)
+  (set-equal? (lambda (s1 s2) (set-equal? equal? s1 s2)) ps1 ps2))
+
+(define test-cases
+ '( ; arguments    expected result
+   ( ((1 2 3 4) 0)   .    (()) )
+   ( ((1 2 3 4) 1)   .    ((1) (2) (3) (4)) )
+   ( ((1 2 3 4) 2)   .    ((1 2) (1 3) (1 4) (2 3) (2 4) (3 4)) )
+   ( ((1 2 3 4) 3)   .    ((1 2 3) (1 2 4) (1 3 4) (2 3 4)) )
+   ( ((1 2 3 4) 4)   .    ((1 2 3 4)) )
+   ( ((1 2 3 4) 5)   .    () )
+   ))
+
+(define (verify subsets-fn)
+  (for-each 
+   (lambda (tcase)
+     (let ((result (apply subsets-fn (car tcase)))
+	   (expected (cdr tcase)))
+       (if (or (not (list? result)) (not (pset-equal? result expected)))
+	   (for-each display
+	      (list "Error: for arguments " (car tcase)
+		    " expected: " expected
+		    " found: " result #\newline)))))
+   test-cases))
+

@@ -1,0 +1,16 @@
+D syntax highlight for Scintilla
+Copyright 2008 Sergey "SnakE" Gromov
+
+Distributed under the Boost Software License, Version 1.0. (See
+accompanying file LICENSE_1_0.txt or copy at
+http://www.boost.org/LICENSE_1_0.txt)
+
+1.  If you have SciTE 1.76 for Windows installed simply replace
+SciLexer.dll and d.properties with the supplied files.
+
+2.  If you wish to build Scintilla from source:
+- replace scintilla/src/LexD.cxx with the new one
+- replace any "var SCE_D_..." in scintilla/include/Scintilla.iface
+  with the values from supplied Scintilla.iface
+- run scintilla/include/HFacer.py script
+- build Scintilla for your platform

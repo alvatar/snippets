@@ -1,0 +1,22 @@
+<html>
+<head>
+	<META http-equiv="content-type" content="text/html; charset=utf-8">
+	<title>Classes to support Windows Services.</title>
+</head>
+<body>
+<h1>Classes to support Windows Services.</h1>
+Comprising:
+<ul>
+<li><a href="http://www.dsource.org/projects/scrapple/browser/trunk/bevutils/docs/eventlogger.html?format=raw">EventLogger</a></li>
+<li><a href="http://www.dsource.org/projects/scrapple/browser/trunk/bevutils/docs/tinyxml.html?format=raw">TinyXML</a></li>
+<li><a href="http://www.dsource.org/projects/scrapple/browser/trunk/bevutils/docs/log4d.html?format=raw">Log4D</a></li>
+<li><a href="http://www.dsource.org/projects/scrapple/browser/trunk/bevutils/docs/propertyfile.html?format=raw">PropertyFile</a></li>
+<li><a href="http://www.dsource.org/projects/scrapple/browser/trunk/bevutils/docs/servicebase.html?format=raw">ServiceBase</a></li>
+<li><a href="http://www.dsource.org/projects/scrapple/browser/trunk/bevutils/docs/serviceimplementation.html?format=raw">ServiceImplementation</a></li>
+<li><a href="http://www.dsource.org/projects/scrapple/browser/trunk/bevutils/docs/beepservice.html?format=raw">BeepService</a> - an example</li>
+</ul>
+To build Log4D you'll need a couple of modifications to Phobos. Substitute the attached
+date.d and file.d.
+</body>
+</html>
+

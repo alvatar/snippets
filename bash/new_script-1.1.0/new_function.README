@@ -1,0 +1,137 @@
+new_function - a shell program for creating shell functions
+===========================================================
+
+Description:
+------------
+
+new_function is a program that creates shell function templates. 
+Designed to be used in conjunction with the new_script template
+generation program, this program rapidly creates shell functions in
+your scripts.
+
+This can be used as a stand alone program, but is best suited for use
+with a text editor that can support its output.  Instructions for
+integrating new_function with the Nedit text editor appear below.
+
+
+Usage:
+------
+
+new_function is invoked as follows:
+
+	new_function [ -h | --help ] [-f file]
+	
+Options:
+	
+	-h, --help	Display help message and exit
+	
+	-f file		Output is written to file.  If omitted, output
+			is written to standard output.  Since the
+			interactive prompting is also written to
+			standard output, the -f option is required for
+			file output.
+
+After invoking new_function, the user will be prompted as follows:
+
+	Name of function:
+	
+Answer with the function's name.  This must be a single word that is
+an valid command name.
+
+	Description of function:
+	
+Answer with a one line description of the function's purpose.
+
+	 Does this function have arguments? [y/n]:
+	 
+Answer y or n.  If you answer "y" then you will be prompted for the
+following:
+
+	Description of argument 1:
+	
+Enter a one line description of the first argument.
+
+	Is argument 1 optional? [y/n]:
+	
+Answer y or n.  If an argument is required (i.e. not optional), code will be
+inserted into the function to check for its presence when the function
+is called.  If the function supports multiple arguments, no required
+arguments are possible after the first optional argument.
+
+
+Examples:
+---------
+
+	new_function -f my_function
+
+Prompts the user for function information and writes the finished
+template to the file "my_function".  Once written, the file
+"my_function"  can be inserted into a script file.
+
+
+Installation:
+-------------
+
+Installing the new_function script into the /usr/local/bin directory can
+be performed with the following series of commands:
+
+$ cd new_script-2.1.0
+$ su
+# cp new_function /usr/local/bin
+# chmod 755 /usr/local/bin/new_function
+# exit
+
+
+Using new_script with the Nedit text editor:
+--------------------------------------------
+
+You can integrate the new_function program into the Nedit text
+editor.  Once installed into the "Shell" menu, you can directly add
+shell functions to your scripts in the edit buffer of Nedit.  If you
+don't yet have Nedit, you can get it at http://www.nedit.org. 
+
+To add new_function to the shell menu in Nedit, go to the
+Preferences/Default Settings/Customize Menus/Shell Menu... dialog and
+create a new menu entry called "new_function".  Set command input to
+"none" and command output to "same window".  Finally, set the "shell
+command to execute" to the following command line:
+
+xterm -e new_function -i -f /tmp/tmp_funct; cat /tmp/tmp_funct; rm /tmp/tmp_funct
+
+
+Tested With:
+------------
+
+new_function has been tested on Redhat Linux versions 5.x, 6.x and 7.x.
+new_function is a rather generic script and will probably work on all
+contemporary Linux distributions equipped with the bash shell. 
+
+
+Copyright:
+----------
+
+Copyright 1999-2002, William Shotts, Jr. <bshotts@users.sourceforge.net>
+
+This software is part of the LinuxCommand.org project, a site for
+Linux education and advocacy devoted to helping users of legacy
+operating systems migrate into the future.
+
+You may contact the LinuxCommand.org project at:
+
+	http://www.linuxcommand.org
+
+
+License:
+--------
+
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2 of the License, or (at
+your option) any later version. 
+
+This program is distributed in the hope that it will be useful, but
+WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+General Public License for more details. 
+
+$Id: new_function.README,v 1.3 2002/02/11 00:18:15 bshotts Exp $

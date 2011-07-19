@@ -1,0 +1,9 @@
+syntax: glob
+ext
+*.exe
+dsss.last
+*.lst
+dsss_*
+*.o
+*.obj
+*.map

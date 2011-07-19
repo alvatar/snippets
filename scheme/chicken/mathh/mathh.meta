@@ -1,0 +1,15 @@
+;;;; "mathh.meta  -*- Hen -*-
+
+((egg "mathh.egg")
+ (category math)
+ (author "[[kon lovett]] and [[john cowan]]")
+ (license "Public Domain")
+ (doc-from-wiki)
+ (synopsis "ISO C math functions and constants")
+ (needs setup-helper)
+ (test-depends test)
+ (files
+  "tests"
+  "mathh.scm"
+ 	"mathh-constants.scm"
+  "mathh.setup") )

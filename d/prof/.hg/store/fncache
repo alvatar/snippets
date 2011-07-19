@@ -1,0 +1,15 @@
+data/.hgignore.i
+data/DbgInfo.d.i
+data/Demangler.d.i
+data/Main.d.i
+data/Main.gui.i
+data/Profiler.d.i
+data/Test.d.i
+data/Trace.d.i
+data/WinApi.d.i
+data/bnr.bat.i
+data/build.bat.i
+data/buildDemo.bat.i
+data/buildTest.bat.i
+data/demangle.d.i
+data/refreshDeps.bat.i

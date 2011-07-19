@@ -1,0 +1,128 @@
+Tips on writing C macros
+
+Macros in C/C++ is an extremely powerful feature, basically one I can't live without. The use of macros has been widely debated and mostly they are labeled as 'evil', as a no-no. This is the usual moral dillema that shows up whenever we have something with significant power in our hands: Anything that is powerful enough can be misused one way or the other. Should we then allow the usage of the powerful tool or ban it altogether so as to prevent its misuse (intentional or unintentional)?
+There is no one answer. As usual it depends on the issue at hand. For example, you don't teach lethal blows to a person that doesn't realize the consequences of inflicting such a blow (e.g. an eight year old), but you teach them to your special forces.
+Anyway, macros have been very useful to me throughout the years but all too often I see some basic mistakes in their use, so I have to provide some guidance that countless others have offered before me, still it is worth repeating.
+
+The two most common mistakes with macros are depicted in the following two line macro:
+
+    #define MYMACRO(a,b,c) \
+    a = b + c; \
+    b = c*2
+
+The author intended the macro call to 'look' as one statement, so he omitted the semicolon from the last statement. This way when you write MYMACRO(x,y,10); the semicolon you added at the end completes the incomplete statement at the last line of the macro.
+Sure enough this is valid usage of macro syntax, but incorrect in a larger perspective.
+What if I write:
+
+    if (SomeLogicTest())
+      MYMACRO(x,y,10);
+
+Oooops... This will expand to:
+
+    if (SomeLogicTest())
+      x = y + 10;
+      y = 10*2;
+
+I am pretty certain that this is NOT what the author intended. So most people with basic training avoid this pedantic mistake and instead define the macro as:
+
+    #define MYMACRO(a,b,c) \
+    { \
+       a = b + c; \
+       b = c*2; \
+    }
+
+This pretty nicely solves the if issue, surely there is no harm done adding a semicolon after the closing bracket. Or is there?
+What about:
+
+    if (SomeLogicTest())
+      MYMACRO(x,y,10);
+    else
+      MYMACRO(y,x,20);
+
+With the 2nd definition above, the above if-else will not compile and the programmer might as well act pretty surprised as to why. The semicolon after the closing bracket in if essentially 'terminates' the if statement, so then the compiler sees 'else' as the beginning of a new statement. Not digestable.
+Some people try to avoid this problem by always writing their multiline macros with brackets and then never put a semicolon when they use the macro. That is:
+
+    if (SomeLogicTest())
+      MYMACRO(x,y,10)
+    else
+      MYMACRO(y,x,20)
+
+Works like a charm, but... it doesn't look right. It doesn't look like the rest of the code. And this is not good for several reasons that I will not go into here. However there is a surprisingly easy solution:
+
+    #define MYMACRO(a,b,c) \
+    do { \
+       a = b + c; \
+       b = c*2; \
+    } while (0)
+
+Needless to say, this will always work. It absolutely requires that the semicolon is not omitted because the do-block is a single statement that has to be terminated, and then since it is a single statement it can be followed by an else block without problems.
+
+RULE 1: Always write your multiline macros using this pattern:
+
+    #define MYMACRO \
+    do { \
+       macro definition here \
+    } while (0)
+
+The only trouble you might get with this, is some smart-a$$ code analyzer screaming about a 'constant expression in do-while condition'. That's usually easy to turn off by adding some comment-directive to your macro definition. Just make sure you only use /*C-style comments*/ in macros ;-)
+
+So our original macro now looks like this:
+
+    #define MYMACRO(a,b,c) \
+    do { \
+       a = b + c; \
+       b = c*2; \
+    } while (0)
+
+What are the remaining troubles with it? What about the following invocation: MYMACRO(x,y,x+y)
+As you can probably see the b = c*2 statement will now expand to y = x+y*2.
+Ooops, most likey not what the programmer intended :-)
+
+RULE 2: Always surround macro arguments with parentheses inside the macro body.
+
+    #define MYMACRO(a,b,c) \
+    do { \
+       (a) = (b) + (c); \
+       (b) = (c)*2; \
+    } while (0)
+
+RULE 3: Keep your macros SHORT. Don't write 50-line macros, because when the time comes to chase down some bug you will soon find out that the only debugger that could step into macro definitions (SoftICE) is out of business. To the best of my knowledge, even WinDBG, the Windows kernel debugger, cannot step into macros. So, keep'em short.
+
+RULE 4: Be very careful when trying to use macros for speed optimizations (i.e. save a function call). I have seen even senior programmers get it wrong, because they didn't realize that passing MyArray[x+3] as a macro argument would lexically copy this expression in multiple locations in the macro expansion, causing the generated code to needlessly evaluate *(Myarray+x+3) again and again and again. Always have someone else, preferably more experienced than yourself, check these 'optimizations' with you.
+
+I will sum up with a super hot macro tip, that doesn't have to do with avoiding mistakes, but with a thing I needed a billion times but thought was not possible, only to find out about a year ago that it is absolutely doable: Macros with a variable number of arguments, officially called variadic macros.
+Yes, they are doable and they have at least one important usage:
+
+    KdPrint(("Writing debug output macros that don't require %s %s\n, 
+                 "double parentheses",
+                 "in each invocation"));
+
+The magic keyword (or whatever it is actually) is: __VA_ARGS__
+
+The sample Win32 code below shows it all in action:
+
+    #define DBG_PREFIX "[FrameGrabber] "
+    #define FGTRACE(_fmt, ...) \
+         FGDebugPrint(DBG_PREFIX _fmt, __VA_ARGS__)
+
+    void FGDebugPrint(char *format, ...)
+    {
+       char    szMessage[1024];
+       va_list VaList;
+       va_start( VaList, format);
+       vsprintf_s(szMessage, sizeof(szMessage), format, VaList);
+       OutputDebugString(szMessage);
+       va_end( VaList );
+    }
+
+    int _tmain(int argc, _TCHAR* argv[])
+    {
+       FGTRACE("Hello %d %d\n", argc, 2*argc);
+       return 0;
+    }
+
+Note that in the macro definition above, I broke my own rule about parameter parenthesization, but I had to since I count on string token pasting to get my message prefix at the beginning of the debug output message.
+
+Have fun!
+Dimitris Staikos
+

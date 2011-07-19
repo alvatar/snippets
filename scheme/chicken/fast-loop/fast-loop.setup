@@ -1,0 +1,8 @@
+
+(compile -s -O2 -j fast-loop fast-loop.scm)
+(compile -s -O2 fast-loop.import.scm)
+(install-extension
+ 'fast-loop
+ '("fast-loop.so" "fast-loop.import.so")
+ '((version 0.4)))
+

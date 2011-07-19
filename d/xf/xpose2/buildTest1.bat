@@ -1,0 +1,1 @@
+xfbuild test1.d -profile -otest1.exe -- -g -I../..

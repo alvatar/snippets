@@ -1,0 +1,153 @@
+CTFGameType 10 8
+Team Blue 0 0 1
+Team Red 1 0 0
+LevelName "The Tangle Box"
+GridSize 300
+FlagItem 0 4.6 4.3
+LoadoutZone 0 1.5 4.8 2.3 4.8 2.3 4.5 1.5 4.5
+Spawn 0 0.1 3.8
+Spawn 0 1.6 4
+Spawn 0 1.9 4.4
+Spawn 0 1.2 4.4
+Spawn 0 5.9 3.9
+Spawn 0 -1 5.3
+Spawn 0 3.9 5.6
+RepairItem 0.5 3.38
+TestItem 4.5 0.8
+TestItem 1.5 3.5
+BarrierMaker 50 -5 0 -5 0.2 -5.6 0.3 -5.6 1.1 -5 1.2 -5 1.5 -6.9 2.5 -5.5 6 5.5 6 6.5 3.6 6.5 3.5 5 3 5 1.1 5.7 1 5.7 0.4 5 0.3 5 0
+BarrierMaker 50 3.5 4.5 3.5 6
+BarrierMaker 50 3.5 3.5 2.5 3.5 2.5 5 -0.5 5
+BarrierMaker 240 -2 5 -2 5.6
+BarrierMaker 240 -0.8 3.9 -0.8 4.5
+BarrierMaker 240 -1.9 4.1 -1.9 4.7
+BarrierMaker 240 0.3 4 0.3 4.6
+BarrierMaker 240 -0.2 3 -0.2 3.6
+BarrierMaker 240 -1.3 2.6 -1.3 3.2
+BarrierMaker 240 -2.4 3.2 -2.4 3.8
+BarrierMaker 20 2.6 0.7 2.5 0.3
+BarrierMaker 20 0.400001 2.1 1.2 2 1.5 1.7
+Turret 0 5 3.2
+BarrierMaker 50 -3.5 1 -3 1.5 -1 1.5
+BarrierMaker 50 -2.5 2.5 -3.9 2.5 -5.3 3.3 -4.5 5.1 -2.9 5.1 -2.9 4.1 -3.2 4.1 -3.2 2.9 -2.3 2.9 -2 2.6 -2 2.3 -2.5 2.3 -2.5 2.5
+BarrierMaker 20 -0.3 2.2 -0.3 1.7 0 1.5 0.5 1.5
+BarrierMaker 20 0.5 0.3 0.5 0.8 0.200001 1 -0.299999 1
+BarrierMaker 20 0.8 1.1 0.8 1.2 1.1 1.3 1.3 1.2 1.5 0.9 1.4 0.7 1.3 0.7 0.8 1.1
+BarrierMaker 20 2.9 2.1 3.8 1.8
+BarrierMaker 20 4.1 1.4 4.1 0.8 3.9 0.6
+BarrierMaker 20 4.1 2.3 4.6 1.4
+BarrierMaker 20 -1.1 -0.4 -1.1 -9.68575e-008 -0.6 0.4 -0.6 0.5 -1 0.9
+BarrierMaker 20 -3.5 -1.3 -3.2 -0.7 -3.5 -0.3 -3.2 0.1 -2.2 0.1 -2.2 0.3 -2.4 0.5 -2.4 0.6 -1.9 0.9
+Teleporter -5.2 0.7 5.3 0.7
+BarrierMaker 50 -4 0.5 -4.5 0 -5 0
+BarrierMaker 20 -0.6 0.2 -0.5 0.1 -0.3 0.1
+BarrierMaker 20 -0.2 0.6 0 0.6
+BarrierMaker 20 0.8 1.7 1 1.7
+BarrierMaker 20 1.9 1.7 2.1 1.7
+BarrierMaker 20 2.3 1.3 2.3 1.1
+Turret 0 3.3 4.6
+Turret 0 -1.3 3.3
+BarrierMaker 90 -2.3 2.5 -2.3 2.7 -2.2 2.6 -2.2 2.5 -2.3 2.5
+BarrierMaker 75 -2.2 2.7 -3.8 2.7
+BarrierMaker 135 -3.2 4.1 -3.2 5.1
+BarrierMaker 195 -3.6 2.5 -3.6 5.1
+BarrierMaker 180 -4.1 4.8 -4.3 4.8 -4.9 3.4 -4 2.9 -3.9 2.9 -4.1 4.8
+BarrierMaker 105 -4.4 3.3 -4.4 4.1
+BarrierMaker 20 3.5 1.3 3.2 0.7 3.5 0.3 3.2 -0.0999996 2.2 -0.0999996 2.2 -0.3 2.4 -0.5 2.4 -0.6 1.9 -0.9
+BarrierMaker 20 -0.2 0.1 0 0.1
+BarrierMaker 20 -1.4 0.1 -1.6 0.1
+LoadoutZone 0 4.1 5.8 5 5.8 5 5.5 4.1 5.5
+BarrierMaker 20 4 5.4 5.1 5.4
+BarrierMaker 20 4 5 4.3 5
+BarrierMaker 20 4.8 5 5.1 5
+BarrierMaker 20 5.4 4.8 5.7 4.1
+BarrierMaker 20 1.7 -0.1 1.9 1 1.7 1.4
+BarrierMaker 20 0.9 2.8 1.5 2.6
+BarrierMaker 20 1.8 2.5 2.2 2.2 2.7 1.4 2.7 1
+BarrierMaker 10 -4.4 2 -4.8 2.2
+BarrierMaker 10 -5.2 2.4 -5.6 2.6
+BarrierMaker 10 -5.9 2.8 -6.1 2.9 -6 3.2
+BarrierMaker 10 -5.6 4 -5.8 3.6
+BarrierMaker 10 -5.3 4.8 -5.5 4.4
+BarrierMaker 10 -4.9 5.6 -5.1 5.2
+ForceFieldProjector 0 -3.6 0.9
+ForceFieldProjector 0 -0.9 1.5
+FlagItem 1 -4.6 -4.3
+LoadoutZone 1 -1.5 -4.8 -2.3 -4.8 -2.3 -4.5 -1.5 -4.5
+Spawn 1 -0.1 -3.8
+Spawn 1 -1.6 -4
+Spawn 1 -1.9 -4.4
+Spawn 1 1 -5.3
+Spawn 1 -5.9 -3.9
+Spawn 1 -1.3 -4.4
+Spawn 1 -3.8 -5.7
+RepairItem -0.5 -3.38
+TestItem -4.5 -0.8
+TestItem -1.5 -3.5
+BarrierMaker 50 5 2.98023e-007 5 -0.2 5.6 -0.3 5.6 -1.1 5 -1.2 5 -1.5 6.9 -2.5 5.5 -6 -5.5 -6 -6.5 -3.6 -6.5 -3.5 -5 -3 -5 -1.1 -5.7 -1 -5.7 -0.4 -5 -0.3 -5 2.98023e-007
+BarrierMaker 50 -3.5 -4.5 -3.5 -6
+BarrierMaker 50 -3.5 -3.5 -2.5 -3.5 -2.5 -5 0.5 -5
+BarrierMaker 240 2 -5 2 -5.6
+BarrierMaker 240 0.8 -3.9 0.8 -4.5
+BarrierMaker 240 1.9 -4.1 1.9 -4.7
+BarrierMaker 240 -0.3 -4 -0.3 -4.6
+BarrierMaker 240 0.2 -3 0.2 -3.6
+BarrierMaker 240 1.3 -2.6 1.3 -3.2
+BarrierMaker 240 2.4 -3.2 2.4 -3.8
+BarrierMaker 20 -2.6 -0.7 -2.5 -0.299999
+BarrierMaker 20 -0.400001 -2.1 -1.2 -2 -1.5 -1.7
+Turret 1 -5 -3.2
+BarrierMaker 50 3.5 -1 3 -1.5 1 -1.5
+BarrierMaker 50 2.5 -2.5 3.9 -2.5 5.3 -3.3 4.5 -5.1 2.9 -5.1 2.9 -4.1 3.2 -4.1 3.2 -2.9 2.3 -2.9 2 -2.6 2 -2.3 2.5 -2.3 2.5 -2.5
+BarrierMaker 20 0.3 -2.2 0.3 -1.7 -9.68575e-008 -1.5 -0.5 -1.5
+BarrierMaker 20 -0.5 -0.299999 -0.5 -0.799999 -0.200001 -0.999999 0.299999 -0.999999
+BarrierMaker 20 -0.8 -1.1 -0.8 -1.2 -1.1 -1.3 -1.3 -1.2 -1.5 -0.9 -1.4 -0.7 -1.3 -0.7 -0.8 -1.1
+BarrierMaker 20 -2.9 -2.1 -3.8 -1.8
+BarrierMaker 20 -4.1 -1.4 -4.1 -0.799999 -3.9 -0.6
+BarrierMaker 20 -4.1 -2.3 -4.6 -1.4
+BarrierMaker 20 1.1 0.4 1.1 2.98023e-007 0.6 -0.4 0.6 -0.5 1 -0.9
+Teleporter 5.2 -0.7 -5.3 -0.7
+BarrierMaker 50 4 -0.5 4.5 2.98023e-007 5 2.98023e-007
+BarrierMaker 20 0.6 -0.2 0.5 -0.0999996 0.3 -0.0999996
+BarrierMaker 20 0.2 -0.6 -9.68575e-008 -0.6
+BarrierMaker 20 -0.8 -1.7 -1 -1.7
+BarrierMaker 20 -1.9 -1.7 -2.1 -1.7
+BarrierMaker 20 -2.3 -1.3 -2.3 -1.1
+Turret 1 -3.3 -4.6
+Turret 1 1.3 -3.3
+BarrierMaker 90 2.3 -2.5 2.3 -2.7 2.2 -2.6 2.2 -2.5 2.3 -2.5
+BarrierMaker 75 2.2 -2.7 3.8 -2.7
+BarrierMaker 135 3.2 -4.1 3.2 -5.1
+BarrierMaker 195 3.6 -2.5 3.6 -5.1
+BarrierMaker 180 4.1 -4.8 4.3 -4.8 4.9 -3.4 4 -2.9 3.9 -2.9 4.1 -4.8
+BarrierMaker 105 4.4 -3.3 4.4 -4.1
+BarrierMaker 20 0.2 -0.0999996 -9.68575e-008 -0.0999996
+BarrierMaker 20 1.4 -0.1 1.6 -0.1
+LoadoutZone 1 -4.1 -5.8 -5 -5.8 -5 -5.5 -4.1 -5.5
+BarrierMaker 20 -4 -5.4 -5.1 -5.4
+BarrierMaker 20 -4 -5 -4.3 -5
+BarrierMaker 20 -4.8 -5 -5.1 -5
+BarrierMaker 20 -5.4 -4.8 -5.7 -4.1
+BarrierMaker 20 -1.7 0.1 -1.9 -1 -1.7 -1.4
+BarrierMaker 20 -0.9 -2.8 -1.5 -2.6
+BarrierMaker 20 -1.8 -2.5 -2.2 -2.2 -2.7 -1.4 -2.7 -1
+BarrierMaker 10 4.4 -2 4.8 -2.2
+BarrierMaker 10 5.2 -2.4 5.6 -2.6
+BarrierMaker 10 5.9 -2.8 6.1 -2.9 6 -3.2
+BarrierMaker 10 5.6 -4 5.8 -3.6
+BarrierMaker 10 5.3 -4.8 5.5 -4.4
+BarrierMaker 10 4.9 -5.6 5.1 -5.2
+ForceFieldProjector 1 3.6 -0.9
+ForceFieldProjector 1 0.9 -1.5
+SpeedZone 3.1 5.8 2.7 5.8
+SpeedZone 0.9 5.8 0.5 5.8
+SpeedZone -3.1 -5.8 -2.7 -5.8
+SpeedZone -0.9 -5.8 -0.5 -5.8
+ForceFieldProjector -1 -1.1 1
+ForceFieldProjector -1 -1.3 0.1
+ForceFieldProjector -1 1.3 -0.1
+ForceFieldProjector -1 1.1 -1
+BarrierMaker 5 -0.2 0.1 -0.2 0.1 -0.3 0.1
+BarrierMaker 5 -0.6 0.2 -0.6 0.2 -0.7 0.3
+BarrierMaker 5 0.3 -0.1 0.3 -0.1 0.2 -0.1
+BarrierMaker 5 0.7 -0.3 0.7 -0.3 0.6 -0.2

@@ -1,0 +1,3 @@
+name=scrapple-filesystem
+[getlogicaldrives.d]
+type=sourcelibrary

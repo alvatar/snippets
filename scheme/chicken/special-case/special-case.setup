@@ -1,0 +1,7 @@
+
+(compile -s -O2 -d0 -j special-case special-case.scm)
+(compile -s -O2 -d0 special-case.import.scm)
+(install-extension
+ 'special-case
+ '("special-case.so" "special-case.import.so")
+ '((version 0.1)))

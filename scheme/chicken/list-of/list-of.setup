@@ -1,0 +1,10 @@
+;;;; list-of.setup -*- Scheme -*-
+
+(compile -sS -O3 -d1 list-of.scm -j list-of)
+(compile -s -O3 -d0 list-of.import.scm)
+
+(install-extension
+ 'list-of
+ '("list-of.so" "list-of.import.so")
+ '((version 0.1)))
+

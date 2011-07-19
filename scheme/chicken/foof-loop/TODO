@@ -1,0 +1,13 @@
+# -*- mode: org; -*-
+* TODO test stream-filter
+  appears to need srfi-40 not srfi-41; nope: have to implement
+  in-stream, rather.
+* TODO test shuffle-vector!
+  my local srfi-27 is defective
+* TODO sieve
+  srfi-33 hasn't been ported yet
+* TODO vector-quick-sort! doesn't define select-pivot
+* DONE in-lists is defective
+  CLOSED: [2010-01-13 Wed 07:12]
+  - CLOSING NOTE [2010-01-13 Wed 07:12] \\
+    had to export %cars&cdrs

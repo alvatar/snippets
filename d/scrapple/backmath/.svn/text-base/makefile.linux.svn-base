@@ -1,0 +1,26 @@
+CL=gcl
+
+all : backmath
+	wc -l generated_rules.d
+	echo -n total rules generated:; grep alias generated_rules.d | wc -l
+
+tooling :
+	$(CL) < do.lisp
+
+clean :
+	rm -f \
+	gen_log.txt \
+	backmath backmath.o generated_rules.d \
+
+backmath : backmath.o
+	true ========= build test use
+	dmd backmath.o -unittest -version=Verbose
+
+backmath.o : backmath.d generated_rules.d
+	dmd -c backmath.d -J.
+
+generated_rules.d : gen_code_for_template.lisp generate_case.lisp meta.lisp rule_sorting.lisp string_stuff.lisp
+	true ========= Generate Lib
+	$(CL) < gen_code_for_template.lisp > gen_log.txt
+	grep CODE_GEN_DONE gen_log.txt
+

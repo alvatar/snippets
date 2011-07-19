@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 37
+/projects/nova/!svn/ver/11/trunk/nova
+END
+all.d
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/projects/nova/!svn/ver/11/trunk/nova/all.d
+END
+testall.d
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/projects/nova/!svn/ver/8/trunk/nova/testall.d
+END

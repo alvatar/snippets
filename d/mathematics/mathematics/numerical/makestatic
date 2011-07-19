@@ -1,0 +1,19 @@
+#Author:	Peter Van Isacker (sclytrack@pi.be)
+#Descriptions:	Creates libdxldnl.a in ../lib
+
+
+OBJS:=$(patsubst %.d, %.o, $(wildcard *.d))
+
+all: ../lib/libdxldnl.a
+
+../lib/libdxldnl.a: $(OBJS)
+#	cc  -o $@ $(OBJS)
+	ar cr $@ $(OBJS)
+
+%.o: %.d
+	dmd -c $< -I../..
+
+clean:
+	@-rm *.o
+	@-rm ../lib/libdxldnl.a
+	

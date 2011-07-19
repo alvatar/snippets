@@ -1,0 +1,22 @@
+ls /foo/bar
+cd [ESC].
+
+
+ls -d /foo /foo/bar
+cd !$
+
+mkdir /foo/bar/beer /foo/bar/shot /foo/bar/wine
+cd !:2
+
+cd -
+
+pushd /foo/bar
+pushd -n /data  # Pushes the directory without changing
+popd
+dirs  # Shows the stack of directories
+
+# Substitutes appone for apptwo in the $PWD variable evaluation, so cd moves to the filtered PWD
+cd ${PWD/appone/apptwo}
+
+namei  # Follows a path, showing every component and its type
+

@@ -1,0 +1,176 @@
+10
+
+dir
+722
+http://svn.dsource.org/projects/scrapple/trunk
+http://svn.dsource.org/projects/scrapple
+
+
+
+2010-05-25T04:42:44.325528Z
+722
+FeepingCreature
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+a4e9fd6c-b126-0410-a57c-fd034e3c03e5
+
+nntp
+dir
+
+columns
+dir
+
+bignum
+dir
+
+weakref
+dir
+
+lrucache
+dir
+
+scripts
+dir
+
+tinyjpeg
+dir
+
+rangeextra
+dir
+
+dparser
+dir
+
+tools
+dir
+
+cgi
+dir
+
+search
+dir
+
+rational
+dir
+
+lines
+dir
+
+future
+dir
+
+log_api
+dir
+
+iterators
+dir
+
+scilexer
+dir
+
+ptrace
+dir
+
+Serial
+dir
+
+dglut
+dir
+
+tempAlloc
+dir
+
+AJAX
+dir
+
+dfilt.d
+file
+
+
+
+
+2009-12-31T12:30:00.000000Z
+86a72c8f13eacfee79ce210c9237a798
+2009-11-02T14:48:08.156380Z
+643
+FeepingCreature
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1067
+
+filesystem
+dir
+
+parallelFuture
+dir
+
+lodepng
+dir
+
+testeD
+dir
+
+bevutils
+dir
+
+idc
+dir
+
+dmpp
+dir
+
+backtrace_assert
+dir
+
+redimple
+dir
+
+units
+dir
+
+qd
+dir
+
+arg_bind
+dir
+
+Bignumber
+dir
+
+backmath
+dir
+
+structIface
+dir
+

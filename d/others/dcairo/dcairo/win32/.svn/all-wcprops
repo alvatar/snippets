@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/projects/bindings/!svn/ver/228/trunk/cairo/cairo/win32
+END
+cairofuncs_win32.d
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/projects/bindings/!svn/ver/119/trunk/cairo/cairo/win32/cairofuncs_win32.d
+END
+cairo_win32.d
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/projects/bindings/!svn/ver/179/trunk/cairo/cairo/win32/cairo_win32.d
+END
+cairotypes_win32.d
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/projects/bindings/!svn/ver/228/trunk/cairo/cairo/win32/cairotypes_win32.d
+END

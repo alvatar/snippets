@@ -1,0 +1,15 @@
+;;;; "mathh.setup  -*- Hen -*-
+
+(include "setup-helper")
+
+(verify-extension-name "mathh")
+
+(copy-to-home "mathh-constants.scm")
+
+(define fpclassify-compile-options
+  (cond-expand
+    [linux    '(-C -D_ISOC99_SOURCE) ] ;_GNU_SOURCE instead?
+    [else     '() ] ) )
+
+(setup-shared-extension-module (extension-name) (extension-version "2.1.1")
+  compile-options: fpclassify-compile-options)

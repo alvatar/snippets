@@ -1,0 +1,3 @@
+test_lib.o : /home/alvaro/CMake-cuda/src/test_lib.cu \
+    /home/alvaro/CMake-cuda/src// \
+    ./external_dependency.h

@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/projects/scrapple/!svn/ver/592/trunk/Serial
+END
+Demarshal.d
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/projects/scrapple/!svn/ver/591/trunk/Serial/Demarshal.d
+END
+Interface.d
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/projects/scrapple/!svn/ver/591/trunk/Serial/Interface.d
+END
+XML.d
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/projects/scrapple/!svn/ver/591/trunk/Serial/XML.d
+END
+test1.d
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/projects/scrapple/!svn/ver/592/trunk/Serial/test1.d
+END
+Marshal.d
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/projects/scrapple/!svn/ver/591/trunk/Serial/Marshal.d
+END
+Serialize.d
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/projects/scrapple/!svn/ver/592/trunk/Serial/Serialize.d
+END
+Common.d
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/projects/scrapple/!svn/ver/591/trunk/Serial/Common.d
+END
+utill.d
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/projects/scrapple/!svn/ver/591/trunk/Serial/utill.d
+END
+StringSourceSink.d
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/projects/scrapple/!svn/ver/587/trunk/Serial/StringSourceSink.d
+END

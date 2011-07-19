@@ -1,0 +1,2 @@
+tar -cS src1/ src2/ | tar -C dest/ -x
+

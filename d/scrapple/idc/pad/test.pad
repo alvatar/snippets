@@ -1,0 +1,32 @@
+area world {
+  default { enter room1; }
+  global player {
+    alias inv=inventory;
+    inventory {
+      default inventory.look;
+      look special_list("You have: $. ", "You don't have anything. ") inventory;
+    }
+  }
+  include "pad/tools.pad";
+  area room1 {
+    onEntry look;
+    look {
+      "It's a room; fairly generic. ";
+      "Experimental exits go <b>north</b>. ";
+    }
+    exit: { alias north=room2; }
+    // # means hidden (i.e. not user accessible)
+    // area means "can't cross this when searching for a name match (for the user, scripts can do what they want)".
+    area #room2 {
+      onEntry look;
+      go { enter room2; }
+      look { "This room is accessible at the moment! Whoa, dood! "; once: "A heavy rumbling is felt, more than heard, from overhead, as dust trickles from a crack in the ceiling. "; }
+    }
+    alias west alexbed;
+    area alexbed {
+      onEntry look;
+      go { enter world.alexbed; }
+      look { "This is Coyo's bedroom! "; }
+    }
+  }
+}

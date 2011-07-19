@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/projects/nova/!svn/ver/8/trunk/nova/ds/graph
+END
+weighted.d
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/projects/nova/!svn/ver/8/trunk/nova/ds/graph/weighted.d
+END
+edgeweighted.d
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/projects/nova/!svn/ver/8/trunk/nova/ds/graph/edgeweighted.d
+END
+nodeweighted.d
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/projects/nova/!svn/ver/8/trunk/nova/ds/graph/nodeweighted.d
+END

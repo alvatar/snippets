@@ -1,0 +1,3 @@
+name=redimple
+[redimple.d]
+buildflags=-g -release

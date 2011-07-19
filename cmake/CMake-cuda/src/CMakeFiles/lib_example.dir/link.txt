@@ -1,0 +1,1 @@
+/usr/bin/c++     -fPIC CMakeFiles/lib_example.dir/main.o  -o lib_example -rdynamic libtest_lib.a /opt/cuda/lib/libcudart.so -Wl,-rpath,/opt/cuda/lib 

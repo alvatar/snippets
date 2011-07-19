@@ -1,0 +1,23 @@
+D syntax highlight for Scintilla
+Copyright 2008 Sergey "SnakE" Gromov
+
+Distributed under the Boost Software License, Version 1.0. (See
+accompanying file LICENSE_1_0.txt or copy at
+http://www.boost.org/LICENSE_1_0.txt)
+
+Feature list:
+
+* Recognizes all kinds of D numbers, including hex floats.
+* Can recognize errors in many numeric literals.
+* Supports all types of D2 strings, including hex strings, delimited 
+strings with nesting delimiters, and heredoc strings.
+* Recognizes escape sequences in strings, character literals and as 
+stand-alone escape strings.
+* Recognizes errors in strings like unsupported or incomplete escape 
+sequences, invalid chars in hex strings, bad chars in heredoc string 
+delimiters, or trailing chars after the end of a delimited string.
+* Supports EOL, stream and nesting comments.
+* Recognizes DDOC comments.
+* Recognizes DDOC section names and macros.
+* Recognizes macros lacking a closing bracket.
+* Supports code folding.

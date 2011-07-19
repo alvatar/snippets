@@ -1,0 +1,6 @@
+ldc -O5 -release -inline -output-bc test_d.d
+
+opt -std-compile-opts scimark2_d.bc > test_do.bc
+
+llvm-ld -native -ltango-base-ldc -ltango-user-ldc -ldl -lm -lpthread -internalize-public-api-list=_Dmain -o=test_do test_do.bc
+

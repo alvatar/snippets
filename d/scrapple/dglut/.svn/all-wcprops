@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/projects/scrapple/!svn/ver/172/trunk/dglut
+END
+dglut_test.d
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/projects/scrapple/!svn/ver/172/trunk/dglut/dglut_test.d
+END
+ext.d
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/projects/scrapple/!svn/ver/172/trunk/dglut/ext.d
+END
+vector.d
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/projects/scrapple/!svn/ver/166/trunk/dglut/vector.d
+END
+opengl.d
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/projects/scrapple/!svn/ver/172/trunk/dglut/opengl.d
+END
+set.d
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/projects/scrapple/!svn/ver/170/trunk/dglut/set.d
+END

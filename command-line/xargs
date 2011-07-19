@@ -1,0 +1,14 @@
+# -0 takes care of spaces in names
+find . -name '*~' -print0 | xargs -0 rm
+
+# Argument placement, the common choice string is "%"
+find . -name '*~' -print 0 | xargs -0 -J % cp % ~/backups
+
+# Breack arguments in 2 per run
+xargs -n 2
+
+# invoke a command for each line of input at a time with -L 1
+git log --format="%H %P" | xargs -L 1 git diff
+
+# Parallel execution
+time echo {1..5} | xargs -n 1 -P 5 sleep

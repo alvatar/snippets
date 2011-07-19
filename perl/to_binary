@@ -1,0 +1,11 @@
+#!/usr/bin/perl
+
+$numArgs = $#ARGV + 1;
+if ($numArgs != 1) {
+    print "Incorrect number of arguments! Quitting\n";
+    exit;
+}
+
+my $hex_string = $ARGV[0];
+my $binary_string = sprintf "%032b", hex( $hex_string );
+print $binary_string . "\n"

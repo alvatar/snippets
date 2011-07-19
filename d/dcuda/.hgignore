@@ -1,0 +1,14 @@
+syntax: glob
+*.o
+*.obj
+*.orig
+*.map
+*.rsp
+*.ksp
+*.log
+*.def
+*.tmp
+*.exe
+*.dll
+*.png
+samples\bin\*

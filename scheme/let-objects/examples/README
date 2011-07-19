@@ -1,0 +1,8 @@
+The Scheme scripts in this directory are ported from examples that come
+with Gauche-gtk, which are ports of the examples from Gtk2.  (The
+original source can be found under the examples directory of Gtk source
+code).
+
+Since the original example code comes with Gtk which is LGPL,
+I assume the ported Scheme code should be also covered by LGPL.
+A copy of LGPL is included in the directory.

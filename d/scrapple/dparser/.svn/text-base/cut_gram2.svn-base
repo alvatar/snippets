@@ -1,0 +1,6 @@
+sed -nf gram.sed \
+		`grep -l bnf ../docsrc/html/*.html | \
+		grep -v -e abi -e asm -e lex -e htod -e traits` \
+	| uniq > gram.inp
+
+#echo ";" >> gram.inp

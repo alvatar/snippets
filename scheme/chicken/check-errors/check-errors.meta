@@ -1,0 +1,20 @@
+;;;; "check-errors.meta  -*- Hen -*-
+
+((egg "check-errors.egg")
+ (category misc)
+ (author "[[kon lovett]]")
+ (license "BSD")
+ (doc-from-wiki)
+ (synopsis "Argument checks, errors & conditions")
+ (needs setup-helper)
+ (test-depends test)
+ (files
+  "tests"
+  "srfi-4-errors.scm"
+  "srfi-4-checks.scm"
+  "type-errors.scm"
+  "chicken-primitive-object-inlines.scm"
+  "type-checks"
+  "inline-type-checks.scm"
+  "conditions.scm"
+  "check-errors.setup") )

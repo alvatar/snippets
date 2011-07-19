@@ -1,0 +1,83 @@
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/projects/scrapple/!svn/ver/24/trunk/bevutils
+END
+date.d
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/projects/scrapple/!svn/ver/20/trunk/bevutils/date.d
+END
+beepservice.exe.config
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/projects/scrapple/!svn/ver/20/trunk/bevutils/beepservice.exe.config
+END
+file.d
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/projects/scrapple/!svn/ver/20/trunk/bevutils/file.d
+END
+bevutils.lib
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/projects/scrapple/!svn/ver/20/trunk/bevutils/bevutils.lib
+END
+EventLogger.d
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/projects/scrapple/!svn/ver/20/trunk/bevutils/EventLogger.d
+END
+PropertyFile.d
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/projects/scrapple/!svn/ver/20/trunk/bevutils/PropertyFile.d
+END
+TinyXML.d
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/projects/scrapple/!svn/ver/20/trunk/bevutils/TinyXML.d
+END
+ServiceImplementation.d
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/projects/scrapple/!svn/ver/20/trunk/bevutils/ServiceImplementation.d
+END
+Log4D.d
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/projects/scrapple/!svn/ver/20/trunk/bevutils/Log4D.d
+END
+readme.txt
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/projects/scrapple/!svn/ver/20/trunk/bevutils/readme.txt
+END
+ServiceBase.d
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/projects/scrapple/!svn/ver/20/trunk/bevutils/ServiceBase.d
+END
+makefile
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/projects/scrapple/!svn/ver/20/trunk/bevutils/makefile
+END
+BeepService.d
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/projects/scrapple/!svn/ver/20/trunk/bevutils/BeepService.d
+END

@@ -1,0 +1,8 @@
+Potential solution to store arbitrary data in a safe manner:
+
+
+mkdir remote_git_raw remote_git
+
+sshfs <data-center>:<path @ datacenter> $PWD/remote_git_raw
+
+encfs $PWD/remote_git_raw $PWD/remote_git

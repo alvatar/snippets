@@ -1,0 +1,14 @@
+;;;; "srfi-45.meta  -*- Hen -*-
+
+((egg "srfi-45.egg")
+ (category lang-exts)
+ (author "[[kon lovett]]")
+ (license "BSD")
+ (doc-from-wiki)
+ (synopsis "Primitives for Expressing Iterative Lazy Algorithms")
+ (needs setup-helper check-errors)
+ (files
+  "tests"
+  "chicken-primitive-object-inlines.scm"
+  "srfi-45.scm"
+  "srfi-45.setup") )

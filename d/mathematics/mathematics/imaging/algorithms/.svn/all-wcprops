@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/projects/mathematics/!svn/ver/9/trunk/mathematics/imaging/algorithms
+END
+Gradient.d
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/projects/mathematics/!svn/ver/5/trunk/mathematics/imaging/algorithms/Gradient.d
+END
+RangeMapImage.d
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/projects/mathematics/!svn/ver/5/trunk/mathematics/imaging/algorithms/RangeMapImage.d
+END
+Convolution.d
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/projects/mathematics/!svn/ver/5/trunk/mathematics/imaging/algorithms/Convolution.d
+END
+Mean.d
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/projects/mathematics/!svn/ver/5/trunk/mathematics/imaging/algorithms/Mean.d
+END
+Correlation.d
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/projects/mathematics/!svn/ver/5/trunk/mathematics/imaging/algorithms/Correlation.d
+END
+NonMaximumSuppression.d
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/projects/mathematics/!svn/ver/5/trunk/mathematics/imaging/algorithms/NonMaximumSuppression.d
+END
+Sobel.d
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/projects/mathematics/!svn/ver/5/trunk/mathematics/imaging/algorithms/Sobel.d
+END
+GaussianMask.d
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/projects/mathematics/!svn/ver/5/trunk/mathematics/imaging/algorithms/GaussianMask.d
+END
+IntegralImage.d
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/projects/mathematics/!svn/ver/9/trunk/mathematics/imaging/algorithms/IntegralImage.d
+END
+makefile
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/projects/mathematics/!svn/ver/5/trunk/mathematics/imaging/algorithms/makefile
+END

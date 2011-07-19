@@ -1,0 +1,7 @@
+name=scrapple-iterators
+defaulttargets=iterators.d
+[iterators.d]
+type=sourcelibrary
+[big.d]
+[sample.d]
+[tests.d]

@@ -1,0 +1,43 @@
+This is a D port of the C library "Tiny Jpeg Decoder" by Luc Saillard.
+Conversion by Tomas Lindquist Olsen (tomas at famolsen.dk)
+
+The original C version is available at:
+http://www.saillard.org/programs_and_patches/tinyjpegdecoder/
+
+The code in this package is based on 20070609 from that address.
+
+While the port is as direct as possible, the 'tinyjpeg_get_errorstring' function returns a D string, not a C string.
+Garbage should be minimal, and most memory is allocated using C's 'malloc', so proper cleanup is important!
+
+Take a look in the original C source for more information.
+
+// Example:
+// Shows how to decode a Jpeg image into a RGB24 buffer.
+
+import tinyjpeg.tinyjpeg;
+
+// init tinyjpeg
+jdec_private* jdec = tinyjpeg_init();
+if (jdec is null)
+    throw new Exception("Not enough memory to initialize JPEG decoder");
+scope(exit) tinyjpeg_free(jdec);
+
+// load file into memory
+scope buffer = std.file.read("image.jpg");
+
+// parse jpeg header
+if (tinyjpeg_parse_header(jdec, buffer.ptr, buffer.length) < 0)
+    throw new Exception("Failed to parse JPEG header: "~tinyjpeg_get_errorstring(jdec));
+
+// get dimensions
+uint w,h;
+tinyjpeg_get_size(jdec, &w, &h);
+
+// decode pixel data
+if (tinyjpeg_decode(jdec, TINYJPEG_FMT_RGB24) < 0)
+    throw new Exception("Failed to decode JPEG: "~tinyjpeg_get_errorstring(jdec));
+
+// copy the pixel data
+ubyte*[3] components;
+tinyjpeg_get_components(jdec, components.ptr);
+ubyte[] pixels = components[0][0..w*h*3].dup;

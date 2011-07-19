@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/people/abe/!svn/ver/717/code/CMake-cuda/src
+END
+external_dependency.h
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/people/abe/!svn/ver/141/code/CMake-cuda/src/external_dependency.h
+END
+main.cc
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/people/abe/!svn/ver/141/code/CMake-cuda/src/main.cc
+END
+test_lib.cu
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/people/abe/!svn/ver/490/code/CMake-cuda/src/test_lib.cu
+END
+CMakeLists.txt
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/people/abe/!svn/ver/717/code/CMake-cuda/src/CMakeLists.txt
+END
+test_bin.cu
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/people/abe/!svn/ver/490/code/CMake-cuda/src/test_bin.cu
+END

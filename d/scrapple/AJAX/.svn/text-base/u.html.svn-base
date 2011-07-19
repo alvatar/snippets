@@ -1,0 +1,16 @@
+<html>
+<head>
+<script src='/script/request.js'></script>
+<script src='/cgi-bin/echo' language="javascript"></script>
+</head>
+<body>
+
+<FORM name ="F">
+<TEXTAREA NAME="b" ROWS="4" COLS="60"></TEXTAREA><br/>
+<INPUT value="4"     TYPE="button" onClick='document.forms["F"].elements["b"].value = Foo_Proxy.bar(1,"bob");'><br/>
+<INPUT value="hello" TYPE="button" onClick='document.forms["F"].elements["b"].value = Foo_Proxy.pig(1.3);'><br/>
+<INPUT value="13"    TYPE="button" onClick='document.forms["F"].elements["b"].value = Foo_Proxy.cat(1,3);'><br/>
+</FORM>
+
+</body>
+</html>

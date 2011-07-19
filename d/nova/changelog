@@ -1,0 +1,13 @@
+Date        Version  Remarks
+---------------------------------------------------------------------------------------
+
+2007/10/10           fixed bitio classes and
+                     added huffman encoder/decoder templates
+
+2007/09/28           switched from phobos to tango
+
+2007/09/22           moved to linux, cleanup
+
+2006/05/16           Initial version committed to SVN
+
+2006/05/01           Started project on dsource.org

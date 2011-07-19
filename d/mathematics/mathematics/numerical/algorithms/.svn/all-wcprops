@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/projects/mathematics/!svn/ver/10/trunk/mathematics/numerical/algorithms
+END
+LuDecomposition.d
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/projects/mathematics/!svn/ver/10/trunk/mathematics/numerical/algorithms/LuDecomposition.d
+END
+CholeskyDecomposition.d
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/projects/mathematics/!svn/ver/5/trunk/mathematics/numerical/algorithms/CholeskyDecomposition.d
+END
+SingularValueDecomposition.d
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/projects/mathematics/!svn/ver/10/trunk/mathematics/numerical/algorithms/SingularValueDecomposition.d
+END
+QrDecomposition.d
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/projects/mathematics/!svn/ver/5/trunk/mathematics/numerical/algorithms/QrDecomposition.d
+END
+QMatrix.d
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/projects/mathematics/!svn/ver/5/trunk/mathematics/numerical/algorithms/QMatrix.d
+END
+lapack.txt
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/projects/mathematics/!svn/ver/5/trunk/mathematics/numerical/algorithms/lapack.txt
+END
+Determinant.d
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/projects/mathematics/!svn/ver/9/trunk/mathematics/numerical/algorithms/Determinant.d
+END
+SpectralDecomposition.d
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/projects/mathematics/!svn/ver/5/trunk/mathematics/numerical/algorithms/SpectralDecomposition.d
+END
+PseudoInverse.d
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/projects/mathematics/!svn/ver/5/trunk/mathematics/numerical/algorithms/PseudoInverse.d
+END
+lapack.d
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/projects/mathematics/!svn/ver/5/trunk/mathematics/numerical/algorithms/lapack.d
+END
+makefile
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/projects/mathematics/!svn/ver/5/trunk/mathematics/numerical/algorithms/makefile
+END

@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/projects/nova/!svn/ver/11/trunk/nova/compression
+END
+huffman.d
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/projects/nova/!svn/ver/11/trunk/nova/compression/huffman.d
+END
+bitio.d
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/projects/nova/!svn/ver/11/trunk/nova/compression/bitio.d
+END

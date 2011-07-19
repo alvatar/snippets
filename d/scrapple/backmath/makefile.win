@@ -1,0 +1,20 @@
+CL=gcl
+
+all : backmath
+
+tooling :
+	$(CL) < do.lisp
+
+clean :
+	rm -f \
+	gen_log.txt \
+	backmath backmath.o generated_rules.d \
+
+backmath : backmath.o
+	dmd backmath.o -unittest -version=Verbose
+
+backmath.o : backmath.d generated_rules.d
+	dmd -c backmath.d -J.
+
+generated_rules.d : gen_code_for_template.lisp generate_case.lisp meta.lisp rule_sorting.lisp string_stuff.lisp
+	type gen_code_for_template.lisp | $(CL) > gen_log.txt

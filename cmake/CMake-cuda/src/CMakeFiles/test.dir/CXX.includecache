@@ -1,0 +1,12 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/alvaro/CMake-cuda/src/cuda/test_bin.cu_test_generated.cpp
+
+/home/alvaro/CMake-cuda/src/main.cc
+

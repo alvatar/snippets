@@ -1,0 +1,111 @@
+#
+# B2Tween-HAL CMakeLists.txt v0.1
+# Álvaro Castro Castilla
+#
+
+#--------------------------------------------------------------------------------------------------
+# 1. Set project and sources
+#--------------------------------------------------------------------------------------------------
+
+set( PROJECT
+
+    B2Tween-HAL
+
+    )
+
+set( INCLUDE_DIRS
+
+
+
+    )
+
+set( EXTERNAL_INCLUDE_DIRS
+
+    )
+
+set( SOURCES
+
+    main.cpp
+
+    )
+
+set( QOBJECT_HEADERS
+
+    )
+
+project( ${PROJECT} )
+
+#--------------------------------------------------------------------------------------------------
+# 2. Process sources paths
+#--------------------------------------------------------------------------------------------------
+
+foreach( relative_path ${INCLUDE_DIRS} )
+    list( APPEND INCLUDE_DIRS_ABS ${CMAKE_SOURCE_DIR}/../inc/${relative_path} )
+endforeach( relative_path ${INCLUDE_DIRS} )
+
+foreach( relative_path ${SOURCES} )
+    list( APPEND SOURCES_ABS ${CMAKE_SOURCE_DIR}/../src/${relative_path} )
+endforeach( relative_path ${SOURCES} )
+
+foreach( relative_path ${QOBJECT_HEADERS} )
+    list( APPEND QOBJECT_HEADERS_ABS ${CMAKE_SOURCE_DIR}/../inc/${relative_path} )
+endforeach( relative_path ${QOBJECT_HEADERS} )
+
+#--------------------------------------------------------------------------------------------------
+# 3. Find libraries and system-dependent paths
+#--------------------------------------------------------------------------------------------------
+
+include( FindQt4 REQUIRED )
+include(${QT_USE_FILE})
+
+#--------------------------------------------------------------------------------------------------
+# 4. Library specific-tasks
+#--------------------------------------------------------------------------------------------------
+
+QT4_WRAP_CPP( MOCS ${QOBJECT_HEADERS_ABS} )
+
+#--------------------------------------------------------------------------------------------------
+# 5. Append compiler defines and flags
+#--------------------------------------------------------------------------------------------------
+
+set( CMAKE_CXX_FLAGS "-pipe -g -IOgre -DOGRE_GUI_gtk -DOGRE_THREAD_SUPPORT -DOGRE_NO_FREEIMAGE -DOGRE_CONFIG_LITTLE_ENDIAN -I/usr/include/OGRE -w -D_REENTRANT" )
+
+include_directories( ${INCLUDE_DIRS_ABS} )
+
+add_definitions( ${QT_DEFINITIONS} )
+
+#--------------------------------------------------------------------------------------------------
+# 6. Append linker flags and libraries
+#--------------------------------------------------------------------------------------------------
+
+link_libraries( OgreMain )
+link_libraries( ${QT_QTMAIN_LIBRARY} )
+link_libraries( ${QT_QTCORE_LIBRARY} )
+link_libraries( ${QT_QTGUI_LIBRARY} )
+link_libraries( ${QT_QTOPENGL_LIBRARY} )
+link_libraries( png SM ICE Xrender Xrandr Xfixes Xcursor freetype fontconfig Xext X11 z m rt pthread dl )
+
+##################################################################################
+# VTK
+##################################################################################
+include ( FindVTK )
+include_directories( ${VTK_INCLUDE_DIRS} )
+link_directories( ${VTK_LIBRARY_DIRS} )
+link_libraries(
+				QVTK
+                vtkCommon
+                vtkFiltering
+                vtkGenericFiltering
+                vtkGraphics
+                vtkIO
+                vtkImaging
+                vtkRendering
+				vtkWidgets
+                )
+
+#--------------------------------------------------------------------------------------------------
+# 7. Make targets
+#--------------------------------------------------------------------------------------------------
+
+add_executable( ${PROJECT} ${SOURCES_ABS} ${MOCS} )
+install( TARGETS ${PROJECT} DESTINATION ${CMAKE_SOURCE_DIR}/../bin )

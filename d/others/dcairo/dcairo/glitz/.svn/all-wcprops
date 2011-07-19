@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/projects/bindings/!svn/ver/179/trunk/cairo/cairo/glitz
+END
+cairofuncs_glitz.d
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/projects/bindings/!svn/ver/119/trunk/cairo/cairo/glitz/cairofuncs_glitz.d
+END
+cairo_glitz.d
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/projects/bindings/!svn/ver/179/trunk/cairo/cairo/glitz/cairo_glitz.d
+END
+cairotypes_glitz.d
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/projects/bindings/!svn/ver/179/trunk/cairo/cairo/glitz/cairotypes_glitz.d
+END

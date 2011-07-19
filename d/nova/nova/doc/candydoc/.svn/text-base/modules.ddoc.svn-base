@@ -1,0 +1,9 @@
+MODULES = 
+	$(MODULE nova.ds.intrusive.aggregate)
+	$(MODULE nova.ds.intrusive.doublelink)
+	$(MODULE nova.ds.intrusive.doublelinkedlist)
+	$(MODULE nova.ds.intrusive.redblacktree)
+	$(MODULE nova.ds.intrusive.singlelinkedlist)
+	$(MODULE nova.math.matrix)
+	$(MODULE nova.math.optimization.partitionedbooleanquadric)
+	$(MODULE nova.ds.graph.weighted)

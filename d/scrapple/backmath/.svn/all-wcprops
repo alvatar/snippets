@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/projects/scrapple/!svn/ver/179/trunk/backmath
+END
+rule_sorting.lisp
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/projects/scrapple/!svn/ver/173/trunk/backmath/rule_sorting.lisp
+END
+string_stuff.lisp
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/projects/scrapple/!svn/ver/174/trunk/backmath/string_stuff.lisp
+END
+do.lisp
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/projects/scrapple/!svn/ver/176/trunk/backmath/do.lisp
+END
+makefile.win
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/projects/scrapple/!svn/ver/178/trunk/backmath/makefile.win
+END
+gen_code_for_template.lisp
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/projects/scrapple/!svn/ver/176/trunk/backmath/gen_code_for_template.lisp
+END
+generated_rules.d
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/projects/scrapple/!svn/ver/178/trunk/backmath/generated_rules.d
+END
+generate_case.lisp
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/projects/scrapple/!svn/ver/175/trunk/backmath/generate_case.lisp
+END
+makefile.linux
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/projects/scrapple/!svn/ver/179/trunk/backmath/makefile.linux
+END
+backmath.d
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/projects/scrapple/!svn/ver/177/trunk/backmath/backmath.d
+END
+meta.lisp
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/projects/scrapple/!svn/ver/177/trunk/backmath/meta.lisp
+END

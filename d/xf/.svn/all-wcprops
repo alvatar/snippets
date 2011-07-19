@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 24
+/svn/lich/!svn/ver/34/xf
+END
+.hgignore
+K 25
+svn:wc:ra_dav:version-url
+V 33
+/svn/lich/!svn/ver/1/xf/.hgignore
+END
+redimple.exe
+K 25
+svn:wc:ra_dav:version-url
+V 36
+/svn/lich/!svn/ver/1/xf/redimple.exe
+END
+statusAll.bat
+K 25
+svn:wc:ra_dav:version-url
+V 37
+/svn/lich/!svn/ver/1/xf/statusAll.bat
+END
+redimpleNucled.bat
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/lich/!svn/ver/38/xf/redimpleNucled.bat
+END
+updateAll.sh
+K 25
+svn:wc:ra_dav:version-url
+V 36
+/svn/lich/!svn/ver/1/xf/updateAll.sh
+END
+redimpleClient.bat
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/lich/!svn/ver/1/xf/redimpleClient.bat
+END
+redimpleNucleus.bat
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/lich/!svn/ver/18/xf/redimpleNucleus.bat
+END
+redimpleLich.bat
+K 25
+svn:wc:ra_dav:version-url
+V 40
+/svn/lich/!svn/ver/1/xf/redimpleLich.bat
+END
+hme.ms
+K 25
+svn:wc:ra_dav:version-url
+V 31
+/svn/lich/!svn/ver/36/xf/hme.ms
+END
+redimpleHybrid.bat
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/lich/!svn/ver/18/xf/redimpleHybrid.bat
+END
+redimpleServer.bat
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/lich/!svn/ver/1/xf/redimpleServer.bat
+END

@@ -1,0 +1,382 @@
+This file contains an annotated commentary on a script produced by the new_script
+program.  This particular script, called sample_script was produced by the new_script
+program running in interactive mode (the "-i" option).  Two command line options were
+specified, "-a" and "-b".  A required argument was specified for the first option.
+
+Line 1 specifies which program is used to interpret this script.  This is a standard
+feature in shell scripts, as well as, other interpreted languages such as perl, awk,
+tcl, etc.
+
+     1	#!/bin/bash
+     2	
+
+The comment header begins on line 3.  This is were we get to tell the world about our
+script.  While most books on scripting suggest that scripts are short, quick and
+dirty forms of programming, I believe scripts often become important parts of
+production systems and need to be written in a professional manner.  What this really
+boils down to is that it must support the next poor person that is forced to maintain
+it.  To help him or her with this task, good documentation is vital.  Since very few people
+write manuals for scripts, scripts must incorporate their own documentation with
+comments.
+
+     3	#	-------------------------------------------------------------------
+     4	#
+     5	#	Shell program to demonstrate the output of new_script.
+     6	#
+     7	#	Copyright 2002, William Shotts <bshotts@users.sourceforge.net>.
+     8	#
+     9	#	This program is free software; you can redistribute it and/or
+    10	#	modify it under the terms of the GNU General Public License as
+    11	#	published by the Free Software Foundation; either version 2 of the
+    12	#	License, or (at your option) any later version. 
+    13	#
+    14	#	This program is distributed in the hope that it will be useful, but
+    15	#	WITHOUT ANY WARRANTY; without even the implied warranty of
+    16	#	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+    17	#	General Public License for more details.
+    18	#
+
+At line 19, an area is provided to describe what the script does and how it does it.
+You should always spend some time and write a clear description of your script.  You
+will thank yourself later.
+
+
+    19	#	Description:
+    20	#
+    21	#
+    22	#
+
+The usage description comes next.  This is created automaticly by new_script.  All
+scripts created by new_script provide the "-h" and "--help" options for help text.
+You will enjoy this feature six months after you write the script and forget what it
+does.  Note that support for -h and --help makes your scripts compatible with other
+command line utilities from the GNU project.
+
+    23	#	Usage:
+    24	#
+    25	#		sample_script [ -h | --help ] [-a argument] [-b]
+    26	#
+    27	#	Options:
+    28	#
+    29	#		-h, --help	Display this help message and exit.
+    30	#		-a  argument    example of an option that requires an argument
+    31	#		-b              example of an option that requires no argument
+    32	#
+    33	#
+
+Lastly is the revision history.  You should update this each time you modify the
+script.
+
+    34	#	Revision History:
+    35	#
+    36	#	02/10/2002	File created by new_script ver. 2.1.0
+    37	#
+    38	#	-------------------------------------------------------------------
+    39
+    40
+
+At line 41 we begin to define our program's constants.  The new_script program
+provides a couple of useful ones.  PROGNAME is the name of your program.  This is
+calculated by obtaining the name used to invoke your program on the command line
+(positional parameter 0) and stripping off any leading path name.
+
+Next comes the constant VERSION which you should edit to contain the current version
+of your program.  If you use CVS to provide version control of your source code, you
+can replace "0.0.1" with "$Revision$" and CVS will maintain this for you.
+
+    41	#	-------------------------------------------------------------------
+    42	#	Constants
+    43	#	-------------------------------------------------------------------
+    44	
+    45		PROGNAME=$(basename $0)
+    46		VERSION="0.0.1"
+    47	
+    48	
+    49	
+
+The next section of our script contains a set of standard functions that appear in
+all scripts produced by new_script.
+
+    50	#	-------------------------------------------------------------------
+    51	#	Functions
+    52	#	-------------------------------------------------------------------
+    53	
+    54	
+
+The first function is clean_up.  This function is called when the script exits.  Its
+purpose is to make sure that no mess (like temporary files) is left behind.  You will
+need to edit this function to make sure that gets rid of of whatever your script creates.
+Note that this function is called by all the functions that cause the script to exit,
+including error exits.
+
+    55	function clean_up
+    56	{
+    57	
+    58	#	-----------------------------------------------------------------------
+    59	#	Function to remove temporary files and other housekeeping
+    60	#		No arguments
+    61	#	-----------------------------------------------------------------------
+    62	
+    63		rm -f ${TEMP_FILE1}
+    64	}
+    65	
+    66	
+
+You should test for the successful execution of commands in your scripts.  If an
+error occurs you should call error_exit to display an error message and exit your
+script with a non-zero return code.  A typical use of error_exit would be:
+
+	some_command || error_exit "some_command failed!"
+
+In the example above, if some_command executes and returns a zero return code,
+nothing more happens.  However if some_command executes and returns a non-zero return
+code (indicating an error) error_exit is called and passed the error message
+"some_command failed!" to display.
+
+    67	function error_exit
+    68	{
+    69	
+    70	#	-----------------------------------------------------------------------
+    71	#	Function for exit due to fatal program error
+    72	#		Accepts 1 argument:
+    73	#			string containing descriptive error message
+    74	#	-----------------------------------------------------------------------
+    75	
+    76	
+    77		echo "${PROGNAME}: ${1:-"Unknown Error"}" >&2
+    78		clean_up
+    79		exit 1
+    80	}
+    81	
+    82	
+
+The graceful_exit function is called if the script exits normally.
+
+    83	function graceful_exit
+    84	{
+    85	
+    86	#	-----------------------------------------------------------------------
+    87	#	Function called for a graceful exit
+    88	#		No arguments
+    89	#	-----------------------------------------------------------------------
+    90	
+    91		clean_up
+    92		exit
+    93	}
+    94	
+    95	
+
+The next function, signal_exit is a special exit routine that is called by the
+"trap" commands in lines 202 and 203.
+
+Imagine that your script is going along its merry way and the system administrator
+decides to reboot your machine.  During the shutdown process, all processes are sent
+a TERM signal which is to alert them that they are going to be killed.  The trap
+command listens for signals and will execute a specified command if a signal is
+detected.  new_script creates a function to handle the HUP (hang-up), TERM (terminate),
+and INT (interrupted, i.e. the user pressed control-c) signals.  This will make sure
+that the script will always clean up before it exits.
+
+    96	function signal_exit
+    97	{
+    98
+    99	#	-----------------------------------------------------------------------
+   100	#	Function to handle termination signals
+   101	#		Accepts 1 argument:
+   102	#			signal_spec
+   103	#	-----------------------------------------------------------------------
+   104
+   105		case $1 in
+   106			INT)	echo "$PROGNAME: Program aborted by user" >&2
+   107				clean_up
+   108				exit
+   109				;;
+   110			TERM)	echo "$PROGNAME: Program terminated" >&2
+   111				clean_up
+   112				exit
+   113				;;
+   114			*)	error_exit "$PROGNAME: Terminating on unknown signal"
+   115				;;
+   116		esac
+   117	}
+   118
+   119
+
+The make_temp_files function creates any temporary files that script will need.  This
+function is included to demonstrate good practice in creating temporary files.
+
+Traditionally, temporary files are created in the /tmp directory but modern practice
+prefers using ~/tmp (a tmp directory created in the users home directory) for reasons
+of security.  It is also important to make temporary files names unpredictable.
+
+   120	function make_temp_files
+   121	{
+   122
+   123	#	-----------------------------------------------------------------------
+   124	#	Function to create temporary files
+   125	#		No arguments
+   126	#	-----------------------------------------------------------------------
+   127
+   128		# Use user's local tmp directory if it exists
+   129
+   130		if [ -d ~/tmp ]; then
+   131			TEMP_DIR=~/tmp
+   132		else
+   133			TEMP_DIR=/tmp
+   134		fi
+   135
+   136		# Temp file for this script, using paranoid method of creation to
+   137		# insure that file name is not predictable.  This is for security to
+   138		# avoid "tmp race" attacks.  If more files are needed, create using
+   139		# the same form.
+   140
+   141		TEMP_FILE1=$(mktemp -q "${TEMP_DIR}/${PROGNAME}.$$.XXXXXX")
+   142		if [ "$TEMP_FILE1" = "" ]; then
+   143			error_exit "cannot create temp file!"
+   144		fi
+   145	}
+   146
+   147
+
+The last two functions are usage and helptext.  These functions are used to display
+help messages.  Typically, these functions are used when something erroneous is typed
+on your script's command line.
+
+   148	function usage
+   149	{
+   150
+   151	#	-----------------------------------------------------------------------
+   152	#	Function to display usage message (does not exit)
+   153	#		No arguments
+   154	#	-----------------------------------------------------------------------
+   155
+   156		echo "Usage: ${PROGNAME} [-h | --help] [-a argument] [-b]"
+   157	}
+   158
+   159
+
+The helptext function contains several interesting features.  First you will notice
+that the output of the function is the result of what is called a "here script"
+starting on line 170 and ending on line 185.  It includes everything between the
+"-EOF-" tokens.  This particular "here script" is invoked with "<<-".  The trailing
+"-" character indicates that leading white space on each line is to be ignored
+during output.  This allows the pretty indentation in the script to be maintained.
+However this introduces a problem if you want to have a multi-line description of an
+option or argument.  The local variable "tab" is created (on line 168) to work
+around this.  If you want to have a multi-line description, you should construct it
+as follows:
+
+	Options:
+
+	-h, --help	Display this help message and exit.
+	-a              Example option without an argument
+	-b  argument    Example option that requires an argument and a
+			${tab}explanation so long that it needs more
+			${tab}than one line.
+
+The next interesting thing is on line 175.  Notice the function "usage" is called.
+In a "here script" variables are still expanded into their values.  The results of a
+command can be treated like a variable by enclosing the name of a command inside a $()
+construct.
+
+   160	function helptext
+   161	{
+   162
+   163	#	-----------------------------------------------------------------------
+   164	#	Function to display help message for program
+   165	#		No arguments
+   166	#	-----------------------------------------------------------------------
+   167	
+   168		local tab=$(echo -en "\t\t")
+   169	
+   170		cat <<- -EOF-
+   171	
+   172		${PROGNAME} ver. ${VERSION}
+   173		This is a program to demonstrate the output of new_script.
+   174	
+   175		$(usage)
+   176	
+   177		Options:
+   178	
+   179		-h, --help	Display this help message and exit.
+   180		-a  argument    example of an option that requires an argument
+   181		-b              example of an option that requires no argument
+   182	
+   183		
+   184		
+   185	-EOF-
+   186	}
+   187	
+   188	
+
+OK, enough with the preliminaries.  Here is the body of the program.  You will see
+that we get right to work setting our traps and then we process the command line
+arguments and options.
+
+   189	#	-------------------------------------------------------------------
+   190	#	Program starts here
+   191	#	-------------------------------------------------------------------
+   192	
+   193	##### Initialization And Setup #####
+   194	
+   195	# Set file creation mask so that all files are created with 600 permissions.
+   196	
+   197	umask 066
+   198	
+   199	
+   200	# Trap TERM, HUP, and INT signals and properly exit
+   201	
+   202	trap "signal_exit TERM" TERM HUP
+   203	trap "signal_exit INT"  INT
+   204	
+   205	# Create temporary file(s)
+   206	
+   207	make_temp_files
+   208	
+   209
+
+The first thing we look for on the command line is the possible presence of the
+"--help" option.
+
+   210	##### Command Line Processing #####
+   211	
+   212	if [ "$1" = "--help" ]; then
+   213		helptext
+   214		graceful_exit
+   215	fi
+   216	
+
+For the rest of the possible command line options and arguments we use "getopts"
+which is a cool automatic way of parsing the command line.  Basically you set up a
+loop with "while" and keep calling getopts with the list of options.  Next you test
+to see which option was detected and act on it.
+
+   217	while getopts ":ha:b" opt; do
+   218		case $opt in
+
+Though new_script is not yet smart enough to handle it, you should get the value of
+the option's argument (put in the variable $OPTARG by getopts) and test it for
+validity.
+
+   219			a )	echo "example of an option the requires an argument - argument = $OPTARG" ;;
+   220			b )	echo "example of an option that requires no argument" ;;
+   221			h )	helptext
+   222				graceful_exit ;;
+   223			* )	usage
+   224				clean_up
+   225				exit 1
+   226		esac
+   227	done
+   228	
+   229	
+
+Now that the command line has been dealt with, the main logic of your script should go
+here.  That's your job.
+
+   230	##### Main Logic #####
+   231	
+
+Finally, we are done.  The only thing left to do is exit gracefully.
+
+   232	graceful_exit
+   233	

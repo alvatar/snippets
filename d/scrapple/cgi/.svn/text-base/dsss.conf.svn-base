@@ -1,0 +1,3 @@
+name=scrapple-cgi
+[cgi.d]
+type=sourcelibrary

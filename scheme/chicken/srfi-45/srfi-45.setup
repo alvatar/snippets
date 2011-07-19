@@ -1,0 +1,11 @@
+;;;; "srfi-45.setup  -*- Hen -*-
+
+(include "setup-helper")
+
+(verify-extension-name "srfi-45")
+
+(setup-shared-extension-module (extension-name) (extension-version "3.0.0")
+  #:compile-options '(-optimize-level 3
+                      -disable-interrupts
+                      -fixnum-arithmetic
+                      -no-procedure-checks))

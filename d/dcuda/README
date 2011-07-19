@@ -1,0 +1,15 @@
+
+For cutil you need custom DLLs.
+	Build instruction:
+		In cutil.h you need change:
+		    #define CUTIL_API __stdcall
+		to:
+			#define CUTIL_API __cdecl
+	or you can download all DLLs from:
+		http://gruby.team0xf.com/dcudaBin.7z
+		or
+		from 'bin' directory in http://team0xf.com:8080/gruby/
+
+Known issues:
+	- Missing cutGetCmdLineArgumentListstr and cutWriteFiled in cutil DLLs.
+	- Artifacts on titlebar in sampleGL.

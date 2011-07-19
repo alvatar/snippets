@@ -1,0 +1,41 @@
+import "themes/default.cfg"
+
+new FramedTopLevelWindow .wnd {
+	frame.text = "xfProf v0.1";
+	
+	[hfill hexpand vfill vexpand] new VBox .main {
+		layout = {
+			padding = 5 5;
+			spacing = 5;
+		}
+		
+		threadTabs;
+		
+		[hexpand hfill] new Group {
+			style.normal = {
+				background = solid(rgb(0.2, 0.2, 0.2));
+				border = 1 rgb(.118, .118, .118);
+			}
+			
+			layout = {
+				padding = 5 5;
+			}
+
+			[hexpand hfill vexpand vfill] new ClipView {
+				style.normal	= { border = 1 rgb(.5, .5, .5); }
+				layout			= { padding = 1 1; }
+				useChildSize	= 1;
+				
+				size = 0 150;
+				
+				[hexpand hfill vexpand vfill] new SciEditor codeSci {
+					size = 0 150;
+				}
+			}
+		}
+	}
+} @overlay {
+	[hexpand vexpand hfill vfill] new Group .overlay {
+		layout = Ghost;
+	}
+}

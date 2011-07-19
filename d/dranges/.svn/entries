@@ -1,0 +1,74 @@
+10
+
+dir
+72
+http://svn.dsource.org/projects/dranges/trunk
+http://svn.dsource.org/projects/dranges
+
+
+
+2010-06-02T22:42:26.352183Z
+72
+Philippe Sigaud
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+03fcf2af-b1a7-462d-9739-22f0f80737d1
+
+
+
+
+
+
+
+
+((conflict functional2.d file update deleted edited (version http://svn.dsource.org/projects/dranges 2 41 trunk/functional2.d file) (version http://svn.dsource.org/projects/dranges 2 72 trunk/functional2.d none)))
+
+dranges
+dir
+
+functional2.d
+file
+41
+
+
+add
+2010-01-01T01:17:01.000000Z
+56b453023a2032ef9fc68436d1d2bdc6
+2009-12-21T20:13:59.346350Z
+27
+Philippe Sigaud
+has-props
+
+
+
+
+
+
+
+copied
+http://svn.dsource.org/projects/dranges/trunk/functional2.d
+41
+
+
+
+
+
+
+
+
+
+
+19900
+

@@ -1,0 +1,80 @@
+/////////////////////////// Gaussian White noise
+
+/* Include requisits */
+#include <cstdlib>
+#include <ctime>
+
+/* Generate a new random seed from system time - do this once in your constructor */
+srand(time(0));
+
+/* Setup constants */
+const static int q = 15;
+const static float c1 = (1 << q) - 1;
+const static float c2 = ((int)(c1 / 3)) + 1;
+const static float c3 = 1.f / c1;
+
+/* random number in range 0 - 1 not including 1 */
+float random = 0.f;
+
+/* the white noise */
+float noise = 0.f;
+
+for (int i = 0; i < numSamples; i++)
+{
+	random = ((float)rand() / (float)(RAND_MAX + 1));
+	noise = (2.f * ((random * c2) + (random * c2) + (random * c2)) - 3.f * (c2 - 1.f)) * c3;
+}
+
+
+
+
+/////////////////////////// White noise
+
+float g_fScale = 2.0f / 0xffffffff;
+int g_x1 = 0x67452301;
+int g_x2 = 0xefcdab89;
+
+void whitenoise(
+		float* _fpDstBuffer, // Pointer to buffer
+		unsigned int _uiBufferSize, // Size of buffer
+		float _fLevel ) // Noiselevel (0.0 ... 1.0)
+{
+	_fLevel *= g_fScale;
+
+	while( _uiBufferSize-- )
+	{
+		g_x1 ^= g_x2;
+		*_fpDstBuffer++ = g_x2 * _fLevel;
+		g_x2 += g_x1;
+	}
+}
+
+
+/////////////////////////// Gaussian White noise
+
+#define ranf() ((float) rand() / (float) RAND_MAX)
+
+float ranfGauss (int m, float s)
+{
+   static int pass = 0;
+   static float y2;
+   float x1, x2, w, y1;
+
+   if (pass)
+   {
+      y1 = y2;
+   } else  {
+      do {
+         x1 = 2.0f * ranf () - 1.0f;
+         x2 = 2.0f * ranf () - 1.0f;
+         w = x1 * x1 + x2 * x2;
+      } while (w >= 1.0f);
+
+      w = (float)sqrt (-2.0 * log (w) / w);
+      y1 = x1 * w;
+      y2 = x2 * w;
+   }
+   pass = !pass;
+
+   return ( (y1 * s + (float) m));
+}

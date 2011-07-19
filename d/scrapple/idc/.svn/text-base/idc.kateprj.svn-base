@@ -1,0 +1,6 @@
+<prj name="idc">
+<file name="dice.d" url="dice.d" active="0"/>
+<file name="idc.d" url="idc.d" active="0"/>
+<file name="irc.d" url="irc.d" active="0"/>
+<file name="vars.d" url="vars.d" active="0"/>
+</prj>

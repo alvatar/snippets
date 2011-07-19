@@ -1,0 +1,15 @@
+;;;; "combinators.meta  -*- Hen -*-
+
+((egg "combinators.egg")
+ (category data)
+ (author "[[kon lovett]]")
+ (license "Public Domain")
+ (doc-from-wiki)
+ (synopsis "Combinators")
+ (needs setup-helper)
+ (files
+  "tests"
+  "logical-combinators.scm"
+  "sort-combinators.scm"
+  "stack-combinators.scm"
+  "combinators.setup") )

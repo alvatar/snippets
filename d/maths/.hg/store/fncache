@@ -1,0 +1,14 @@
+data/.hgignore.i
+data/AABB.d.i
+data/Bezier.d.i
+data/CoordSys.d.i
+data/Fixed.d.i
+data/LinearAlgebra.d.i
+data/Matrix.d.i
+data/Misc.d.i
+data/NormalQuantizer.d.i
+data/Plane.d.i
+data/Quat.d.i
+data/Stats.d.i
+data/Vec.d.i
+data/dsss.conf.i

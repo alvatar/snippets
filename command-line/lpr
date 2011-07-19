@@ -1,0 +1,18 @@
+# Printing some pages of a document:
+lpr -o page-ranges=1-4,7,9-12
+lpr -o page-set=odd
+lpr -o page-set=even
+# Printing pages in reverse order:
+lpr -o outputorder=reverse
+# Printing more than one page to a sheet:
+lpr -o number-up=1
+lpr -o number-up=2
+lpr -o number-up=4
+lpr -o number-up=16
+# There are all sorts of other options (see the CUPS manual mentioned below - if you have CUPS). You would combine options like this:
+lpr -P hp -o page-ranges=1,3-9 outputorder=reverse number-up=2
+# Draft quality and reverse order
+lpr -P HP -o outputorder=reverse -o Quality=300DraftGrayscaleK
+
+# Print and delete the output of a program automatically
+while true; do if [ -f output.ps ]; then lpr -P HP -o outputorder=reverse -o Quality=300DraftGrayscaleK output.ps && rm output.ps && echo "Printed"; fi; done

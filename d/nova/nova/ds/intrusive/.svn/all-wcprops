@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/projects/nova/!svn/ver/8/trunk/nova/ds/intrusive
+END
+doublelinkedlist.d
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/projects/nova/!svn/ver/8/trunk/nova/ds/intrusive/doublelinkedlist.d
+END
+singlelinkedlist.d
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/projects/nova/!svn/ver/8/trunk/nova/ds/intrusive/singlelinkedlist.d
+END
+aggregate.d
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/projects/nova/!svn/ver/8/trunk/nova/ds/intrusive/aggregate.d
+END
+redblacktree.d
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/projects/nova/!svn/ver/8/trunk/nova/ds/intrusive/redblacktree.d
+END
+doublelink.d
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/projects/nova/!svn/ver/8/trunk/nova/ds/intrusive/doublelink.d
+END
+singlelinkedring.d
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/projects/nova/!svn/ver/8/trunk/nova/ds/intrusive/singlelinkedring.d
+END

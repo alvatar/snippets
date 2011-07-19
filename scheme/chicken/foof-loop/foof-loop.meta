@@ -1,0 +1,8 @@
+((author "Taylor R Campbell; test suite by Peter Danenberg")
+ (synopsis "Extensible looping macros (originally based on Alex Shinn's)")
+ (egg "foof-loop.egg")
+ (files "foof-loop.scm" "foof-loop.html" "foof-loop.setup" "tests/run.scm" "tests/read.txt")
+ (test-depends test #;streams)
+ (license "Public Domain")
+ (doc-from-wiki)
+ (category lang-exts))

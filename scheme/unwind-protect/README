@@ -1,0 +1,47 @@
+Description of the up4scm.tar distribution
+Dorai Sitaram
+
+This is an implementation of call/cc-e and call/cc-l,
+which are described fully in the paper, "Unwind-protect
+in portable Scheme", in _Proceedings of the Fourth
+Workshop on Scheme and Functional Programming_, 2003.
+The web version of this paper is at
+
+ http://www.ccs.neu.edu/~dorai/uwcallcc/uwcallcc.html 
+
+Slides for the presentation of this paper are available
+at
+
+http://www.ccs.neu.edu/~dorai/scheme2003/uwtalk/uwtlak.html
+
+The file callcc-e.scm contains the implementation of
+call/cc-e.  The file callcc-l.scm contains call/cc-l.
+
+callcc-e.scm and callcc-l.scm both make use of the same
+trio of helper files.  These are respectively:
+let-fluid.scm, delq.scm and up-syn.scm.
+
+I have made callcc-[el].scm load these helper files
+using the R5RS procedure "load".  Which means things
+will work if you load callcc-[el].scm while being in
+this directory but not from elsewhere.
+
+A better solution would have been to replace "load" by
+load-relative, but the latter is not R5RS, and is
+available only in PLT Scheme.  However there are
+obvious ways to get the same behavior in other
+dialects.
+
+Two test files, callcc-e-test.scm and
+callcc-l-test.scm, are provided.  They test callcc-e and
+callcc-l respectively.  These also use "load" where
+load-relative would have been nice.
+
+The tests are minimal.  I only had them around to
+ensure that I didn't introduce any clerical errors when
+making changes to make it read better in the paper.
+
+The only non-R5RS procedure used in this implementation
+is "error".   It is not a showstopper:  A call to
+"error" does something reasonable even if "error" is
+undefined.

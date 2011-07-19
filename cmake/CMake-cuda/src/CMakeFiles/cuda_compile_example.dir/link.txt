@@ -1,0 +1,1 @@
+/usr/bin/c++     -fPIC CMakeFiles/cuda_compile_example.dir/main.o  -o cuda_compile_example -rdynamic /opt/cuda/lib/libcudart.so -Wl,-rpath,/opt/cuda/lib 

@@ -1,0 +1,26 @@
+1. Metaprogramming
+Currying for creating closures
+
+
+2. Idioms
+
+Union of typdef void[] for adding member functions from free functions
+Whispering or Chaining of properties
+
+
+3. Command line
+Compiler flags to generate an executable map to know where the data comes from:
+-L-map -Lfoo.map on Linux/OSX
+
+4. Casting
+(01:33:22 PM) h3: x2cast: you can cast objects to void* and you can
+cast it back. but to be safe, cast it first to Object, then to your
+class. references don't change when casting, but as wm4 said, casts
+between classes are checked, so casting through Object is a safety
+measure. so Foo -> void* -> Object -> Foo is ok, but it's different
+with interfaces...
+(01:33:36 PM) h3: IFoo -> void* -> Object -> IFoo is _not_ safe.
+(01:33:48 PM) h3: IFoo -> Object -> void* -> Object -> IFoo is
+(01:33:54 PM) h3: IFoo -> void* -> IFoo is.
+(01:35:11 PM) h3: ah, and   Foo -> void* -> Foo is faster than Foo ->
+Object -> Foo

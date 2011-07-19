@@ -1,0 +1,29 @@
+# TODOLIST file for vctlib: a typed floating point vector and matrix
+# library for Gambit Scheme (December, 2006)
+
+# $Id: $
+
+
+- Compile without warnings
+
+- Finish interface to BLAS
+
+- Finish interface to FFTW3
+
+- Write interface to LAPACK3
+
+- A with-vct macro to allow Matlab-style notation for vct (analog to
+  with-matrix)
+
+- n-dimensional matrix type
+
+- matrix-inverse function (in LAPACK3 functions)
+
+- SVD decomposition (in LAPACK3 functions)
+
+- More documentation
+
+- A complete test suite
+
+- Benchmarks comparing vctlib with compiled C, Matlab, Lush (at least
+  for vector multiplication/addition).

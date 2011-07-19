@@ -1,0 +1,2 @@
+ # Match http://asdf.com/articles/ {anything here with dashes except "category", -o to show only match, not line
+ egrep -o "http://betterexplained.com/articles/[^(category)]([a-z-]*/)" index.html

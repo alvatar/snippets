@@ -1,0 +1,21 @@
+syntax: glob
+*.o
+*.obj
+*.orig
+*.map
+*.rsp
+*.ksp
+*.log
+*.def
+*.tmp
+*.exe
+*.dll
+*.png
+*.swp
+*.lib
+*.lsp
+*.html
+*.7z
+*.dat
+.deps
+.deps.bak

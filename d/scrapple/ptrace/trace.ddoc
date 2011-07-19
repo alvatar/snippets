@@ -1,0 +1,54 @@
+TABLE = <table border="4" rules="none" cellpadding="6" cellspacing="6">$0</table>
+TDR = <td align="right">$0</td>
+TD_CSPAN = <td colspan="$1">$+</td>
+
+TIMINGS = <h1> Timings (in microseconds) </h1>$(TABLE $0)
+TIMING = <tr>$0</tr>
+FUNCTION_NAME = <td>$0</td>
+CALLS = <td align="right">$0</td>
+TREE = <td align="right">$0</td>
+FUNC = <td align="right">$0</td>
+CALL = <td align="right">$0</td>
+
+HEADER_FUNCTION_NAME = <th>$0</th>
+HEADER_CALLS = <th>$0</th>
+HEADER_TREE = <th>$0</th>
+HEADER_FUNC = <th>$0</th>
+HEADER_CALL = <th>$0</th>
+
+CALL_GRAPH =
+        <br>
+        <br>
+        $(P <h1> Call Graph, times are in microseconds</h1>
+        $(TABLE
+
+        <tr><td>Functions that call <i>measured function</i> (fan in)</td>
+           <td>Num calls</td>
+        </tr>
+        <tr><td colspan="2"><b>Measured function symbol</b></td>
+           <td align="right">Tree Time</td>
+           <td align="right">Func Time</td>
+           <td align="right">Num Calls</td>
+        </tr>
+        <tr><td>Functions called by <i>measured function</i> (fan out)</td>
+           <td>Num calls</td>
+        </tr>
+        $(CALL_SEP)
+        $0) )
+CALL_SEP = <tr><td>&nbsp;</td></tr>
+CALL_FUN = <tr>$0</tr>
+CALL_FUN_NAME = $(TD_CSPAN $1, $(B $+))
+CALL_FUN_TREE = <td align="right">$0</td>
+CALL_FUN_FUNC = <td align="right">$0</td>
+CALL_FUN_CALLS = <td align="right">$0</td>
+FAN =  <tr>$0</tr>
+FAN_FUNC = <td>$0</td>
+FAN_CALLS = <td>$0</td>
+
+DDOC =  <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+        <html><head>
+        <META http-equiv="content-type" content="text/html; charset=utf-8">
+        <link rel="stylesheet" type="text/css" href="style.css">
+        </head><body>
+        $(BODY)
+        </body></html>

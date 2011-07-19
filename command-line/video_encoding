@@ -1,0 +1,43 @@
+# Hacer un vídeo de una secuencia de imágenes
+mencoder "mf://*.tga" -mf fps=25 -vf scale=720:576 -o salida.avi -ovc lavc -lavcopts vcodec=mpeg4:vbitrate=24000000:threads=2
+
+# Hacer una secuencia de imágenes de un vídeo
+ffmpeg -i movie.mpg movie%d.jpg
+
+ffmpeg -y -i 100_5353.MOV -an transformers.swf
+
+# FOR BUILDING INTERNET VIDEOS
+# 1) Asf format (it works with lives)
+# 2) ffmpeg -y -i titulo.asf -an transform.swf
+
+# FOR MAKING CINELERRA-COMPATIBLE VIDEOS
+ffmpeg -sameq -i original_video.xyz converted_video.mpeg
+# (sameq preserves quality)
+mencoder original_video.xyz -ovc lavc -lavcopts vcodec=mpeg4:vhq:vbitrate=6000 -oac mp3lame -lameopts br=256:vol=1 -ffourcc DIVX -o converted_video.avi
+
+mencoder "mf://*.png" -mf fps=25 -ovc lavc -lavcopts vcodec=mpeg4:vhq:vbitrate=6000 -oac mp3lame -lameopts br=256:vol=1 -ffourcc DIVX -o converted_video.avi
+
+
+# Cortar un vídeo. Quiero que el vídeo final sea exactamente desde el segundo 10 hasta el segundo 55.5 del vídeo original:
+mencoder videoOriginal.avi -ss 10 -endpos 55.5 -ovc copy -oac copy -o videoRecortado.avi
+
+# Añadir una pista de audio a un vídeo. El audio en un formato que ocupa mucho (como el WAV) y lo metemos convirtiéndolo primero a MP3:
+mencoder video-sinAudio.avi -o videoFinal.avi -ovc copy -oac mp3lame -audiofile audio.wav
+
+# Añadir una pista de audio en formato MP3 a un video:
+mencoder video-sinAudio.avi -o video_final.avi -ovc copy -oac copy -audiofile audio.mp3
+
+# Rotar un vídeo en cualquier formato. Con rotate=1 lo rotará 90º en sentido horario y con rotate=2 lo rotará 90º en sentido anti horario:
+mencoder -vop rotate=1 -oac pcm -ovc lavc videoOriginal.avi -o videoRotado.avi
+
+# Escalar un vídeo en cualquier formato. Quiero que el vídeo final sea de tamaño 320×240:
+mencoder videoOriginal.mpg -ovc lavc -lavcopts vcodec=mpeg4 -vf scale=320:240 -o videoEscalado.avi
+
+# Concatenar dos o varios vídeos y generar uno solo (si hay más de dos será video2.avi video3.avi…):
+mencoder video1.avi video2.avi -o videoFinal.avi
+
+# Capture video of a linux desktop
+ffmpeg -f x11grab -s wxga -r 25 -i :0.0 -sameq /tmp/out.mpg
+
+# Cut video
+mencoder -ovc copy -oac copy -ss 0:34:34 -endpos 31 -o 01.avi -idx video.avi

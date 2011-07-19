@@ -1,0 +1,22 @@
+
+                            let-objects
+                            -----------
+
+                   Object Hierarchy Syntax for Gauche
+
+                      http://synthcode.com/scheme/
+
+                            version 0.5
+                            Aug 03, 2003
+
+
+This directory contains the general let-objects syntax for Gauche, as
+well as specific object rules syntax for building Gauche-gtk widget
+hierarchies.
+
+To install run "make install".  This will install both the
+util.let-objects, and uui.* modules for Gauche-gtk.  uui stands for
+"Universal User Interface" but is subject to change in future releases.
+
+Documentation is not yet complete.  For now you can see the examples
+directory for an idea of how it is used.

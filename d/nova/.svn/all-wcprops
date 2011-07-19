@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 32
+/projects/nova/!svn/ver/11/trunk
+END
+changelog
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/projects/nova/!svn/ver/11/trunk/changelog
+END
+copyright
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/projects/nova/!svn/ver/8/trunk/copyright
+END
+readme
+K 25
+svn:wc:ra_dav:version-url
+V 38
+/projects/nova/!svn/ver/6/trunk/readme
+END

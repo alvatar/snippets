@@ -1,0 +1,27 @@
+Changelog for new_script
+========================
+
+Version 1.1.0 -- Sun, Feb 10, 2002 07:16:50 PM
+----------------------------------------------
+Revised versions of new_script and new_function to "restyle" the output 
+and improve the user interfaces.  Modernized the documentation.
+
+08/03/00 20:12:31 ver. 1.0.4
+----------------------------
+More temporary file improvements and cosmetic fixes.
+
+06/30/00 20:17:19 ver. 1.0.3
+----------------------------
+Changed template to add clean_up call if invalid command line option is given.
+Added root user detection and improved temp file handling.
+
+06/17/00 20:46:55 ver. 1.0.2
+----------------------------
+Fixed a subtle problem where if a template was edited with a text editor
+that replaces tabs with spaces, an error would occur in the resulting
+script.
+
+Also added a security warning regarding tmp files.
+
+
+$Id: CHANGELOG,v 1.4 2002/02/11 00:18:15 bshotts Exp $

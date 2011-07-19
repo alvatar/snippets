@@ -1,0 +1,12 @@
+;;;; "srfi-101.setup  -*- Hen -*-
+
+(include "setup-helper")
+
+(verify-extension-name "srfi-101")
+
+(setup-shared-extension-module 'functional-lists (extension-version "1.0.0")
+  #:compile-options '(-optimize-level 3
+                      -fixnum-arithmetic
+                      -disable-interrupts))
+
+(setup-shared-extension-module 'srfi-101 (extension-version "1.0.0"))

@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/projects/bindings/!svn/ver/228/trunk/cairo/cairo/png
+END
+cairofuncs_png.d
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/projects/bindings/!svn/ver/228/trunk/cairo/cairo/png/cairofuncs_png.d
+END
+cairo_png.d
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/projects/bindings/!svn/ver/179/trunk/cairo/cairo/png/cairo_png.d
+END
+cairotypes_png.d
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/projects/bindings/!svn/ver/179/trunk/cairo/cairo/png/cairotypes_png.d
+END

@@ -1,0 +1,14 @@
+;;;; "srfi-101.meta  -*- Hen -*-
+
+((egg "srfi-101.egg")
+ (category lang-exts)
+ (author "[[kon lovett]]")
+ (license "BSD")
+ (doc-from-wiki)
+ (synopsis "SRFI 101")
+ (needs setup-helper vector-lib)
+ (files
+  "tests"
+  "functional-lists.scm"
+  "srfi-101.scm"
+  "srfi-101.setup") )
