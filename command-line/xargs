@@ -1,8 +1,8 @@
 # -0 takes care of spaces in names
 find . -name '*~' -print0 | xargs -0 rm
 
-# Argument placement, the common choice string is "%"
-find . -name '*~' -print 0 | xargs -0 -J % cp % ~/backups
+# Argument placement
+find . -name '*~' -print 0 | xargs -0 -i cp {} ~/backups
 
 # Breack arguments in 2 per run
 xargs -n 2
