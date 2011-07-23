@@ -1,0 +1,21 @@
+** Export to CSV:
+
+.mode csv 
+.header on 
+.out file.dmp 
+select * from emp;
+
+** Export to SQL
+
+.mode insert 
+.out file.sql 
+select * from emp
+
+** Import from CSV
+
+.mode csv <table>
+.import <filename> <table>
+
+** Import from a SQL:
+
+.read <filename>
