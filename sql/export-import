@@ -1,3 +1,7 @@
+####################
+# SQLITE
+####################
+
 ** Export to CSV:
 
 .mode csv 
@@ -19,3 +23,23 @@ select * from emp
 ** Import from a SQL:
 
 .read <filename>
+
+
+####################
+# MYSQL
+####################
+
+# Import into a database
+mysql -u username -p -h localhost data-base-name < data.sql
+
+# Import when the database is included in the dump file
+mysql -u username -p -h localhost < data.sql
+
+# Create database for Wordpress
+mysql -u root -p (login to MySql)
+
+CREATE DATABASE databasename; (create a database, replacing databasename with the name that you wish to choose)
+
+GRANT ALL PRIVILEGES ON databasename.* TO username@localhost IDENTIFIED by ‘password’; (Create a user for the above database, replacing username with the name that you intend to use. Similarly with password)
+
+FLUSH PRIVILEGES;
