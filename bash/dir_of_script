@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# Find out script's dir, resolving any links to the script itself
+SOURCE="${BASH_SOURCE[0]}"
+while [ -h "$SOURCE" ] ; do SOURCE="$(readlink "$SOURCE")"; done
+DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
+

@@ -41,3 +41,6 @@ ffmpeg -f x11grab -s wxga -r 25 -i :0.0 -sameq /tmp/out.mpg
 
 # Cut video
 mencoder -ovc copy -oac copy -ss 0:34:34 -endpos 31 -o 01.avi -idx video.avi
+
+# Convertir a formato Windows
+ffmpeg -i infile.flv -vcodec wmv2 -sameq -acodec wmav2 -f asf outfile.asf
