@@ -18,3 +18,6 @@ InfoValue: Programming
 #After you edit this file, you can update the new meta-data to the pdf.
 # Update PDF Meta-Data:
 pdftk book.pdf update_info report.txt output bookcopy.pdf
+
+# Pdf to image
+convert -quality 100 -density 600x600 multipage.pdf single%d.jpg
