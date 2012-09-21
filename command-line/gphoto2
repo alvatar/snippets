@@ -1,0 +1,8 @@
+# Find folder
+gphoto2 --auto-detect -l
+
+# Download all files from that folder
+gphoto2 --auto-detect -P -f=/store_00010001/DCIM/106K763
+
+# Delete all files from that folder
+gphoto2 --auto-detect -D -f=/store_00010001/DCIM/106K763
