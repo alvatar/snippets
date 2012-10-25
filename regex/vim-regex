@@ -1,0 +1,2 @@
+# Substitute a character inside a matched string
+%s:cairo\:\(\S\+\):\=substitute(submatch(0), '-', '_', 'g'):g
