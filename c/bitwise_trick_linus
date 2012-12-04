@@ -1,0 +1,20 @@
+More bitwise tricks..
+
+So my quest to calculate the hash and the length of a pathname component efficiently continues. I'm pretty happy with where I am now (some changes to the code have happened, it you actually want to see the current situation you need to check out the kernel mailing list post), but finding the number of bytes in the final mask bothers me.
+
+Using an explicit loop is out - the branch mispredicts kill it. And while at least modern Intel CPU's do quite well with just using the bit scan instructions ("bsf") to find where the first NUL or '/' was in the word, that sucks on some older CPU's.
+
+So I came up with the following trick to count the number of bytes set in the byte mask:
+
+
+/* Low bits set in each byte we used as a mask */
+mask &= ONEBYTES;
+/* Add up "mask + (mask<<8) + (mask<<16) +... ":
+same as a multiply */
+mask *= ONEBYTES;
+/* High byte now contains count of bits set */
+len += mask >> 8*(sizeof(unsigned long)-1);
+
+and I'm wondering if anybody can come up with something that avoids the need for that multiply (and again - conditionals don't work, the mispredict costs kill you).
+
+Because that multiply isn't free either.
