@@ -1,0 +1,191 @@
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/chicken-eggs/!svn/ver/27652/release/4/hashes/trunk
+END
+DJBHash.scm
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/chicken-eggs/!svn/ver/19826/release/4/hashes/trunk/DJBHash.scm
+END
+PHSFHash.scm
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/chicken-eggs/!svn/ver/19808/release/4/hashes/trunk/PHSFHash.scm
+END
+ELFHash.scm
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/chicken-eggs/!svn/ver/19808/release/4/hashes/trunk/ELFHash.scm
+END
+TWUserMixHash.scm
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/chicken-eggs/!svn/ver/19826/release/4/hashes/trunk/TWUserMixHash.scm
+END
+CRCHash.scm
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/chicken-eggs/!svn/ver/19826/release/4/hashes/trunk/CRCHash.scm
+END
+ISPLHash.scm
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/chicken-eggs/!svn/ver/19808/release/4/hashes/trunk/ISPLHash.scm
+END
+RJL3Hash.scm
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/chicken-eggs/!svn/ver/19808/release/4/hashes/trunk/RJL3Hash.scm
+END
+hashes.h
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/chicken-eggs/!svn/ver/19808/release/4/hashes/trunk/hashes.h
+END
+JSHash.scm
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/chicken-eggs/!svn/ver/19808/release/4/hashes/trunk/JSHash.scm
+END
+hash-utils.scm
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/chicken-eggs/!svn/ver/20397/release/4/hashes/trunk/hash-utils.scm
+END
+NDJBHash.scm
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/chicken-eggs/!svn/ver/19808/release/4/hashes/trunk/NDJBHash.scm
+END
+RJMXHash.scm
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/chicken-eggs/!svn/ver/19808/release/4/hashes/trunk/RJMXHash.scm
+END
+hashes-support.scm
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/chicken-eggs/!svn/ver/20397/release/4/hashes/trunk/hashes-support.scm
+END
+rabin-karp.scm
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/chicken-eggs/!svn/ver/19851/release/4/hashes/trunk/rabin-karp.scm
+END
+BKDRHash.scm
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/chicken-eggs/!svn/ver/19808/release/4/hashes/trunk/BKDRHash.scm
+END
+TWSHMLMXHash.scm
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/chicken-eggs/!svn/ver/19808/release/4/hashes/trunk/TWSHMLMXHash.scm
+END
+TWMGMXHash.scm
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/chicken-eggs/!svn/ver/19808/release/4/hashes/trunk/TWMGMXHash.scm
+END
+BRPHash.scm
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/chicken-eggs/!svn/ver/19808/release/4/hashes/trunk/BRPHash.scm
+END
+RSHash.scm
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/chicken-eggs/!svn/ver/19808/release/4/hashes/trunk/RSHash.scm
+END
+hashes.setup
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/chicken-eggs/!svn/ver/27652/release/4/hashes/trunk/hashes.setup
+END
+PYHash.scm
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/chicken-eggs/!svn/ver/19808/release/4/hashes/trunk/PYHash.scm
+END
+hashes-macros.scm
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/chicken-eggs/!svn/ver/19826/release/4/hashes/trunk/hashes-macros.scm
+END
+FNVHash.scm
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/chicken-eggs/!svn/ver/19808/release/4/hashes/trunk/FNVHash.scm
+END
+TWSHMXHash.scm
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/chicken-eggs/!svn/ver/19826/release/4/hashes/trunk/TWSHMXHash.scm
+END
+FNVAHash.scm
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/chicken-eggs/!svn/ver/19808/release/4/hashes/trunk/FNVAHash.scm
+END
+TWMXHash.scm
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/chicken-eggs/!svn/ver/19808/release/4/hashes/trunk/TWMXHash.scm
+END
+APHash.scm
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/chicken-eggs/!svn/ver/19808/release/4/hashes/trunk/APHash.scm
+END
+PJWHash.scm
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/chicken-eggs/!svn/ver/19808/release/4/hashes/trunk/PJWHash.scm
+END
+DEKHash.scm
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/chicken-eggs/!svn/ver/19808/release/4/hashes/trunk/DEKHash.scm
+END
+hashes.meta
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/chicken-eggs/!svn/ver/27652/release/4/hashes/trunk/hashes.meta
+END
+SDBMHash.scm
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/chicken-eggs/!svn/ver/19808/release/4/hashes/trunk/SDBMHash.scm
+END

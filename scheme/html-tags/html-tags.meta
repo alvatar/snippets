@@ -1,0 +1,9 @@
+;;; html-tags.meta -*- Scheme -*-
+
+((egg "html-tags.egg")
+ (synopsis "Procedures to generate [X]HTML code")
+ (category web)
+ (license "BSD")
+ (test-depends test)
+ (author "<a href=\"http://chicken.wiki.br/users/mario-domenech-goulart\">Mario Domenech Goulart</a>")
+ (files "html-tags.scm" "html-tags.setup" "html-tags.meta" "tests/run.scm" "html-tags.release-info"))

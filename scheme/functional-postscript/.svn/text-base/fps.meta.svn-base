@@ -1,0 +1,10 @@
+;;; fps.meta -*- Scheme -*-
+
+((egg "fps.egg")
+ (synopsis "Functional PostScript")
+ (needs records format regex)
+ (category graphics)
+ (doc-from-wiki)
+ (license "Free Use")
+ (author "Wandy Sae-Tan and Olin Shivers")
+ (files "fps-global.scm" "ps.path.scm" "conditionals.scm" "fps.util.scm" "fps.afm.scm" "fps.release-info" "exports.scm" "fps.ask.scm" "fps-tutorial.txt" "fps.exports" "fps.paint.scm" "fps.meta" "fps.type.scm" "fps.scm" "fps-base.scm" "fps.show.scm" "fps.glyph.scm" "fps-ref.txt" "fps.mat.scm" "fps.options.scm" "fps.style.scm" "defrec.scm" "fps.setup" "ps.misc.scm" "fps.bitmap.scm" "fps.comp.scm" "fps.color.scm" "fps.map.scm" "tests/run.scm" "AFM/Times-BoldItalic.afm" "AFM/Courier.afm" "AFM/Symbol.afm" "AFM/Times-Roman.afm" "AFM/Helvetica.afm"))

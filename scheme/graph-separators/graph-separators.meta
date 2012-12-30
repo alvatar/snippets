@@ -1,0 +1,27 @@
+;;;; -*- Hen -*-
+
+((egg "graph-separators.egg") ; This should never change
+
+ ; List here all the files that should be bundled as part of your egg.  
+
+ (files "separators.scm" "graph-separators.meta" "graph-separators.setup")
+
+ ; Your egg's license:
+
+ (license "BSD")
+
+ ; Pick one from the list of categories (see below) for your egg and
+ ; enter it here.
+
+ (category data)
+
+ ; A list of eggs graph-separators depends on.
+
+ (needs)
+
+ (author "Richard Kelsey")
+
+ (maintainer "Ivan Raikov")
+
+ (synopsis "Determine the separation vertices of a graph."))
+

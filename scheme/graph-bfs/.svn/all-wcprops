@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/chicken-eggs/!svn/ver/24530/release/4/graph-bfs/trunk
+END
+graph-bfs.setup
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/chicken-eggs/!svn/ver/24530/release/4/graph-bfs/trunk/graph-bfs.setup
+END
+graph-bfs.scm
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/chicken-eggs/!svn/ver/24530/release/4/graph-bfs/trunk/graph-bfs.scm
+END
+graph-bfs.meta
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/chicken-eggs/!svn/ver/23287/release/4/graph-bfs/trunk/graph-bfs.meta
+END

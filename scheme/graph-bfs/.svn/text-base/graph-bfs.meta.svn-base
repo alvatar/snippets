@@ -1,0 +1,25 @@
+;;;; -*- Hen -*-
+
+((egg "graph-bfs.egg") ; This should never change
+
+ ; List here all the files that should be bundled as part of your egg.  
+
+ (files "graph-bfs.setup" "graph-bfs.scm" "graph-bfs.meta" "tests")
+
+ ; Your egg's license:
+
+ (license "GPL-3")
+
+ ; Pick one from the list of categories (see below) for your egg and
+ ; enter it here.
+
+ (category data)
+
+ ; A list of eggs graph-bfs depends on.
+
+ (needs iset matchable)
+ (test-depends test digraph)
+
+ (author "Ivan Raikov")
+
+ (synopsis "Breadth-first search in a graph."))

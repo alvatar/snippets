@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/chicken-eggs/!svn/ver/24577/release/4/graph-scc/trunk
+END
+graph-scc.setup
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/chicken-eggs/!svn/ver/24577/release/4/graph-scc/trunk/graph-scc.setup
+END
+graph-scc.scm
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/chicken-eggs/!svn/ver/24577/release/4/graph-scc/trunk/graph-scc.scm
+END
+graph-scc.meta
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/chicken-eggs/!svn/ver/23287/release/4/graph-scc/trunk/graph-scc.meta
+END

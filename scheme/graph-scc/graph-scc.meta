@@ -1,0 +1,26 @@
+;;;; -*- Hen -*-
+
+((egg "graph-scc.egg") ; This should never change
+
+ ; List here all the files that should be bundled as part of your egg.  
+
+ (files "graph-scc.setup" "graph-scc.meta" "graph-scc.scm" "tests")
+
+ ; Your egg's license:
+
+ (license "GPL-3")
+
+ ; Pick one from the list of categories (see below) for your egg and
+ ; enter it here.
+
+ (category data)
+
+ ; A list of eggs graph-scc depends on.
+
+ (needs iset matchable)
+
+ (test-depends test digraph)
+
+ (author "Ivan Raikov")
+
+ (synopsis "Compute strongly-connected components (SCC) of a graph."))

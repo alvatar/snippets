@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/chicken-eggs/!svn/ver/23920/release/4/ftp/trunk
+END
+ftp.setup
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/chicken-eggs/!svn/ver/20709/release/4/ftp/trunk/ftp.setup
+END
+ftp.scm
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/chicken-eggs/!svn/ver/19966/release/4/ftp/trunk/ftp.scm
+END
+ftp.meta
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/chicken-eggs/!svn/ver/23255/release/4/ftp/trunk/ftp.meta
+END

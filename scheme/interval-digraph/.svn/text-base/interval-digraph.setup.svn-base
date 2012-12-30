@@ -1,0 +1,19 @@
+;;;; -*- Hen -*-
+
+(define (dynld-name fn)		
+  (make-pathname #f fn ##sys#load-dynamic-extension))	
+
+(compile -O2 -d0 -S -s interval-digraph.scm -j interval-digraph)
+(compile -O2 -d0 -s interval-digraph.import.scm)
+
+(install-extension
+
+  ; Name of your extension:
+  'interval-digraph
+
+  ; Files to install for your extension:
+  `(,(dynld-name "interval-digraph") ,(dynld-name "interval-digraph.import") )
+
+  ; Assoc list with properties for your extension:
+  `((version 2.5)
+    ))

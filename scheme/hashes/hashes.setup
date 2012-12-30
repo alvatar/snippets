@@ -1,0 +1,82 @@
+;;;; hashes.setup  -*- Hen -*-
+
+(use setup-helper-mod)
+
+(verify-extension-name "hashes")
+
+(setup-shared-extension-module 'hashes-support (extension-version "1.1.2")
+  #:compile-options '(
+    -scrutinize
+    -disable-interrupts
+    -fixnum-arithmetic
+    -local -unsafe -no-trace -no-lambda-info
+    -no-procedure-checks -no-bound-checks -no-argc-checks))
+
+(setup-shared-extension-module 'hash-utils (extension-version "1.1.2")
+  #:compile-options '(
+    -scrutinize
+    -local -no-trace
+    -no-procedure-checks -no-bound-checks))
+
+(define hash-compile-options '(
+  -disable-interrupts
+  -local -no-trace
+  -no-procedure-checks -no-bound-checks))
+
+(setup-shared-extension-module 'RJMXHash (extension-version "1.1.2")
+  #:compile-options hash-compile-options)
+(setup-shared-extension-module 'TWMXHash (extension-version "1.1.2")
+  #:compile-options hash-compile-options)
+(setup-shared-extension-module 'TWMGMXHash (extension-version "1.1.2")
+  #:compile-options hash-compile-options)
+(setup-shared-extension-module 'TWSHMXHash (extension-version "1.1.2")
+  #:compile-options hash-compile-options)
+(setup-shared-extension-module 'TWSHMLMXHash (extension-version "1.1.2")
+  #:compile-options hash-compile-options)
+(setup-shared-extension-module 'FNVHash (extension-version "1.1.2")
+  #:compile-options hash-compile-options)
+(setup-shared-extension-module 'FNVAHash (extension-version "1.1.2")
+  #:compile-options hash-compile-options)
+(setup-shared-extension-module 'PHSFHash (extension-version "1.1.2")
+  #:compile-options hash-compile-options)
+(setup-shared-extension-module 'RSHash (extension-version "1.1.2")
+  #:compile-options hash-compile-options)
+(setup-shared-extension-module 'JSHash (extension-version "1.1.2")
+  #:compile-options hash-compile-options)
+(setup-shared-extension-module 'PJWHash (extension-version "1.1.2")
+  #:compile-options hash-compile-options)
+(setup-shared-extension-module 'ELFHash (extension-version "1.1.2")
+  #:compile-options hash-compile-options)
+(setup-shared-extension-module 'BKDRHash (extension-version "1.1.2")
+  #:compile-options hash-compile-options)
+(setup-shared-extension-module 'SDBMHash (extension-version "1.1.2")
+  #:compile-options hash-compile-options)
+(setup-shared-extension-module 'DJBHash (extension-version "1.1.2")
+  #:compile-options hash-compile-options)
+(setup-shared-extension-module 'NDJBHash (extension-version "1.1.2")
+  #:compile-options hash-compile-options)
+(setup-shared-extension-module 'DEKHash (extension-version "1.1.2")
+  #:compile-options hash-compile-options)
+(setup-shared-extension-module 'APHash (extension-version "1.1.2")
+  #:compile-options hash-compile-options)
+(setup-shared-extension-module 'BRPHash (extension-version "1.1.2")
+  #:compile-options hash-compile-options)
+(setup-shared-extension-module 'PYHash (extension-version "1.1.2")
+  #:compile-options hash-compile-options)
+(setup-shared-extension-module 'RJL3Hash (extension-version "1.1.2")
+  #:compile-options hash-compile-options)
+(setup-shared-extension-module 'ISPLHash (extension-version "1.1.2")
+  #:compile-options hash-compile-options)
+(setup-shared-extension-module 'CRCHash (extension-version "1.1.2")
+  #:compile-options hash-compile-options)
+(setup-shared-extension-module 'TWUserMixHash (extension-version "1.1.2")
+  #:compile-options hash-compile-options)
+
+(setup-shared-extension-module 'rabin-karp (extension-version "1.1.2")
+  #:compile-options '(
+    -scrutinize
+    -fixnum-arithmetic
+    -local -no-trace
+    -no-procedure-checks -no-bound-checks))
+
+(install-extension-tag 'hashes (extension-version "1.1.2"))

@@ -1,2 +1,10 @@
- # Match http://asdf.com/articles/ {anything here with dashes except "category", -o to show only match, not line
+# Match http://asdf.com/articles/ {anything here with dashes except "category", -o to show only match, not line
  egrep -o "http://betterexplained.com/articles/[^(category)]([a-z-]*/)" index.html
+
+# Show all text in a directory with the file's name prepended
+ grep . *.txt
+
+# Color the text that matches
+egrep --color=always '^|^.* (running|waiting) .*$'
+egrep '^|foo|bar'
+

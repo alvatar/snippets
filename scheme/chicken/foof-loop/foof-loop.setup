@@ -1,9 +1,0 @@
-(compile -s -O2 -j foof-loop foof-loop.scm)
-(compile -s -O2 foof-loop.import.scm)
-
-(install-extension
- 'foof-loop
- '("foof-loop.so" "foof-loop.import.so")
- '((version 8.0)                       ;Major is foof-loop; minor is Chicken.
-   (documentation "foof-loop.html")
-   (syntax)))

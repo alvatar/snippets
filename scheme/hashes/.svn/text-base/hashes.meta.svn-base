@@ -1,0 +1,18 @@
+;;;; hashes.meta  -*- Hen -*-
+
+((egg "hashes.egg")
+ (category misc)
+ (author "[[Kon Lovett]]")
+ (license "BSD")
+ (doc-from-wiki)
+ (synopsis "Miscellaneous Hash Functions")
+ (depends
+	(setup-helper "1.5.2")
+	(message-digest "2.3.1")
+	(miscmacros "2.91")
+	(moremacros "1.1.1")
+	(box "2.2.3")
+	(crc "1.0.0")
+	(check-errors "1.12.0"))
+ (test-depends test)
+ (files "JSHash.scm" "RSHash.scm" "RJMXHash.scm" "RJL3Hash.scm" "ELFHash.scm" "TWMXHash.scm" "hashes.release-info" "rabin-karp.scm" "SDBMHash.scm" "hashes.meta" "hashes.setup" "TWMGMXHash.scm" "hashes-support.scm" "FNVAHash.scm" "TWSHMLMXHash.scm" "BKDRHash.scm" "PHSFHash.scm" "DEKHash.scm" "PJWHash.scm" "DJBHash.scm" "FNVHash.scm" "TWSHMXHash.scm" "BRPHash.scm" "hashes-macros.scm" "hash-utils.scm" "APHash.scm" "PYHash.scm" "NDJBHash.scm" "tests/run.scm" "ISPLHash.scm" "TWUserMixHash.scm" "hashes.h" "CRCHash.scm") )

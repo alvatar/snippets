@@ -1,0 +1,9 @@
+;;; ftp.meta -*- Scheme -*-
+
+((synopsis "Simple FTP client")
+ (license "BSD")
+ (category net)
+ (needs matchable regex)
+ (doc-from-wiki)
+ (files "ftp.release-info" "ftp.setup" "ftp.meta" "ftp.scm")
+ (author "felix winkelmann"))

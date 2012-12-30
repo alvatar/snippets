@@ -1,0 +1,26 @@
+;;;; -*- Hen -*-
+
+((egg "interval-digraph.egg") ; This should never change
+
+ ; List here all the files that should be bundled as part of your egg.  
+
+ (files "interval-digraph.meta" "interval-digraph.setup" "tests" "interval-digraph.scm")
+
+ ; Your egg's license:
+
+ (license "GPL-3")
+
+ ; Pick one from the list of categories (see below) for your egg and
+ ; enter it here.
+
+ (category data)
+
+ ; A list of eggs digraph depends on.
+
+ (needs cis (rb-tree 4.0))
+
+ (test-depends test random-mtzig)
+
+ (author "Ivan Raikov")
+
+ (synopsis "Directed graph based on adjacency intervals."))

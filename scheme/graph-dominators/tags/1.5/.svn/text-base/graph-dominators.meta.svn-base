@@ -1,0 +1,27 @@
+;;;; -*- Hen -*-
+
+((egg "graph-dominators.egg") ; This should never change
+
+ ; List here all the files that should be bundled as part of your egg.  
+
+ (files "dominators.scm" "graph-dominators.setup" "graph-dominators.meta")
+
+ ; Your egg's license:
+
+ (license "BSD")
+
+ ; Pick one from the list of categories (see below) for your egg and
+ ; enter it here.
+
+ (category data)
+
+ ; A list of eggs graph-dominators depends on.
+
+ (needs matchable)
+
+ (author "Richard Kelsey")
+
+ (maintainer "Ivan Raikov")
+
+ (synopsis "Find immediate dominators in a directed graph."))
+

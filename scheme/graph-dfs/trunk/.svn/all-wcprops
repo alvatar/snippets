@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/chicken-eggs/!svn/ver/27213/release/4/graph-dfs/trunk
+END
+graph-dfs.meta
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/chicken-eggs/!svn/ver/24533/release/4/graph-dfs/trunk/graph-dfs.meta
+END
+graph-dfs.setup
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/chicken-eggs/!svn/ver/27212/release/4/graph-dfs/trunk/graph-dfs.setup
+END
+graph-dfs.scm
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/chicken-eggs/!svn/ver/27212/release/4/graph-dfs/trunk/graph-dfs.scm
+END

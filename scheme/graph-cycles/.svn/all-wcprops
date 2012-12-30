@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/chicken-eggs/!svn/ver/24536/release/4/graph-cycles/trunk
+END
+graph-cycles.setup
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/chicken-eggs/!svn/ver/24536/release/4/graph-cycles/trunk/graph-cycles.setup
+END
+graph-cycles.scm
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/chicken-eggs/!svn/ver/24536/release/4/graph-cycles/trunk/graph-cycles.scm
+END
+graph-cycles.meta
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/chicken-eggs/!svn/ver/24536/release/4/graph-cycles/trunk/graph-cycles.meta
+END

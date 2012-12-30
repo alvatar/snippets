@@ -1,0 +1,15 @@
+(print "compiling fps - this takes a while...")
+(compile -s -O2 -d1 fps.scm -j fps)
+(compile -s -O2 -d0 fps.import.scm)
+(compile -c -O2 -d1 fps.scm)
+
+(handle-exceptions ex #f
+  (remove-directory (make-pathname (repository-path) "AFM")))
+
+(install-extension
+ 'fps
+ '("fps.so" "fps.import.so" "AFM" "fps-ref.txt" "fps-tutorial.txt"
+   "fps.o")
+ '((version "1.1.4")
+   (documentation "fps.html")
+   (static "fps.o")))

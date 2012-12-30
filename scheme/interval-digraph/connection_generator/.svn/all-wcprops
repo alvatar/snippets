@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/chicken-eggs/!svn/ver/24817/release/4/interval-digraph/trunk/connection_generator
+END
+interval_graph_connection_generator.h
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/chicken-eggs/!svn/ver/24815/release/4/interval-digraph/trunk/connection_generator/interval_graph_connection_generator.h
+END
+interval_digraph_test.scm
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/chicken-eggs/!svn/ver/24817/release/4/interval-digraph/trunk/connection_generator/interval_digraph_test.scm
+END
+main.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/chicken-eggs/!svn/ver/24815/release/4/interval-digraph/trunk/connection_generator/main.cpp
+END
+connection_generator.h
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/chicken-eggs/!svn/ver/24815/release/4/interval-digraph/trunk/connection_generator/connection_generator.h
+END
+interval_graph_connection_generator.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/chicken-eggs/!svn/ver/24817/release/4/interval-digraph/trunk/connection_generator/interval_graph_connection_generator.cpp
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/chicken-eggs/!svn/ver/24815/release/4/interval-digraph/trunk/connection_generator/Makefile
+END

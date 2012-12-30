@@ -1,0 +1,10 @@
+;;; html-tags.setup -*- Scheme -*-
+
+(compile -s -O2 -d1 -j html-tags html-tags.scm)
+(compile -s -O2 -d1 html-tags.import.scm)
+
+(install-extension
+ 'html-tags
+ '("html-tags.so" "html-tags.import.so")
+ '((version 0.11)
+   ))

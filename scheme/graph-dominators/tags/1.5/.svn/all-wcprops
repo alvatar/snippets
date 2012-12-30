@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/chicken-eggs/!svn/ver/23255/release/4/graph-dominators/tags/1.5
+END
+dominators.scm
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/chicken-eggs/!svn/ver/20159/release/4/graph-dominators/tags/1.5/dominators.scm
+END
+graph-dominators.meta
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/chicken-eggs/!svn/ver/23255/release/4/graph-dominators/tags/1.5/graph-dominators.meta
+END
+graph-dominators.setup
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/chicken-eggs/!svn/ver/20159/release/4/graph-dominators/tags/1.5/graph-dominators.setup
+END

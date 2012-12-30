@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/chicken-eggs/!svn/ver/27749/release/4/interval-digraph/trunk
+END
+interval-digraph.setup
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/chicken-eggs/!svn/ver/27710/release/4/interval-digraph/trunk/interval-digraph.setup
+END
+interval-digraph.scm
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/chicken-eggs/!svn/ver/27749/release/4/interval-digraph/trunk/interval-digraph.scm
+END
+interval-digraph.meta
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/chicken-eggs/!svn/ver/23287/release/4/interval-digraph/trunk/interval-digraph.meta
+END

@@ -1,0 +1,20 @@
+;;;; -*- Hen -*-
+
+(define (dynld-name fn)		
+  (make-pathname #f fn ##sys#load-dynamic-extension))	
+
+(compile -O2 -d0 -s graph-scc.scm -j graph-scc)
+(compile -O2 -d0 -s graph-scc.import.scm)
+
+(install-extension
+
+  ; Name of your extension:
+  'graph-scc
+
+  ; Files to install for your extension:
+  `(,(dynld-name "graph-scc") ,(dynld-name "graph-scc.import") )
+
+  ; Assoc list with properties for your extension:
+  `((version 1.11)
+    ))
+

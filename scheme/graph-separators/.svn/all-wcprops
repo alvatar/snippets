@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/chicken-eggs/!svn/ver/23287/release/4/graph-separators/trunk
+END
+graph-separators.setup
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/chicken-eggs/!svn/ver/20161/release/4/graph-separators/trunk/graph-separators.setup
+END
+separators.scm
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/chicken-eggs/!svn/ver/14373/release/4/graph-separators/trunk/separators.scm
+END
+graph-separators.meta
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/chicken-eggs/!svn/ver/23287/release/4/graph-separators/trunk/graph-separators.meta
+END

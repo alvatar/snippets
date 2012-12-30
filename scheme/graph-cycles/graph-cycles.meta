@@ -1,0 +1,26 @@
+;;;; -*- Hen -*-
+
+((egg "graph-cycles.egg") ; This should never change
+
+ ; List here all the files that should be bundled as part of your egg.  
+
+ (files "graph-cycles.setup" "graph-cycles.scm" "graph-cycles.meta" "tests")
+
+ ; Your egg's license:
+
+ (license "GPL-3")
+
+ ; Pick one from the list of categories (see below) for your egg and
+ ; enter it here.
+
+ (category data)
+
+ ; A list of eggs graph-cycles depends on.
+
+ (needs iset matchable graph-scc)
+
+ (test-depends test digraph)
+
+ (author "Ivan Raikov")
+
+ (synopsis "Enumerate all simple cycles in a graph."))

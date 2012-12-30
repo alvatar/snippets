@@ -1,0 +1,7 @@
+(compile -s -O2 -d1 ftp.scm -j ftp)
+(compile -s -O2 -d0 ftp.import.scm)
+
+(install-extension 
+ 'ftp '("ftp.so" "ftp.import.so")
+ '((version 1.4)
+   (documentation "ftp.html")))

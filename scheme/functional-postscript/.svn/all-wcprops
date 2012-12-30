@@ -1,0 +1,167 @@
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/chicken-eggs/!svn/ver/23920/release/4/fps/trunk
+END
+fps-ref.txt
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/chicken-eggs/!svn/ver/12853/release/4/fps/trunk/fps-ref.txt
+END
+fps-base.scm
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/chicken-eggs/!svn/ver/12854/release/4/fps/trunk/fps-base.scm
+END
+fps.paint.scm
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/chicken-eggs/!svn/ver/12853/release/4/fps/trunk/fps.paint.scm
+END
+fps.bitmap.scm
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/chicken-eggs/!svn/ver/12853/release/4/fps/trunk/fps.bitmap.scm
+END
+fps.map.scm
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/chicken-eggs/!svn/ver/12853/release/4/fps/trunk/fps.map.scm
+END
+exports.scm
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/chicken-eggs/!svn/ver/12854/release/4/fps/trunk/exports.scm
+END
+fps.util.scm
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/chicken-eggs/!svn/ver/12853/release/4/fps/trunk/fps.util.scm
+END
+fps.color.scm
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/chicken-eggs/!svn/ver/12853/release/4/fps/trunk/fps.color.scm
+END
+fps.ask.scm
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/chicken-eggs/!svn/ver/12853/release/4/fps/trunk/fps.ask.scm
+END
+fps.setup
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/chicken-eggs/!svn/ver/22287/release/4/fps/trunk/fps.setup
+END
+fps.show.scm
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/chicken-eggs/!svn/ver/12853/release/4/fps/trunk/fps.show.scm
+END
+fps.mat.scm
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/chicken-eggs/!svn/ver/12853/release/4/fps/trunk/fps.mat.scm
+END
+fps.type.scm
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/chicken-eggs/!svn/ver/12853/release/4/fps/trunk/fps.type.scm
+END
+fps.glyph.scm
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/chicken-eggs/!svn/ver/12853/release/4/fps/trunk/fps.glyph.scm
+END
+fps.exports
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/chicken-eggs/!svn/ver/12854/release/4/fps/trunk/fps.exports
+END
+ps.misc.scm
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/chicken-eggs/!svn/ver/12853/release/4/fps/trunk/ps.misc.scm
+END
+ps.path.scm
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/chicken-eggs/!svn/ver/12853/release/4/fps/trunk/ps.path.scm
+END
+fps.options.scm
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/chicken-eggs/!svn/ver/12853/release/4/fps/trunk/fps.options.scm
+END
+fps.comp.scm
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/chicken-eggs/!svn/ver/12853/release/4/fps/trunk/fps.comp.scm
+END
+fps-tutorial.txt
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/chicken-eggs/!svn/ver/12853/release/4/fps/trunk/fps-tutorial.txt
+END
+fps-global.scm
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/chicken-eggs/!svn/ver/22287/release/4/fps/trunk/fps-global.scm
+END
+conditionals.scm
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/chicken-eggs/!svn/ver/12853/release/4/fps/trunk/conditionals.scm
+END
+fps.style.scm
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/chicken-eggs/!svn/ver/12853/release/4/fps/trunk/fps.style.scm
+END
+defrec.scm
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/chicken-eggs/!svn/ver/12854/release/4/fps/trunk/defrec.scm
+END
+fps.scm
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/chicken-eggs/!svn/ver/12854/release/4/fps/trunk/fps.scm
+END
+fps.afm.scm
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/chicken-eggs/!svn/ver/12853/release/4/fps/trunk/fps.afm.scm
+END
+fps.meta
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/chicken-eggs/!svn/ver/23255/release/4/fps/trunk/fps.meta
+END

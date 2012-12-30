@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/chicken-eggs/!svn/ver/23289/release/4/hashes/trunk/tests
+END
+run.scm
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/chicken-eggs/!svn/ver/23289/release/4/hashes/trunk/tests/run.scm
+END
+u32-utils-test.scm
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/chicken-eggs/!svn/ver/23289/release/4/hashes/trunk/tests/u32-utils-test.scm
+END

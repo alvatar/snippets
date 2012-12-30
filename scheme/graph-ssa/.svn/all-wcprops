@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/chicken-eggs/!svn/ver/23287/release/4/graph-ssa/trunk
+END
+graph-ssa.setup
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/chicken-eggs/!svn/ver/20164/release/4/graph-ssa/trunk/graph-ssa.setup
+END
+ssa.scm
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/chicken-eggs/!svn/ver/14375/release/4/graph-ssa/trunk/ssa.scm
+END
+graph-ssa.meta
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/chicken-eggs/!svn/ver/23287/release/4/graph-ssa/trunk/graph-ssa.meta
+END

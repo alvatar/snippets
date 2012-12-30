@@ -1,9 +1,0 @@
-(compile -s -O2 -d1 "modular-arithmetic.scm" -j modular-arithmetic)
-(compile -c -O2 -d1 "modular-arithmetic.scm" -j modular-arithmetic -unit modular-arithmetic)
-(compile -s -O2 -d0 "modular-arithmetic.import.scm")
-
-(install-extension
- 'modular-arithmetic
- '("modular-arithmetic.so" "modular-arithmetic.o" "modular-arithmetic.import.so")
- '((version 1.0.1)
-   (static "modular-arithmetic.o")))

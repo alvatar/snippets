@@ -1,0 +1,3 @@
+# Show files with a separation header
+more * | cat 
+head -n 99999 * 

@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/chicken-eggs/!svn/ver/24606/release/4/html-tags/trunk
+END
+html-tags.setup
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/chicken-eggs/!svn/ver/24605/release/4/html-tags/trunk/html-tags.setup
+END
+html-tags.scm
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/chicken-eggs/!svn/ver/24606/release/4/html-tags/trunk/html-tags.scm
+END
+html-tags.meta
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/chicken-eggs/!svn/ver/23255/release/4/html-tags/trunk/html-tags.meta
+END
