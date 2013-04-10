@@ -1,0 +1,24 @@
+#!/bin/sh
+
+[ -d shell-tut-solutions ] && {
+	cat >&2 <<-EOF
+	shell-tut-solutions is already unpacked here.
+	Please move it somewhere else before running this script
+EOF
+	exit 1
+}
+
+[ -f shell-tut-solutions.tgz ] || wget 'http://www.ertos.nicta.com.au/downloads/lca11/shell-tut-solutions.tgz'
+
+[ -f shell-tut-solutions.tgz ] || {
+	echo >&2 "Cannot fetch solutions"
+	exit 1
+}
+
+trap 'rm -rf shell-tut-solutions' 0
+set -e
+tar xzf shell-tut-solutions.tgz
+(
+	cd shell-tut-solutions
+	cp -r . ..
+)

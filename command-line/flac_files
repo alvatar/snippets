@@ -1,1 +1,0 @@
-for i in *.flac; do flac -d "$i" -o "$i.wav"; lame --preset insane "$i.wav"; done

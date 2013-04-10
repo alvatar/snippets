@@ -1,4 +1,0 @@
-# Append number to mp3 files
-for i in *mp3; do mv "$i" "1 - ""$i"; done
-for i in [0-1][0-9]*mp3; do mv "$i" "2 - ""$i"; done
-

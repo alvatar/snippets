@@ -1,0 +1,43 @@
+#!/bin/sh
+
+# Determine whether a host is up and responding to ssh
+
+# Create FD 3 as an alias for standard output; throw away standard error.
+exec 3>&1 2>/dev/null
+
+#
+# Try to ssh to a host; if the ssh hasn't succeeded in 15 seconds, kill it, and 
+# return.
+isup() {
+	ssh "$1" sleep 1 &
+	PID=$!
+
+	( sleep 15 && kill -9 $PID ; ) &
+	PID1=$!
+
+	wait $PID
+	RET=$?
+
+	kill -1 $PID1
+	return $RET
+}
+
+#
+# Loop through the arguments, invoking isup() on each in parallel.
+# Collect the process IDs of the isup() subprocesses
+for x
+do
+  (	
+	isup "$x" && echo "$x" >&3
+  ) < /dev/tty > /dev/tty &
+  PIDS="$PIDS $!"
+done
+
+# Collect the exit stati, and arrange to exit non-zero if 
+# any remote host was not up.
+ret=0
+for pid in $PIDS
+do
+	wait $pid || ret=1
+done
+exit $ret

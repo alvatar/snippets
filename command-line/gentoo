@@ -1,0 +1,2 @@
+# Reseting root password
+If you do need to reset your root password try appending 'init=/bin/bash' and then 'mount -o remount,rw /' to give you a writable file system. Don't forget to 'sync' any changes to disk before rebooting.

@@ -1,0 +1,351 @@
+SELF-PROPAGATING [HEAP MEMORY] CRAWLER in x86-64 Linux Assembly
+
+Over the past couple days I've been playing with x86-64 Linux Assembly and after the obligatory "Hello World!" program and some C compilation and disassembly, I wanted to do something a bit more challenging and fun. In the spirit of "you don't own a system until you control it", and with the idea of possible future usability, I decided on a little program that would copy itself to (heap) memory,
+direct execution there, and loop from there, writing itself below itself in higher addresses, then direct execution there, and so on.
+
+I found lots of different things on the internet, but not too many x86-64 examples, and even less that wasn't either real simple stuff or too massive to follow for a newbie. So, maybe this helps someone else with a more hacky exercise. ;)
+
+*** DISCLAIMER ***
+This is just a little training/learning exercise or proof of concept to see what I could do and if I could abuse/hack the heap this way that I thought would be of interest to others. You should only run this in the debugger. If you just let this run - especially if you remove the debug interrupt (INT 3) - you probably shouldn't be doing this exercise… I also realize this code is probably neither smart or optimal to anyone who really knows assembly. I sometimes had to research and try out different instructions, and I am happy enough it works! Finally, if you learn assembly in a proper school, your teacher would probably consider this to be an example of what NOT to do. 
+
+
+WHAT YOU NEED
+
+Everything you need should already be on your Linux x86-64 system (especially if you write code):
+
+- nasm
+- ld
+- objdump
+- gdb
+
+OK. So, I didn't want to use the stack and instead use a memory section that was read/write, and then copy/run from there. That means I need a variable in the .bss section. Mostly for me to find my way through memory, I am writing the contents of a string there defined in the .data section (which is read only), but in hindsight, in the finished code that's probably not even necessary. This is to get the address of the heap, and where we will start copying.
+
+The following registers are used for:
+
+- RBX: "instruction copy pointer", i.e. keeps track of where to copy from
+- RDI: "heap instruction pointer", i.e. keeps track of where copied instructions start
+- RDX: "heap copy pointer", i.e. keeps track of where the next byte needs to be copied
+- AL is used to copy the bytes
+
+RCX is used in two different ways - just a feature, no particular reason - first in _start to copy the string into the heap, within the loop to count down the number of bytes to copy.
+
+After figuring out where the instruction pointer is (RIP)+8 (we want to start copying at mov rdi, rdx), we copy the bytes one by one into the heap until the loop counter (RCX) is 0. The code then jumps to the first copied instruction on the heap (RDI), right after we set the instruction copy pointer to the start of the new code as well.
+
+Here is the .asm code:
+
+****************************
+
+section .data
+    string1 db  'ACABACAB',10,0
+
+section .bss
+        memry_block resq 1
+
+section .text
+    global _start
+
+_start:
+        
+        int 3
+        int 3                           ; pause for debugger
+        lea rdi, [rel string1]          ; load address for our 'ACAB' into RDI
+        lea rdx, [rel memry_block]      ; load address of our heap variable into RDX
+        mov rcx, [rdi]                  ; move the 'ACAB' into RCX
+        mov [rdx], rcx                  ; move the 'ACAB' into the heap
+                                        ; 'ACAB' are just to start up - will copy itself... ;)
+
+        xor rcx,rcx                     ; blank out RCX
+        
+
+_writeheap:
+        lea rbx, [$+8]                  ; copy instruction pointer
+        mov rdi, rdx                    ; copy address of heap into heap instruction pointer   
+        mov rcx,0x2e                    ; countdown for 46 bytes copied (starting with the instruction above)
+_looper:        
+        mov al, [rbx]                   ; move itself byte by byte to AL
+        mov [rdx], al                   ; move our opcode from AL to heap
+        inc rbx                         ; set the "ip" one ahead
+        inc rdx                         ; set the heap pointer one ahead
+        dec rcx                         ; decrease counter by 1
+        cmp rcx,0x0                     ; check whether counter is 0 yet
+        jg _looper                      ; jump back to copier loop
+        mov rbx, rdi                    ; set the copy instruction pointer to start of copied code
+        int 3                           ; debug halt
+        jmp rdi                         ; jump to heap newly written code
+        nop
+        nop
+        nop
+        nop
+
+        int 3
+        ; exit from the application here
+        xor     rdi,rdi
+        push    0x3c
+        pop     rax
+        syscall
+
+
+***********************************
+
+The system exit syscall is never reached. The NOPs are just for padding and are also never reached. There is an INT 3 right before the jump to copied code so the debugger halts and you can inspect registers, inspect the bytes written, and print a list of instructions. There are also a couple at the start, so you can do a 'disas' in gdb and see initial state. Obviously, don't remove the INT 3 inside the loop...
+
+I had the hardest time figuring out how to do a "lea rbx,[$]" from the heap to get the instruction pointer, once I was there, because it kept referring back to the original read-only code in the .text block we get in the setup before the loop. The rest of the code still worked: executing going to the heap, copying the code into the next block, redirecting instruction there, and so on, but it would copy again and again the _original_ code, not the last copy.
+
+I then realized that I didn't actually have to use the 'lea' instruction at all, as long as I set RBX to RDI before the jump but after the copy loop ends. That means that I needed to add a +8 byte offset (lea rbx, [$+8] ) so that the copying starts at mov rdi, rdx. Now, execution literally jumps from the .text segment to the top of the heap, copies itself below itself, jumps there, again and again, and therefore crawl all the way till the end of memory or some sort of memory fault is encountered. (I never got one, as I quit out of gbd before that). That's pretty cool… Well, at least I think so. :)
+
+
+You really have to run this to see what it does. Run the following commands (assuming you saved the above as crawler.asm). objdump gives us the opcodes and instructions (AT&T):
+
+-----
+
+root@:/mydev/assembly# nasm -f elf64 -o crawler.o crawler.asm
+root@:/mydev/assembly# ld -o crawler crawler.o
+root@:/mydev/assembly# objdump -D crawler
+
+crawler:     file format elf64-x86-64
+
+
+Disassembly of section .text:
+
+00000000004000b0 <_start>:
+  4000b0:	cd 03                	int    $0x3
+  4000b2:	cd 03                	int    $0x3
+  4000b4:	48 8d 3d 55 00 20 00 	lea    0x200055(%rip),%rdi        # 600110 <string1>
+  4000bb:	48 8d 15 5a 00 20 00 	lea    0x20005a(%rip),%rdx        # 60011c <memry_block>
+  4000c2:	48 8b 0f             	mov    (%rdi),%rcx
+  4000c5:	48 89 0a             	mov    %rcx,(%rdx)
+  4000c8:	48 31 c9             	xor    %rcx,%rcx
+
+00000000004000cb <_writeheap>:
+  4000cb:	48 8d 1c 25 d3 00 40 	lea    0x4000d3,%rbx
+  4000d2:	00 
+  4000d3:	48 89 d7             	mov    %rdx,%rdi
+  4000d6:	48 b9 2e 00 00 00 00 	mov    $0x2e,%rcx
+  4000dd:	00 00 00 
+
+00000000004000e0 <_looper>:
+  4000e0:	8a 03                	mov    (%rbx),%al
+  4000e2:	88 02                	mov    %al,(%rdx)
+  4000e4:	48 ff c3             	inc    %rbx
+  4000e7:	48 ff c2             	inc    %rdx
+  4000ea:	48 ff c9             	dec    %rcx
+  4000ed:	48 81 f9 00 00 00 00 	cmp    $0x0,%rcx
+  4000f4:	7f ea                	jg     4000e0 <_looper>
+  4000f6:	48 89 fb             	mov    %rdi,%rbx
+  4000f9:	cd 03                	int    $0x3
+  4000fb:	ff e7                	jmpq   *%rdi
+  4000fd:	90                   	nop
+  4000fe:	90                   	nop
+  4000ff:	90                   	nop
+  400100:	90                   	nop
+  400101:	cd 03                	int    $0x3
+  400103:	48 31 ff             	xor    %rdi,%rdi
+  400106:	68 3c 00 00 00       	pushq  $0x3c
+  40010b:	58                   	pop    %rax
+  40010c:	0f 05                	syscall 
+
+Disassembly of section .data:
+
+0000000000600110 <string1>:
+  600110:	41                   	rex.B
+  600111:	43                   	rex.XB
+  600112:	41                   	rex.B
+  600113:	42                   	rex.X
+  600114:	41                   	rex.B
+  600115:	43                   	rex.XB
+  600116:	41                   	rex.B
+  600117:	42 0a 00             	rex.X or     (%rax),%al
+
+Disassembly of section .bss:
+
+000000000060011c <memry_block>:
+
+------
+
+Now run it in gdb. I set the disassembly-flavor to intel to match the format used in the assembly code, that's just a little easier. I then run the program and continue past the first INT 3 (for some reason I needed two for them to actual work at the start). If you want, you can check memory at the start of the program, of course. Here, we'll continue to the INT 3 in the first loop, while we're still in the original code in .text.
+
+--------
+
+root@:/mydev/assembly# gdb -q crawler
+Reading symbols from /mydev/assembly/crawler...(no debugging symbols found)...done.
+(gdb) run
+Starting program: /mydev/assembly/crawler 
+
+Program received signal SIGTRAP, Trace/breakpoint trap.
+0x00000000004000b4 in _start ()
+(gdb) set disassembly-flavor intel
+(gdb) c
+Continuing.
+
+Program received signal SIGTRAP, Trace/breakpoint trap.
+0x00000000004000fb in _looper ()
+(gdb) disas
+Dump of assembler code for function _looper:
+   0x00000000004000e0 <+0>:	mov    al,BYTE PTR [rbx]
+   0x00000000004000e2 <+2>:	mov    BYTE PTR [rdx],al
+   0x00000000004000e4 <+4>:	inc    rbx
+   0x00000000004000e7 <+7>:	inc    rdx
+   0x00000000004000ea <+10>:	dec    rcx
+   0x00000000004000ed <+13>:	cmp    rcx,0x0
+   0x00000000004000f4 <+20>:	jg     0x4000e0 <_looper>
+   0x00000000004000f6 <+22>:	mov    rbx,rdi
+   0x00000000004000f9 <+25>:	int    0x3
+=> 0x00000000004000fb <+27>:	jmp    rdi
+   0x00000000004000fd <+29>:	nop
+   0x00000000004000fe <+30>:	nop
+   0x00000000004000ff <+31>:	nop
+   0x0000000000400100 <+32>:	nop
+   0x0000000000400101 <+33>:	int    0x3
+   0x0000000000400103 <+35>:	xor    rdi,rdi
+   0x0000000000400106 <+38>:	push   0x3c
+   0x000000000040010b <+43>:	pop    rax
+   0x000000000040010c <+44>:	syscall 
+End of assembler dump.
+
+----------
+
+We're just about to jump to the heap (jump rid). All of our code should now be written there, and we can check with x/48xb $rdi (which should be the start of the code):
+
+---------
+
+(gdb) x/48xb $rdi
+0x60011c <memry_block>:	0x48	0x89	0xd7	0x48	0xb9	0x2e	0x00	0x00
+0x600124 <memry_block+8>:	0x00	0x00	0x00	0x00	0x00	0x8a	0x03	0x88
+0x60012c:	0x02	0x48	0xff	0xc3	0x48	0xff	0xc2	0x48
+0x600134:	0xff	0xc9	0x48	0x81	0xf9	0x00	0x00	0x00
+0x60013c:	0x00	0x7f	0xea	0x48	0x89	0xfb	0xcd	0x03
+0x600144:	0xff	0xe7	0x90	0x90	0x90	0x90	0x00	0x00
+
+----------
+
+Those are our opcode bytes. Here's a fragment of the objdump for easier comparison:
+
+---------
+
+  4000d3:	48 89 d7             	mov    %rdx,%rdi
+  4000d6:	48 b9 2e 00 00 00 00 	mov    $0x2e,%rcx
+…..
+  4000f4:	7f ea                	jg     4000e0 <_looper>
+  4000f6:	48 89 fb             	mov    %rdi,%rbx
+  4000f9:	cd 03                	int    $0x3
+  4000fb:	ff e7                	jmpq   *%rdi
+  4000fd:	90                   	nop
+……
+
+---------
+
+If you run this the first time, you'll want to 'next i/n i' for the next couple of instructions to see execution jump to the heap, check the registers, see what changes, and watch the next couple of instructions get executed. Here we'll just continue, so we're right before the second jump. (Note that gdb has no idea anymore what the function might be called ;) ):
+
+--------
+
+(gdb) c
+Continuing.
+
+Program received signal SIGTRAP, Trace/breakpoint trap.
+0x0000000000600144 in ?? ()
+(gdb) x/16i $rip-24
+   0x60012c:	add    cl,BYTE PTR [rax-0x1]
+   0x60012f:	ret    
+   0x600130:	inc    rdx
+   0x600133:	dec    rcx
+   0x600136:	cmp    rcx,0x0
+   0x60013d:	jg     0x600129
+   0x60013f:	mov    rbx,rdi
+   0x600142:	int    0x3
+=> 0x600144:	jmp    rdi
+   0x600146:	nop
+   0x600147:	nop
+   0x600148:	nop
+   0x600149:	nop
+   0x60014a:	mov    rdi,rdx
+   0x60014d:	movabs rcx,0x2e
+   0x600157:	mov    al,BYTE PTR [rbx]
+(gdb) i r
+rax            0x90	144
+rbx            0x60014a	6291786
+rcx            0x0	0
+rdx            0x600178	6291832
+rsi            0x0	0
+rdi            0x60014a	6291786
+rbp            0x0	0x0
+rsp            0x7fffffffe6e0	0x7fffffffe6e0
+…
+rip            0x600144	0x600144
+
+-----------------
+
+You should be able to see from the memory addresses that we're now executing on the heap. You can also see the new copy of itself starting at 0x60014a. RAX (AL) still contains the last 0x90 (NOP). In the previous instruction RBX has been set to the start of the copy code, RCX (loop counter) is 0, and RDX points to where the next copy will be written. In the jump we start the instruction that sets RDI to RDX, so we can repeat this process.
+
+If we press 'c' a couple of times, we see that we're moving down in memory (note the snip and jump in memory address):
+
+---------------
+...
+(gdb) c
+Continuing.
+
+Program received signal SIGTRAP, Trace/breakpoint trap.
+0x00000000006002b4 in ?? ()
+(gdb) x/128i 0x60011c
+   0x60011c <memry_block>:	mov    rdi,rdx
+   0x60011f <memry_block+3>:	movabs rcx,0x2e
+   0x600129:	mov    al,BYTE PTR [rbx]
+   0x60012b:	mov    BYTE PTR [rdx],al
+   0x60012d:	inc    rbx
+   0x600130:	inc    rdx
+   0x600133:	dec    rcx
+   0x600136:	cmp    rcx,0x0
+   0x60013d:	jg     0x600129
+   0x60013f:	mov    rbx,rdi
+   0x600142:	int    0x3
+   0x600144:	jmp    rdi
+   0x600146:	nop
+   0x600147:	nop
+   0x600148:	nop
+   0x600149:	nop
+   0x60014a:	mov    rdi,rdx
+   0x60014d:	movabs rcx,0x2e
+   0x600157:	mov    al,BYTE PTR [rbx]
+   0x600159:	mov    BYTE PTR [rdx],al
+   0x60015b:	inc    rbx
+   0x60015e:	inc    rdx
+   0x600161:	dec    rcx
+   0x600164:	cmp    rcx,0x0
+   0x60016b:	jg     0x600157
+   0x60016d:	mov    rbx,rdi
+   0x600170:	int    0x3
+   0x600172:	jmp    rdi
+   0x600174:	nop
+   0x600175:	nop
+   0x600176:	nop
+….
+   0x60028a:	nop
+   0x60028b:	nop
+   0x60028c:	mov    rdi,rdx
+   0x60028f:	movabs rcx,0x2e
+   0x600299:	mov    al,BYTE PTR [rbx]
+   0x60029b:	mov    BYTE PTR [rdx],al
+   0x60029d:	inc    rbx
+   0x6002a0:	inc    rdx
+   0x6002a3:	dec    rcx
+   0x6002a6:	cmp    rcx,0x0
+   0x6002ad:	jg     0x600299
+   0x6002af:	mov    rbx,rdi
+   0x6002b2:	int    0x3
+=> 0x6002b4:	jmp    rdi
+   0x6002b6:	nop
+   0x6002b7:	nop
+   0x6002b8:	nop
+   0x6002b9:	nop
+   0x6002ba:	mov    rdi,rdx
+   0x6002bd:	movabs rcx,0x2e
+   0x6002c7:	mov    al,BYTE PTR [rbx]
+   0x6002c9:	mov    BYTE PTR [rdx],al
+   0x6002cb:	inc    rbx
+   0x6002ce:	inc    rdx
+…
+
+--------------
+
+By now it should be clear that if you remove the INT 3 from the loop, this will just keep copying itself all the way through memory until….??? (not tested).
+
+I enjoyed the hell out of this and was a lot more fun and instructive than reproducing a program that calculates some numbers from input, so hope this helps someone else starting out.

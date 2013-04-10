@@ -1,0 +1,5 @@
+# Array (split by newline)
+array_of_lines=("${(@f)$(my_command)}")
+
+# Array (split by newline, second way)
+IFS=$'\n' array_of_lines=($(my_command))

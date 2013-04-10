@@ -1,0 +1,88 @@
+#!/bin/sh
+#
+#	Count/Iota/Seq
+#
+export PATH
+base=10		# default base is decimal
+ibase=10	# as is the input base
+scale=0		# default is integers
+expr=x		# default is to print the numbers
+# process any flags.
+# base:
+#     -o means octal, -h or -x means hexadecimal, -b16 also means hex
+# scale (number of decimal places):
+#     -15 means 15 decimal places
+#     otherwise, the maximum used in any of the numbers.
+# expr:
+#     any valid bc expression in "x"; math library included; 
+
+# process the flags
+for i
+do
+	case "$i" in
+	-o)	base=8	;;
+	-h|-x)	base=16	;;
+	-b[0-9]|-b[0-9][0-9])	base=`expr "$i" : '-b\(.*\)'`	;;
+	-[0-9]|-[0-9][0-9])	scale=`expr "$i" : '-\(.*\)'`	;;
+	-e)	expr="$2"; shift; mathlib=-l ;;
+	-e*)	expr=`expr "$i" : '-e\(.*\)'`; mathlib=-l	;;
+	-i)	ibase=$base	;;
+	-*)	echo "$0: unknown flag $i" >&2; exit 1	;;
+	*)	break	;;
+	esac
+	shift	# discard the used up arguments
+done
+
+# check for reasonable base
+if [ $base -lt 2 -o $base -gt 16 ]
+then
+	echo "$0: illegal output base: $base" >&2
+	exit 1
+fi
+
+# check that the arguments are formed from the right characters
+# and at the same time find the maximum number of decimal places
+charset=`echo 0123456789ABCDEF | cut -c1-$ibase`
+if [ $base = 10 ]
+then
+	charset=.$charset # decimal point only in decimal
+fi
+for i
+do
+	case "$i" in
+	*[!\-$charset]*|*.*.*)
+		echo "$0: invalid characters in $i" >&2
+		exit 1
+		;;
+	*.*)
+		# first get the bit after the decimal point
+		thisscale=`expr "$i" : '\.\(.*\)'`
+		# now count the characters in it
+		thisscale=`expr "$thisscale" : '.*'`
+		if [ $thisscale -gt $scale ]
+		then
+			scale=$thisscale
+		fi
+		;;
+	esac
+done
+
+# sort out which of start, end and increment are present.
+case $# in
+1)	E=$1 	S=1	I=1	;;	# end 
+2)	E=$2	S=$1	I=1	;;	# start end
+3)	E=$2	S=$1	I=$3	;;	# start end incr
+*)
+	echo "Usage: $0 [-ohx] [-b#] [-#] [-eexpr] [start] end [incr]"
+	exit 1
+	;;
+esac
+
+# run the program, after all that...
+bc $mathlib <<EOF
+	scale = $scale
+	obase = $base
+	ibase = $ibase
+	if ($I > 0) for (x = $S; x <= $E; x += $I) $expr
+	if ($I < 0) for (x = $S; x >= $E; x += $I) $expr
+EOF

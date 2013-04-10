@@ -1,0 +1,33 @@
+#!/bin/sh
+
+
+# Given a PATH eliminate empties and get rid of duplicates.
+# May change order.
+sanitize()
+{
+    OIFS="$IFS"
+    IFS=:
+    path="$@"
+    for x in $path
+    do
+	 expr "$newpath" : ".*:$x:.*" > /dev/null 2>&1 || 
+	    newpath="$newpath:$x:"
+    done
+    echo "$newpath" | sed -e 's/::*/:/g' -e 's/^://' -e 's/:$//'
+    IFS="$OIFS"
+}
+
+if [ $# -ne 1 ]
+then
+ echo >&2 "Usage: `basename $0` program-name"; exit 1 
+fi
+
+# Extend PATH with standard places and sysadmin places, to avoid surprises.
+
+newpath="`sanitize $PATH:/bin:/usr/bin:/sbin:/usr/sbin`"
+IFS=:
+for i in $newpath
+do
+    [ -f $i/$1 -a -x $i/$1 ] &&
+        echo $i/$1
+done

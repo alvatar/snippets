@@ -1,0 +1,73 @@
+#!/bin/sh
+progname=`basename $0`
+
+error()
+{
+	echo >&2 "$@"
+	exit 1
+}
+
+Usage()
+{
+	error "Usage: $progname name"
+}
+
+fingerOne()
+{
+    key="$1"
+    OIFS="$IFS"
+    IFS=':'
+    { getent passwd "$key"  2>/dev/null ||  error "Can't find '$key'" ; }  | 
+    while read loginname passwd uid gid gecos home shell
+    do
+	IFS=',' 
+	set -- $gecos
+	echo "Login: $loginname				Name: $1"
+	echo "Directory: $home			Shell: $shell"
+	echo "Office: ${2:-unknown}, phone (W)${3:-unknown}  (H)${4:-unknown}"
+	IFS="$OIFS"
+	export LC_TIME=C
+	ON="`who | grep $loginname`"
+	if [ "$ON" ] 
+	then
+	    set -- $ON
+	    echo "On since $5 $4 $3 on $2 from $6"
+	else
+	    ON="`last -1 $loginname | grep -v wtmp`"
+	    set -- $ON
+	    if [ "$1" ]
+	    then
+		echo "Last on at $8 $4 $5 $6 from $3"
+	    else
+		echo "Never logged in"
+	    fi
+	fi
+	if [ -f $home/.plan ] 
+	then
+	    if [ -r $home/.plan ]
+	    then
+		echo Plan:
+		cat $home/.plan
+	    else
+		echo "Private plan"
+	    fi
+	else
+	    echo "No plan."
+	fi    
+    done
+}
+
+if [ $# -eq 0 ]
+then
+    exec w
+fi
+
+if [ $# -lt 1 ]
+then
+	Usage
+fi
+
+for login
+do
+    fingerOne  $login
+done

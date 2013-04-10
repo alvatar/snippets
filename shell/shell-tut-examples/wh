@@ -1,0 +1,9 @@
+#!/bin/sh
+IFS=:
+for arg
+do
+   for dir in $PATH
+   do
+      [ -x $dir/$arg ] && echo $dir/$arg
+   done
+done
