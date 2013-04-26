@@ -12,3 +12,60 @@ for i in [0-1][0-9]*mp3; do mv "$i" "2 - ""$i"; done
 # Cut audio from movie
 ffmpeg -i movie.mkv -vn -ss 00:00:14 -t 00:00:3 jake.wav
 
+
+# Combine Multiple Audio Files to Single File
+sox -m first_part.wav second_part.wav whole_part.wav
+soxmix first_part.wav second_part.wav whole_part.wav
+
+# Extract Part of the Audio File
+sox input.wav output.wav trim 0 10
+
+# Increase and Decrease Volume Using Option -v
+sox -v 2.0 foo.wav bar.wav
+
+# Get Audio File Information
+sox foo.wav -e stat
+
+# Play an Audio Song with SOX
+sox music.wav -t ossdsp /dev/dsp
+play -r 8000 -w music.wav
+
+# Play an Audio Song Backwards
+sox input.wav output.wav reverse
+play test.wav reverse
+
+# Record a Voice File
+sox -t ossdsp /dev/dsp test.wav
+rec -r 8000 -c 1 record_voice.wav
+
+# Changing the Sampling Rate of a Sound File
+sox old.wav -r 16000 new.wav
+
+# Changing the Sampling Size of a Sound File
+sox -b input.wav -w output.wav
+
+# Changing the Number of Channels
+sox mono.wav -c 2 stereo.wav
+# Selecting a Particular Channel
+sox stereo.wav -c 1 mono.wav avg -l
+# Average the Channels
+sox stereo.wav -c 1 mono.wav avg
+
+# Audio Converter – Music File Format Conversion
+sox infile.ulaw outfile.gsm
+sox -t ulaw infile -t gsm outfile
+
+# Generate Different Types of Sounds
+sox -n synth len type freq
+sox -r 8000 -n output.au synth 3 sine 300-3300
+
+# Speed up the Sound in an Audio File
+sox input.wav output.wav speed 2.0
+
+# Multiple Changes to Audio File in Single Command
+sox -r 8000 -w -c 1 -t wav source -r 16000 -b -c 2 -t raw destination
+
+# Convert Raw Audio File to MP3 Music File
+sox -w -c 2 -r 8000 audio1.raw audio1.wav
+lame -h audio1.wav audio1.mp3
+
