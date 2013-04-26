@@ -9,3 +9,6 @@ cdrecord  -eject speed=4 -pad -audio *wav
 for i in *mp3; do mv "$i" "1 - ""$i"; done
 for i in [0-1][0-9]*mp3; do mv "$i" "2 - ""$i"; done
 
+# Cut audio from movie
+ffmpeg -i movie.mkv -vn -ss 00:00:14 -t 00:00:3 jake.wav
+
