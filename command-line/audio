@@ -1,3 +1,7 @@
+# Mplayer play via HDMI (first discover hardware ID)
+aplay --list-devices|grep -i HDMI
+mplayer -ao alsa:device=hw=1.7 [...]
+
 # Flac to MP3
 for i in *.flac; do flac -d "$i" -o "$i.wav"; lame --preset insane "$i.wav"; done
 

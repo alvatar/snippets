@@ -1,0 +1,3 @@
+# Most valuable find command:
+find . -maxdepth 1 -iname "*searchstring*" -exec command {} \;
+
