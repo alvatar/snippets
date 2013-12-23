@@ -1,3 +1,6 @@
+# Download everything from camera in current directory
+gphoto2 --auto-detect -R -P
+
 # Find folder
 gphoto2 --auto-detect -l
 

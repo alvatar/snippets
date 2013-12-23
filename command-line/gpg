@@ -1,0 +1,5 @@
+# To archive and encrypt a directory using gpg, run this command:
+tar -cz your_dir | gpg -c -o your_archive.tgz.gpg
+
+# To unarchive it later, use this:
+gpg -d your_archive.tgz.gpg | tar xz

@@ -1,0 +1,2 @@
+# Record a directory
+mkisofs -fRrlJ -A Disc_Volume_Label -o - name_of_folder | cdrecord -
