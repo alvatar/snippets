@@ -1,0 +1,11 @@
+My specific problem was that I wanted to diff the output of two processes. You can't do this with normal shell reidrection, the best you can do is:
+
+send the output of one process to a tempfile
+diff the tempfile and the output of the second process, i.e.:
+# /sbin/lsmod >/tmp/lsmod.tmp
+# ssh sys1 /sbin/lsmod | diff /tmp/lsmod.tmp -
+that works, but it requires a temporary file.
+
+The answer to this problem is process substitution. Bash has some process substitution operators (<(foo) and >(foo)) which are very poorly explained in the bash man page (and trust me, I've read that man page a lot). foo can be any command that produces output on stdout. Bash execs the command, creates a named pipe from the output, and replaces the operator with the name of that pipe. You can then read stdout from that pipe as you would from a regular file. Thus in this case the output of foo might be fed through the file /dev/fd/64. Now our diff example can be written like this:
+
+# diff <(/sbin/lsmod) <(ssh sys1 /sbin/lsmod)
