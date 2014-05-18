@@ -1,0 +1,5 @@
+ # Mplayer HDMI output
+ mplayer2 -ao alsa:device=hw=1.7 <file>
+
+ # Mplayer change audio speed without altering pitch
+ mplayer2 --af=scaletempo

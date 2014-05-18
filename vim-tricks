@@ -1,0 +1,2 @@
+# Generate a sequence of numbers within the "number0" placeholder
+'<,'>s/number\zs\d\+\ze/\=line('.')-line("'<")/g 

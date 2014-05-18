@@ -4,12 +4,13 @@ This is a collection of code, reference tips and tricks, all learnt or taken fro
 All the copyrights are kept in the original files, for those that are ripped-off
 Current languages I've worked with:
 
-bash
+assembly
 c
 c++
 cmake
 d
 glsl
+html-css
 java
 javascript
 perl
@@ -17,3 +18,5 @@ python
 regex
 ruby
 scheme
+shell
+sql
