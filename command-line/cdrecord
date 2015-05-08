@@ -1,2 +1,7 @@
 # Record a directory
 mkisofs -fRrlJ -A Disc_Volume_Label -o - name_of_folder | cdrecord -
+
+# Record an audio CD
+for i in *.mp3; do ffmpeg -i "$i" "$i.wav" && normalize *.wav; done
+cdrecord -v -nofix -eject -audio -pad *.wav # Leave session open
+cdrecord -v -fix -eject # Fix session

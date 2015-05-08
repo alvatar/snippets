@@ -1,3 +1,11 @@
+# Edit multi-page PDF converting to images
+# 1. Open and convert with Gimp. It will create multiple layers
+# 2. Edit layers
+# 3. Export as MNG (animated PNG)
+# 4. converto to PDF with convert (imagemagick)
+# 5. Reverse order of pdf pages (assuming it has 10 pages):
+pdftk in.pdf cat 20-1 output out.pdf
+
 # Reduce pdf size
 
 gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/screen -dNOPAUSE -dQUIET -dBATCH -sOutputFile=output.pdf input.pdf

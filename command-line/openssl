@@ -1,0 +1,1 @@
+openssl enc -base64 -e -bf -in <infile> -out <outfile>

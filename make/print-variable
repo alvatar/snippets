@@ -1,0 +1,6 @@
+print-%: ; @echo $*=$($*)
+# Use with the following command line:
+# make print-SOURCE_FILES
+
+# If you are using GNU make 3.82 or above it's not even necessary to modify the makefile itself. Just do
+make --eval="print-%: ; @echo $*=$($*)" print-SOURCE_FILES
