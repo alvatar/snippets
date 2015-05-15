@@ -1,0 +1,55 @@
+To build OpenSSL, you need a working Perl installation.
+
+Download OpenSSL from its official website and decompress the archive.
+Windows 32/64 bits - MinGW
+
+You must run these commands from a MSys console.
+
+For 32 bits:
+
+    perl Configure mingw no-shared no-asm --prefix=/c/OpenSSL
+
+For 64 bits:
+
+    perl Configure mingw64 no-shared no-asm --prefix=/C/OpenSSL-x64
+
+Then:
+
+    make depend
+
+    make
+
+    make install
+
+The make depend line is only needed on the most recent OpenSSL version if you specified any of the no-... options
+
+
+Note that this will compile OpenSSL in static mode.
+
+If at some point you get a "make (e=2):" error, ensure you don't have another "make.exe" in your PATH or just type /bin/make instead of make.
+
+
+
+
+————
+
+
+perl Configure mingw no-asm --prefix=/usr/local --openssldir=/usr/local/openssl
+
+perl Configure mingw64 no-asm --prefix=/usr/local --openssldir=/usr/local/openssl
+make 
+
+
+
+None of this seems to be necessary if using GCC-4.8, that is MinGW is properly configured with fstab's mingw volume
+
+
+* Remove test/*c 3 files that give error at compile time
+(or better, uncompress with tar xvf)
+
+* Add two header includes to the dso_win32.c file line 63.
+#include "windef.h"
+#include "winbase.h"
+
+
+
