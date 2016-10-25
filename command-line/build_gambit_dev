@@ -1,0 +1,1 @@
+CC=gcc-4.9 LD_FLAGS="-L/usr/local/opt/openssl/lib" ./configure --enable-debug --enable-openssl --prefix=$HOME/gambit-dev

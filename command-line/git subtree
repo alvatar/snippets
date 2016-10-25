@@ -1,0 +1,9 @@
+# Add dependency
+git remote add -f measured uaalto:getlantern/measured.git
+git subtree add --prefix src/github.com/getlantern/measured/ measured master --squash
+
+# Update dependency
+git subtree pull --prefix=src/github.com/getlantern/measured measured master --squash
+
+# Push new branch for PR
+git subtree push --prefix=src/github.com/getlantern/measured measured export-measured

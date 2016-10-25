@@ -1,0 +1,31 @@
+## USB power:
+
+You can just jump down to editing the config.txt file and rebooting, if that doesn’t work you will need to rpi-update
+
+sudo rpi-update
+
+You will have to reboot afterwards
+
+sudo reboot
+
+Now edit the config.txt file
+
+sudo nano /boot/config.txt
+
+Add this line to the bottom of the file, it replaces the old safe_mode_gpio=4
+
+max_usb_current=1
+
+Ctrl+X, Y and Enter to save
+
+Reboot the Pi again to enable the GPIO pin 38
+
+sudo reboot
+
+Now check to see if the hard drive is visible
+
+sudo blkid
+
+You should now see a /dev/sda1 device
+
+

@@ -1,0 +1,25 @@
+use the command:
+
+sudo iwconfig wlan0 mode master
+
+if it gives the following as output, it means it doesn't support infrastructure mode:
+
+Error for wireless request "Set Mode" (8B06) :
+SET failed on device wlan0 ; Invalid argument.
+
+
+
+
+
+
+
+
+========
+
+
+
+
+
+
+
+http://elinux.org/RPI-Wireless-Hotspot

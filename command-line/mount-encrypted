@@ -1,0 +1,2 @@
+ encfs /data/Dropbox/.<redacted> /data/<redacted>
+ fusermount -u /data/<redacted>

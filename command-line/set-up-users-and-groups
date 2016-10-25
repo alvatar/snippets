@@ -1,0 +1,2 @@
+ sudo groupadd dev
+ sudo usermod -a -G dev alvatar

@@ -1,0 +1,275 @@
+   44  adb install Childrens_Day_Map_2014_05_31-14_53_55_GooglePlaystoreV3_debug_signed.apk
+  261  brew install ctags
+  263  brew install
+  264  brew install --help
+  265  brew install -f --cocoa --srgb emacs
+  266  brew install --force --cocoa --srgb emacs
+  339  brew install autogen
+  340  brew install emacs --HEAD --cocoa --srgb
+  341  brew uninstall autogen
+  343  brew install automake
+  345  brew uninstall guile
+  351  brew install --cocoa --rgb emacs
+  352  brew install --cocoa -srgb emacs
+  355  brew install emacs-mac
+  363  brew uninstall emacs
+  364  brew searc install
+  365  brew uninstall meacs
+  366  brew install emacs
+  367  brew uninstall emacs-mac
+  368  brew install --cocoa --srgb --HEAD  emacs
+  369  brew install --cocoa --srgb emacs
+  442  brew install gnu-utils
+  443  brew install gnu-utilsbrew
+  447  brew install coreutils binutils
+  464  brew uninstall binutils
+  466  brew install binutils
+  672  brew install gambit
+  673  brew install gambit-scheme
+  679  brew uninstall gambit-scheme
+  680  sudo brew uninstall gambit-scheme
+  698  npm install -g mad
+  699  sudo npm install -g mad
+  703  npm uninstall mad
+  704  npm uninstall -g mad
+  705  sudo npm uninstall -g mad
+  722  sudo ssfusion install
+  803  ssake all && sudo ssake install
+  825  brew install cairo
+  832  git commit -m "make it compile in OSX when Cairo is installed via Homebrew"
+  835  brew install wireshark
+  839  brew install gtk+3
+  847  brew reinstall wireshark
+  852  brew reinstall --with-gtk+3 wireshark
+  873  brew install gtk-engines
+  883  brew install nmap
+  885  sudo brew install nmap
+  886  sudo brew reinstall nmap
+  919  brew install mesalib-glw
+  922  brew uninstall mesalib-glw
+  937  brew install sdl2 sdl2_image sdl2_mixer sdl2_net sdl2_ttf
+  942  ssake install
+  992  ssake clean && ssake && sudo ssake install
+ 1231  brew install mercurial
+ 1251  adb install Childrens_Day_Map_2014_06_13-08_54_43_GooglePlaystoreV3_debug_signed.apk
+ 1337  sudo ssake install-01
+ 1338  git commit -m "splitted the process of installation in 2 parts"
+ 1394  gem install rb-gsl
+ 1396  gem install Complex
+ 1400  gem reinstall classifier
+ 1402  gem install classifier
+ 1412  gem install bundle
+ 1492  brew install android-ndk
+ 1493  brew install ant
+ 1498  /Users/Alvaro/Desktop/Paragon\ ExtFS\ 9.5.226\ \[TR\]/install_extfs9_refresh.sh 
+ 1499  cat install_extfs9_refresh.sh
+ 1533  brew reinstall sdl2
+ 1565  adb install debug
+ 1566  adb install 
+ 1567  ant debug install
+ 1568  ant install debug
+ 1703  xcode-select --install
+ 1726  make install
+ 1764  make uninstall
+ 1765  sudo make uninstall
+ 1851  brew install smake
+ 1855  brew install cdrecord
+ 1903  brew install bchunk
+ 1907  brew install cdrdao
+ 1923  brew install cdrtools
+ 1932  brew install mpg123
+ 1934  brew install flac
+ 2147  brew install pdftk
+ 2149  brew install pdf-tool
+ 2150  brew install pdf-tools
+ 2154  brew install cask
+ 2156  brew cask install
+ 2159  brew uninstall cask
+ 2161  brew install brew-cask
+ 2164  brew cask install pdftk
+ 2580  sudo ssake install-stage-2
+ 2597  ssake && sudo ssake install
+ 2613  ssake android:install
+ 2664  $ANDROID_NDK_PATH/build/tools/make-standalone-toolchain.sh --platform=android-12 --install-dir="."
+ 2934  npm install -g slush
+ 2935  sudo npm install -g slush
+ 2936  sudo npm install -g slush-phaser
+ 3114  sudo /Applications/Install\ OS\ X\ Mavericks.app/Contents/Resources/createinstallmedia --volume /Volumes/OSXMavericksBoot --applicationpath /Applications/Install\ OS\ X\ Mavericks.app --nointeraction
+ 3148  bower install
+ 3418  brew install ext2fuse
+ 3876  ls install-sh
+ 3928  sudo ssake install
+ 3934  sudo ssake install
+ 3936  sudo ssake install
+ 3938  sudo ssake install
+ 3940  sudo ssake install
+ 4179  sudo ssake install
+ 4241  sudo ssake install
+ 4445  sudo ssake install
+ 4449  sudo ssake install-1
+ 4456  sudo ssake install
+ 4545  sudo ssake install
+ 4825  dsudo ssake install
+ 4826  sudo ssake install
+ 4861  sudo ssake install
+ 4946  sudo ssake install
+ 4950  sudo ssake install
+ 5262  brew install glew
+ 5301  sudo sspheres install cairo codec crypto energy fabric fusion math object opengl sdl2 strings
+ 5375  sudo sspheres install cairo codec crypto energy fabric fusion math object opengl sdl2 strings
+ 5394  bundle install
+ 5396  bundle install
+ 5400  bundle install
+ 5404  brew install postgresql
+ 5409  bundle install
+ 5411  bundle install postgresql
+ 5412  brew install postgresql
+ 5419  bundle install postgresql
+ 5420  bundle install 
+ 5422  bundle install 
+ 5433  bundle install 
+ 5532  sudo ssake install
+ 5537  sudo ssake install
+ 5576  sudo make install
+ 5598  git commit -m "sspheres installation"
+ 5601  sudo sspheres install cairo codec crypto energy fabric fusion math object opengl sdl2 strings
+ 5603  sudo sspheres install -b development cairo codec crypto energy fabric fusion math object opengl sdl2 strings
+ 5619  sudo sspheres install cairo codec crypto energy fabric fusion math object opengl sdl2 strings
+ 5624  sudo sspheres install codec crypto energy fabric fusion math object opengl sdl2 strings
+ 5625  sudo sspheres install cairo codec crypto energy fabric fusion math object opengl sdl2 strings
+ 5635  sudo sspheres install -b development cairo codec crypto energy fabric fusion math object opengl sdl2 strings
+ 5650  sudo sspheres install -b development cairo codec crypto energy fabric fusion math object opengl sdl2 strings
+ 5655  sudo sspheres install -b development cairo codec crypto energy fabric fusion math object opengl sdl2 strings
+ 5789  npm install
+ 5791  sudo npm install
+ 5793  sudo npm install
+ 6409  sudo ssake install
+ 6676  brew install glfw2
+ 6677  brew install glfw3
+ 6684  brew install glfw3
+ 6686  brew uninstall glfw2
+ 6688  brew install glfw3
+ 6689  brew install --force glfw3
+ 6690  brew uninstall glfw3
+ 6691  brew install glfw3
+ 6698  sudo ssake install
+ 6713  brew install glfw2
+ 6714  brew install glfw
+ 6715  brew install libglfw
+ 6716  brew install libglfw2
+ 6717  brew install libglfw
+ 6718  brew install glfw
+ 6719  brew install glfw2
+ 6731  sudo ssake install
+ 6756  sudo ssake install
+ 6758  sudo ssake install
+ 6766  sudo ssake install
+ 6869  sudo ssake install
+ 6926  sudo ssake install
+ 6975  sudo ssake install
+ 7118  sudo ssake install
+ 7153  sudo ssake install
+ 7202  sudo ssake install
+ 7313  sudo ssake install
+ 7405  sudo ssake install
+ 7448  sudo ssake install
+ 7464  sudo ssake install
+ 7490  sudo ssake install
+ 7623  npm install
+ 7711  sudo ssake install
+ 7762  sudo ssake install
+ 7765  sudo ssake install
+ 7892  sudo ssake install
+ 8152  sudo sspheres install fabric
+ 8296  sudo ssake install
+ 8514  ./install_extfs9_refresh.sh
+ 8515  sudo ./install_extfs9_refresh.sh
+ 8563  brew install youtube-dl
+ 8626  brew install ispell
+ 8629  brew install aspell --all
+ 8687  sudo make install
+ 8690  brew install aircrack-ng
+ 8751  brew uninstall aircrack-ng
+ 8756  /opt/local/bin/port install gmake
+ 8757  sudo /opt/local/bin/port install gmake
+ 8759  sudo /opt/local/bin/port install sqlite
+ 8760  sudo /opt/local/bin/port install sqlite2
+ 8761  sudo /opt/local/bin/port install sqlite3
+ 8778  sudo /opt/local/bin/port port -fp uninstall installed
+ 8779  sudo /opt/local/bin/port -fp uninstall installed
+ 8804  brew install aircrack-ng
+ 8904  cat install.sh
+ 8906  ./install.sh
+ 8910  ./install.sh
+ 8912  vim install.sh
+ 8950  ./install.sh
+ 8952  cat install.sh
+ 9080  /Users/Alvaro/Paragon\ ExtFS\ 9.5.226\ \[TR\]/install_extfs9_refresh.sh 
+ 9329  /Users/Alvaro/Paragon\ ExtFS\ 9.5.226\ \[TR\]/install_extfs9_refresh.sh 
+ 9330  sudo /Users/Alvaro/Paragon\ ExtFS\ 9.5.226\ \[TR\]/install_extfs9_refresh.sh
+ 9360  brew install osxfuse
+ 9361  brew install ext4fuse
+ 9362  brew uninstall osxfuse
+ 9363  brew install osxfuse
+ 9364  brew uninstall osxfuse
+ 9365  brew uninstall ext4fuse
+ 9366  brew install ext4fuse
+ 9367  brew uninstall ext4fuse
+ 9472  npm install -f cordova
+ 9475  npm install -f cordova
+ 9476  npm install -g cordova
+ 9477  npm install -gf cordova
+ 9479  npm install -gf cordova
+ 9480  sudo npm install -g cordova
+ 9592  vim install.sh
+ 9595  cat install.sh
+ 9726  brew install ios-sim
+ 9729  brew uninstall ios-sim
+ 9732  brew install ios-sim
+ 9734  brew uninstall ios-sim
+ 9735  npm install ios-sim -g
+10000  ./install_extfs9_refresh.sh
+10121* brew install pygments
+10123* easy_install Pygments
+10124* easy_install pygmentize
+10125* sudo easy_install pygmentize
+10126* sudo easy_install Pygments
+10275* history | grep install
+10276  vim install_mac
+
+
+brew tap homebrew/science
+brew install r --env=std
+
+
+Removing: /Users/Alvaro/Library/Logs/Homebrew/node...
+Removing: /Users/Alvaro/Library/Logs/Homebrew/openjpeg...
+Removing: /Users/Alvaro/Library/Logs/Homebrew/openssl...
+Removing: /Users/Alvaro/Library/Logs/Homebrew/pango...
+Removing: /Users/Alvaro/Library/Logs/Homebrew/pcre...
+Removing: /Users/Alvaro/Library/Logs/Homebrew/pixman...
+Removing: /Users/Alvaro/Library/Logs/Homebrew/poppler...
+Removing: /Users/Alvaro/Library/Logs/Homebrew/postgresql...
+Removing: /Users/Alvaro/Library/Logs/Homebrew/python...
+Removing: /Users/Alvaro/Library/Logs/Homebrew/rdesktop...
+Removing: /Users/Alvaro/Library/Logs/Homebrew/rubber...
+Removing: /Users/Alvaro/Library/Logs/Homebrew/ruby-build...
+Removing: /Users/Alvaro/Library/Logs/Homebrew/sane-backends...
+Removing: /Users/Alvaro/Library/Logs/Homebrew/scons...
+Removing: /Users/Alvaro/Library/Logs/Homebrew/sdl2_image...
+Removing: /Users/Alvaro/Library/Logs/Homebrew/sdl2_mixer...
+Removing: /Users/Alvaro/Library/Logs/Homebrew/sdl2_net...
+Removing: /Users/Alvaro/Library/Logs/Homebrew/sdl2_ttf...
+Removing: /Users/Alvaro/Library/Logs/Homebrew/smake...
+Removing: /Users/Alvaro/Library/Logs/Homebrew/sox...
+Removing: /Users/Alvaro/Library/Logs/Homebrew/texi2html...
+Removing: /Users/Alvaro/Library/Logs/Homebrew/theora...
+Removing: /Users/Alvaro/Library/Logs/Homebrew/valgrind...
+Removing: /Users/Alvaro/Library/Logs/Homebrew/webp...
+Removing: /Users/Alvaro/Library/Logs/Homebrew/wget...
+Removing: /Users/Alvaro/Library/Logs/Homebrew/wine...
+Removing: /Users/Alvaro/Library/Logs/Homebrew/wireshark...
+Removing: /Users/Alvaro/Library/Logs/Homebrew/x264...
+Removing: /Users/Alvaro/Library/Logs/Homebrew/xvid...
+Removing: /Users/Alvaro/Library/Logs/Homebrew/yasm...
+Removing: /Users/Alvaro/Library/Logs/Homebrew/zsh...

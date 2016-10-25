@@ -1,0 +1,9 @@
+# In ~/.asoundrc
+
+pcm.!default {
+  type plug
+  slave {
+    format S24_3LE
+    pcm "hw:1,0"
+  }
+}

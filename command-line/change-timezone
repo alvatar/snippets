@@ -1,0 +1,2 @@
+sudo ln -s /usr/share/zoneinfo/Africa/Casablanca /etc/localtime
+sudo ntpdate -s time.nist.gov                                  

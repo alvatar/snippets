@@ -1,0 +1,1 @@
+am start -D org.getlantern.firetweet/org.getlantern.firetweet.activity.MainActivity && set `ps |grep android.process.acore` && gdbserver :5055 --attach $2

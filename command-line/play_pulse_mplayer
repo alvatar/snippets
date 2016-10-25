@@ -1,0 +1,1 @@
+mplayer -ao pulse::12 theta.mp3

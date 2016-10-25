@@ -1,0 +1,3 @@
+setfacl -R -m g:<whatever group>:rwX gitrepo
+find gitrepo -type d | xargs setfacl -R -m d:g:<whatever group>:rwX
+
